@@ -1,43 +1,170 @@
 {
-  "updatedAt": "2026-10-02T13:39:00Z",
+  "updatedAt": "2026-10-02T13:49:00Z",
   "status": {
     "model": "Grok 4.7",
-    "modelHint": "$2 / $6 per 1M · 500k context",
+    "modelHint": "$2 / $6 · AA Index ~46 · 500k ctx",
     "desktop": "Grok Bot 0.63.0",
     "desktopHint": "macOS + Windows stable",
     "nextModel": "2–3 months",
-    "nextModelHint": "Musk: Fable / GPT-6 level target",
+    "nextModelHint": "Musk: Fable/GPT-6 level target",
     "cadence": "Mon · Wed · Fri",
-    "cadenceHint": "Brief + site update · Central"
+    "cadenceHint": "Brief + site · Central"
   },
   "reference": {
     "API model": "grok-4.7",
     "Pricing": "$2 in / $6 out per 1M",
     "Desktop": "Grok Bot (Mac client)",
-    "Official": "x.ai / SpaceXAI",
+    "AA Index (indep.)": "Grok 4.7 ≈ 46 · Opus 5.5 ≈ 58 · Fable/Astra ≈ 53",
     "Watch": "@elonmusk · @SpaceXAI"
   },
   "watchNext": [
-    "Named next-flagship release (Grok 5 or successor)",
-    "Grok Bot stable version after 0.63.0",
-    "Closing the CursorBench / Terminal-Bench gap vs Fable",
-    "Any shift from 2–3 month Musk timeline"
+    "Named next-flagship (Grok 5 / successor) matching Musk 2–3 month bar",
+    "Grok Bot stable after 0.63.0",
+    "Terminal-Bench / CursorBench gap vs Opus 5.5 and Fable",
+    "Claude Opus 5.5 and GPT-6 Sol/Luna adoption in agent stacks",
+    "Independent AA Index moves for Grok after 4.7"
+  ],
+  "frontier": [
+    {
+      "name": "Claude Opus 5.5",
+      "org": "Anthropic",
+      "released": "2026-09-22",
+      "price": "$4 / $20",
+      "aaIndex": "58",
+      "note": "Independent AA lead. Strong agentic coding (Terminal-Bench ~66%, CursorBench ~58%). 1M context, no long-context surcharge."
+    },
+    {
+      "name": "Claude Fable 5.1",
+      "org": "Anthropic",
+      "released": "2026-09-01",
+      "price": "$10 / $50",
+      "aaIndex": "53",
+      "note": "Premium long-horizon agent tier. Still tops several vendor coding tables vs Grok 4.7; higher $ per token."
+    },
+    {
+      "name": "GPT-6 Astra",
+      "org": "OpenAI",
+      "released": "2026-09-03",
+      "price": "$10 / $50",
+      "aaIndex": "53",
+      "note": "GPT-6 flagship. Strong GPQA / terminal-agent numbers; often fewer tokens to score than peers."
+    },
+    {
+      "name": "GPT-6 Sol",
+      "org": "OpenAI",
+      "released": "2026-09-22",
+      "price": "$2 / $10",
+      "aaIndex": "~48",
+      "note": "Cost-tuned GPT-6 line. Common workhorse under a stronger planner model."
+    },
+    {
+      "name": "GPT-6 Luna",
+      "org": "OpenAI",
+      "released": "2026-09-22",
+      "price": "$0.10 / $0.50",
+      "aaIndex": "—",
+      "note": "Cheap sub-agent / parallel fan-out model."
+    },
+    {
+      "name": "Grok 4.7",
+      "org": "SpaceXAI",
+      "released": "2026-09-21",
+      "price": "$2 / $6",
+      "aaIndex": "46",
+      "note": "Price/performance play. Leads some specialist benches (EE, Harvey legal); trails on Terminal-Bench and AA composite."
+    },
+    {
+      "name": "Gemini 3.8 Flash",
+      "org": "Google",
+      "released": "2026-09-02",
+      "price": "promo tier",
+      "aaIndex": "—",
+      "note": "Speed/cost tier; appears in multi-model agent stacks, not usually AA #1."
+    }
+  ],
+  "xPosts": [
+    {
+      "date": "2026-09-24",
+      "author": "@elonmusk",
+      "handle": "elonmusk",
+      "text": "I am cautiously optimistic that SpaceX will have a Fable/GPT-6 level model in 2 to 3 months",
+      "topic": "Roadmap",
+      "url": "https://x.com/elonmusk/status/2103151040858067289"
+    },
+    {
+      "date": "2026-09-22",
+      "author": "@kunchenguid",
+      "handle": "kunchenguid",
+      "text": "Day-1 Grok 4.7: follows system prompts tightly, stable not spiky, conservative on actions, a bit slower/costlier than 4.5. Benchmarks alone are noisy for real work.",
+      "topic": "Review",
+      "url": "https://x.com/kunchenguid/status/2102234191639257399"
+    },
+    {
+      "date": "2026-09-21",
+      "author": "@PawelHuryn",
+      "handle": "PawelHuryn",
+      "text": "Planted-bug fix test (2 repos, 105 bugs): GPT-6 Astra 45 · Muse 32.2 · Grok 4.7 xhigh 28.7 · same as 4.6 · Opus 5 27. Not the leap some expected.",
+      "topic": "Review",
+      "url": "https://x.com/PawelHuryn/status/2102115531981525329"
+    },
+    {
+      "date": "2026-10-02",
+      "author": "@SergeForge",
+      "handle": "SergeForge",
+      "text": "Same bugfix latency: Opus 5.5 16s · GPT-6 Astra 44s · GPT-6.1 Sol 79s · Grok 4.7 160s. All 12/12 hidden tests — higher model number ≠ speed.",
+      "topic": "Benchmark",
+      "url": "https://x.com/SergeForge/status/2106002831451058526"
+    },
+    {
+      "date": "2026-10-02",
+      "author": "@macfriendy",
+      "handle": "macfriendy",
+      "text": "Stack: Grok 4.7 explores cheap → Opus 5.5 plans → Grok/Astra interrogate plan → Grok writes. Multi-model review (behaviour / security / maintainability).",
+      "topic": "Workflow",
+      "url": "https://x.com/macfriendy/status/2106012370224988591"
+    },
+    {
+      "date": "2026-10-01",
+      "author": "@SpaceXAI",
+      "handle": "SpaceXAI",
+      "text": "Grok 4.7 is now available on the Gemini Enterprise Agent Platform",
+      "topic": "Product",
+      "url": "https://x.com/SpaceXAI/status/2105744399179383124"
+    },
+    {
+      "date": "2026-10-01",
+      "author": "@elonmusk",
+      "handle": "elonmusk",
+      "text": "Grok @Bot is an amazing assistant — proactive team bots and cloud-agent workflows getting heavy amplification.",
+      "topic": "Product",
+      "url": "https://x.com/elonmusk/status/2105752064747847794"
+    },
+    {
+      "date": "2026-09-30",
+      "author": "@elonmusk",
+      "handle": "elonmusk",
+      "text": "Grok 4.7 rank 1 on AA cyber index (xHigh)",
+      "topic": "Benchmark",
+      "url": "https://x.com/elonmusk/status/2105088792139014331"
+    }
   ],
   "briefs": [
     {
       "date": "2026-10-02",
       "dateLabel": "Fri, Oct 2, 2026",
       "tag": "Today",
-      "title": "Grok 4.7 holds; Bot and distribution expand",
+      "title": "Frontier map: Grok 4.7 vs Opus 5.5, Fable, GPT-6",
       "points": [
-        "Grok 4.7 remains the documented flagship (Sep 21): coding / knowledge work, same price as 4.6, larger base + longer RL.",
-        "Listed on Amazon Bedrock and Gemini Enterprise Agent Platform.",
-        "Grok Bot Desktop stable 0.63.0 (macOS Apple silicon & Intel, Windows): team bots, docs, Slack, voice templates, plugins.",
-        "Musk highlighted Team Bots, proactive assistant behavior, and Ask Grok in XChat.",
-        "Grokipedia v0.3 live; Musk tied it to an Encyclopedia Galactica hiring pitch.",
-        "Voice Transcribe 2.0 (Sep 18) claimed ~2× accuracy of 1.0 at the same price."
+        "Grok 4.7 remains SpaceXAI flagship (Sep 21): $2/$6, 500k context, coding + knowledge work focus.",
+        "Independent AA Intelligence Index: Grok 4.7 ≈ 46 vs Claude Opus 5.5 ≈ 58 and Fable 5.1 / GPT-6 Astra ≈ 53 — mid-pack on the composite, not the peak.",
+        "Vendor tables: Grok leads EEBench (64%) and Harvey Legal (19.6%); trails Fable on CursorBench (46.3% vs 51.8%) and Terminal-Bench (~38% vs ~56–58%).",
+        "Claude Opus 5.5 (Sep 22) is the current independent composite leader at lower $ than Fable ($4/$20 vs $10/$50) with strong agentic coding scores.",
+        "OpenAI GPT-6 line: Astra (Sep 3, flagship), Sol ($2/$10) and Luna ($0.10/$0.50) on Sep 22 for cost tiers under the same generation.",
+        "GitHub Copilot weekly (Sep 25): added Opus 5.5, GPT-6 Sol/Luna, and Grok 4.7 — multi-model is the default product posture.",
+        "X practitioners: multi-model stacks (Grok explore/write + Opus plan) and latency tests (Opus fastest, Grok slowest in one head-to-head) matter more than a single leaderboard row.",
+        "Musk still owns the only first-party next-Grok date: cautiously optimistic Fable/GPT-6 level in 2–3 months (from Sep 24)."
       ],
-      "assumption": "Next flagship more likely a new generation than another 4.x point release, timed to the late-2026 Fable/GPT-6 comment. Grok Bot desktop is the real Mac client—not a separate consumer Grok chat app.",
+      "assumption": "Expect SpaceXAI to optimize the next ship for Terminal-Bench / long-horizon agents and AA composite, not only price. Until then Grok is a strong value/coding option inside multi-model setups, not the solo AA #1.",
       "links": [
         { "label": "Repo", "href": "https://github.com/gravityst/signal-brief" }
       ]
@@ -46,34 +173,47 @@
       "date": "2026-09-30",
       "dateLabel": "Tue, Sep 30, 2026",
       "tag": "Product",
-      "title": "Grok Bot upgrades and Grokipedia v0.3",
+      "title": "Grok Bot, Grokipedia, distribution",
       "points": [
-        "Team bots, Plaid finances, and voice calls that can search chats.",
-        "Grokipedia v0.3: refreshed homepage and live-edits view.",
-        "Desktop stable moved 0.61 → 0.62 → 0.63 with documents, Slack, marketplace plugins."
+        "Team bots, Plaid finances, voice calls that search chats; Musk amplifying Grok Bot heavily.",
+        "Grokipedia v0.3: homepage + live-edits refresh.",
+        "Desktop stable 0.61 → 0.63: documents, Slack, marketplace plugins, voice templates.",
+        "Grok 4.7 on Amazon Bedrock and Gemini Enterprise Agent Platform."
       ]
     },
     {
       "date": "2026-09-24",
       "dateLabel": "Wed, Sep 24, 2026",
       "tag": "Roadmap",
-      "title": "Musk sets a 2–3 month bar",
+      "title": "Musk: 2–3 months to Fable/GPT-6 level",
       "points": [
         "\"Cautiously optimistic that SpaceX will have a Fable/GPT-6 level model in 2 to 3 months.\"",
-        "Same thread: if improvement rate holds, ~6 months to pole position.",
-        "Window ≈ late Nov–late Dec 2026; model name not given."
+        "Same thread: if second derivative holds, ~6 months to pole position; effort ~3 years old vs longer peers.",
+        "Window ≈ late Nov–late Dec 2026; no model name given."
+      ]
+    },
+    {
+      "date": "2026-09-22",
+      "dateLabel": "Mon, Sep 22, 2026",
+      "tag": "Frontier",
+      "title": "Opus 5.5 and GPT-6 Sol/Luna land same day",
+      "points": [
+        "Anthropic ships Claude Opus 5.5: AA Index 58, $4/$20, strong Terminal-Bench / CursorBench vs Fable and Astra.",
+        "OpenAI ships GPT-6 Sol ($2/$10) and Luna ($0.10/$0.50) as cost-tuned siblings to Astra.",
+        "Crowded September: Astra (3rd), Gemini 3.8 Flash (2nd), Fable 5.1 (1st), Grok 4.7 (21st), then Opus + Sol/Luna (22nd)."
       ]
     },
     {
       "date": "2026-09-21",
       "dateLabel": "Sun, Sep 21, 2026",
       "tag": "Model",
-      "title": "Grok 4.7 ships",
+      "title": "Grok 4.7 ships — value, not AA peak",
       "points": [
-        "Most capable for coding and knowledge work; price held at $2 / $6.",
+        "Same $2/$6 as 4.6; larger base; longer RL on multi-hour tasks; new safeguards.",
         "CursorBench 4.0: 46.3% (4.6 40.4%, GPT-5.6 Sol 41.7%, Fable 5.1 51.8%).",
-        "Stronger on EEBench and some safety benches; trails Fable on several long-horizon coding tests.",
-        "Available in Cursor, Grok Build, API, routers, and clouds."
+        "Terminal-Bench roughly doubled vs 4.6 but still well behind Fable/Astra/Opus tier.",
+        "Independent AA Index ~46; critics call mid-pack vs 53–58 frontier; defenders stress $/task and specialist wins.",
+        "Available in Cursor, Grok Build, API, routers, clouds."
       ]
     }
   ]

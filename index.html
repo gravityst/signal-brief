@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Editorial daily brief on SpaceXAI, Grok models, Grok Bot, and desktop releases. Confirmed first." />
+  <meta name="description" content="Editorial brief on SpaceXAI/Grok, frontier models, and curated X signals." />
   <meta name="theme-color" content="#f3f0ea" media="(prefers-color-scheme: light)" />
   <meta name="theme-color" content="#12100e" media="(prefers-color-scheme: dark)" />
   <meta property="og:title" content="Signal Brief — SpaceXAI / Grok" />
-  <meta property="og:description" content="Daily model, product, and desktop signals. Confirmed first." />
+  <meta property="og:description" content="Grok, frontier scoreboard, and X posts. Confirmed first." />
   <meta property="og:type" content="website" />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <link rel="alternate" type="application/rss+xml" title="Signal Brief" href="feed.xml" />
@@ -19,14 +19,13 @@
 </head>
 <body>
   <a class="skip" href="#main">Skip to briefs</a>
-
   <div class="page">
     <header class="site-header">
       <div class="brand">
         <span class="mark" aria-hidden="true"></span>
         <div>
           <p class="brand-name">Signal Brief</p>
-          <p class="brand-sub">SpaceXAI · Grok · desktop</p>
+          <p class="brand-sub">SpaceXAI · Grok · frontier · X</p>
         </div>
       </div>
       <div class="header-actions">
@@ -34,9 +33,9 @@
         <div class="action-row">
           <button type="button" class="ghost-btn" id="btn-focus" title="Focus mode (F)">Focus</button>
           <button type="button" class="ghost-btn" id="btn-density" title="Toggle density (D)">Comfort</button>
-          <a class="ghost-btn" href="feed.xml" title="RSS feed">RSS</a>
-          <button type="button" class="ghost-btn" id="btn-export" title="Download JSON">Export</button>
-          <button type="button" class="ghost-btn" id="theme-toggle" aria-label="Toggle color theme">Theme</button>
+          <a class="ghost-btn" href="feed.xml">RSS</a>
+          <button type="button" class="ghost-btn" id="btn-export">Export</button>
+          <button type="button" class="ghost-btn" id="theme-toggle" aria-label="Toggle theme">Theme</button>
         </div>
       </div>
     </header>
@@ -47,24 +46,60 @@
     </div>
 
     <section class="status-bar" id="status-bar" aria-label="Current status"></section>
+    <div class="stats" id="stats"></div>
 
-    <div class="stats" id="stats" aria-label="Board stats"></div>
+    <nav class="section-nav" aria-label="Sections">
+      <a href="#frontier">Frontier</a>
+      <a href="#x-posts">X posts</a>
+      <a href="#history">History</a>
+    </nav>
+
+    <section class="block" id="frontier">
+      <div class="block-head">
+        <h1>Frontier board</h1>
+        <p class="section-note">Higher-end Claude, GPT-6, Grok, and peers — price and independent AA where known. Not a single ranking gospel.</p>
+      </div>
+      <div class="table-wrap">
+        <table class="frontier-table" id="frontier-table">
+          <thead>
+            <tr>
+              <th>Model</th>
+              <th>Org</th>
+              <th>Shipped</th>
+              <th>Price in/out</th>
+              <th>AA Index</th>
+              <th>Note</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="block" id="x-posts">
+      <div class="block-head">
+        <h1>X signals</h1>
+        <p class="section-note">Curated posts: Grok reviews, benchmarks, roadmap, and product. Open the original on X.</p>
+      </div>
+      <div class="x-filters" id="x-filters"></div>
+      <div class="x-list" id="x-list"></div>
+    </section>
 
     <div class="toolbar" role="search">
       <label class="search-wrap">
         <span class="visually-hidden">Search briefs</span>
         <kbd class="kbd-hint">/</kbd>
-        <input type="search" id="search" placeholder="Search titles and points…" autocomplete="off" />
+        <input type="search" id="search" placeholder="Search history…" autocomplete="off" />
       </label>
       <div class="filters" id="filters" role="group" aria-label="Filter by tag"></div>
       <div class="toolbar-end">
-        <button type="button" class="ghost-btn" id="expand-all" title="Expand or collapse all">Expand</button>
-        <button type="button" class="ghost-btn" id="clear-filters" title="Reset filters" hidden>Clear</button>
+        <button type="button" class="ghost-btn" id="expand-all">Collapse</button>
+        <button type="button" class="ghost-btn" id="clear-filters" hidden>Clear</button>
       </div>
     </div>
 
     <main class="layout" id="main">
-      <section class="briefs" aria-label="Daily briefs">
+      <section class="briefs" id="history" aria-label="Daily briefs">
         <div class="section-head">
           <h1>History</h1>
           <p class="section-note" id="result-count">Confirmed signals first. Assumptions labeled.</p>
@@ -73,7 +108,7 @@
         <p class="empty" id="empty" hidden>No briefs match.</p>
       </section>
 
-      <aside class="sidebar" id="sidebar" aria-label="Reference">
+      <aside class="sidebar" id="sidebar">
         <div class="panel sticky-panel">
           <h2>Quick reference</h2>
           <dl class="ref-list" id="ref-list"></dl>
@@ -86,28 +121,25 @@
           <h2>Shortcuts</h2>
           <ul class="keys">
             <li><kbd>/</kbd> Search</li>
-            <li><kbd>F</kbd> Focus mode</li>
+            <li><kbd>F</kbd> Focus</li>
             <li><kbd>D</kbd> Density</li>
-            <li><kbd>E</kbd> Expand all</li>
-            <li><kbd>Esc</kbd> Clear / exit</li>
+            <li><kbd>E</kbd> Expand</li>
+            <li><kbd>Esc</kbd> Clear</li>
           </ul>
-          <p class="small">Deep link: <code>#2026-10-02</code></p>
         </div>
         <div class="panel muted">
           <h2>About</h2>
-          <p>Personal tracking board. Not affiliated with SpaceX, xAI, or X.</p>
-          <p class="small"><a href="https://github.com/gravityst/signal-brief" rel="noopener">gravityst/signal-brief</a></p>
+          <p>Personal board. Not affiliated with SpaceX, xAI, Anthropic, OpenAI, or X.</p>
+          <p class="small"><a href="https://github.com/gravityst/signal-brief">gravityst/signal-brief</a></p>
         </div>
       </aside>
     </main>
 
     <button type="button" class="to-top" id="to-top" hidden aria-label="Back to top">↑</button>
-
     <footer class="site-footer">
-      <p>Signal Brief · updated on a schedule · data in <code>data/briefs.json</code></p>
+      <p>Signal Brief · Grok + frontier + X · data in <code>data/briefs.json</code></p>
     </footer>
   </div>
-
   <div class="toast" id="toast" hidden role="status"></div>
   <script src="app.js"></script>
 </body>
