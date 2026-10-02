@@ -1,29 +1,27 @@
 # Signal Brief
 
-Clean daily brief for **SpaceXAI / Grok** model, product, and desktop signals.
+Editorial daily brief for **SpaceXAI / Grok** — models, product, desktop.
 
-Live site (after Pages is enabled): **https://gravityst.github.io/signal-brief/**
+**Live:** https://gravityst.github.io/signal-brief/  
+**RSS:** https://gravityst.github.io/signal-brief/feed.xml
 
-## Enable GitHub Pages
+## Enable Pages
 
-1. Open the repo → **Settings** → **Pages**
-2. Source: **Deploy from a branch**
-3. Branch: **main** / folder: **/ (root)**
-4. Save. Site is usually live within a minute or two.
+Settings → Pages → Deploy from branch → `main` / `/ (root)`.
 
-## Structure
+## Files that matter
 
 | Path | Role |
 |------|------|
-| `index.html` | Shell |
-| `styles.css` | Editorial light/dark UI |
-| `app.js` | Renders `data/briefs.json` |
-| `data/briefs.json` | **Only file the daily update needs to edit** |
+| `data/briefs.json` | **Daily updates go here only** |
+| `feed.xml` | RSS (refresh on big days) |
+| `index.html` / `styles.css` / `app.js` | Shell |
 
-## Daily update
+### `briefs.json` shape
 
-Replace or prepend entries in `data/briefs.json`, bump `updatedAt` and `status` fields, commit to `main`. No build step.
+- `status` — four status cards
+- `reference` — sidebar key/value
+- `watchNext` — string list
+- `briefs[]` — `date`, `dateLabel`, `tag`, `title`, `points[]`, optional `assumption`, optional `links[{label,href}]`
 
-## Design notes
-
-Warm paper background, serif titles, no neon, no robot motifs. Confirmed points vs labeled assumptions.
+Tags used by filters: `Today`, `Model`, `Product`, `Roadmap`.

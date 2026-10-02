@@ -3,14 +3,22 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Daily signal brief on SpaceXAI, Grok models, Grok Bot, and desktop releases." />
+  <meta name="description" content="Editorial daily brief on SpaceXAI, Grok models, Grok Bot, and desktop releases. Confirmed first." />
+  <meta name="theme-color" content="#f6f4ef" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#141210" media="(prefers-color-scheme: dark)" />
+  <meta property="og:title" content="Signal Brief — SpaceXAI / Grok" />
+  <meta property="og:description" content="Daily model, product, and desktop signals. Confirmed first." />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="alternate" type="application/rss+xml" title="Signal Brief" href="feed.xml" />
   <title>Signal Brief — SpaceXAI / Grok</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Newsreader:opsz,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Newsreader:ital,opsz,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <a class="skip" href="#main">Skip to briefs</a>
   <div class="page">
     <header class="site-header">
       <div class="brand">
@@ -20,40 +28,61 @@
           <p class="brand-sub">SpaceXAI · Grok · desktop</p>
         </div>
       </div>
-      <div class="header-meta">
-        <p id="last-updated">—</p>
-        <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">Theme</button>
+      <div class="header-actions">
+        <p class="updated" id="last-updated">Loading…</p>
+        <div class="action-row">
+          <a class="ghost-btn" href="feed.xml" title="RSS feed">RSS</a>
+          <a class="ghost-btn" href="https://github.com/gravityst/signal-brief" rel="noopener">Source</a>
+          <button type="button" class="ghost-btn" id="theme-toggle" aria-label="Toggle color theme">Theme</button>
+        </div>
       </div>
     </header>
 
-    <section class="status-bar" id="status-bar" aria-label="Current status">
-      <!-- filled by app.js -->
-    </section>
+    <section class="status-bar" id="status-bar" aria-label="Current status"></section>
 
-    <main class="layout">
+    <div class="toolbar" role="search">
+      <label class="search-wrap">
+        <span class="visually-hidden">Search briefs</span>
+        <input type="search" id="search" placeholder="Search titles and points…" autocomplete="off" />
+      </label>
+      <div class="filters" id="filters" role="group" aria-label="Filter by tag">
+        <button type="button" class="chip active" data-filter="all">All</button>
+        <button type="button" class="chip" data-filter="Model">Model</button>
+        <button type="button" class="chip" data-filter="Product">Product</button>
+        <button type="button" class="chip" data-filter="Roadmap">Roadmap</button>
+        <button type="button" class="chip" data-filter="Today">Today</button>
+      </div>
+    </div>
+
+    <main class="layout" id="main">
       <section class="briefs" aria-label="Daily briefs">
         <div class="section-head">
-          <h1>Daily briefs</h1>
-          <p class="section-note">Confirmed signals first. Assumptions labeled.</p>
+          <h1>History</h1>
+          <p class="section-note" id="result-count">Confirmed signals first. Assumptions labeled.</p>
         </div>
         <div id="brief-list" class="brief-list"></div>
+        <p class="empty" id="empty" hidden>No briefs match that filter.</p>
       </section>
 
       <aside class="sidebar" aria-label="Reference">
-        <div class="panel">
+        <div class="panel sticky-panel">
           <h2>Quick reference</h2>
           <dl class="ref-list" id="ref-list"></dl>
         </div>
+        <div class="panel">
+          <h2>Watch next</h2>
+          <ul class="watch-list" id="watch-list"></ul>
+        </div>
         <div class="panel muted">
-          <h2>How this works</h2>
-          <p>Updated on a schedule from public reporting and X posts. History stays on this page so you do not need the chat UI.</p>
-          <p class="small">Source repo: <a href="https://github.com/gravityst/signal-brief" rel="noopener">gravityst/signal-brief</a></p>
+          <h2>About</h2>
+          <p>Personal tracking board. Not affiliated with SpaceX, xAI, or X.</p>
+          <p class="small">Updated Mon · Wed · Fri · Central. Data lives in <code>data/briefs.json</code>.</p>
         </div>
       </aside>
     </main>
 
     <footer class="site-footer">
-      <p>Not affiliated with SpaceX, xAI, or X. For personal tracking.</p>
+      <p>Signal Brief · <a href="https://github.com/gravityst/signal-brief">gravityst/signal-brief</a></p>
     </footer>
   </div>
   <script src="app.js"></script>

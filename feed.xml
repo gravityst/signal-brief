@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Signal Brief — SpaceXAI / Grok</title>
+    <link>https://gravityst.github.io/signal-brief/</link>
+    <description>Daily model, product, and desktop signals. Confirmed first.</description>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 02 Oct 2026 13:39:00 GMT</lastBuildDate>
+    <item>
+      <title>Grok 4.7 holds; Bot and distribution expand</title>
+      <link>https://gravityst.github.io/signal-brief/</link>
+      <guid isPermaLink="false">2026-10-02</guid>
+      <pubDate>Fri, 02 Oct 2026 12:00:00 GMT</pubDate>
+      <description>Grok 4.7 remains flagship. Bedrock + Gemini Enterprise. Grok Bot Desktop 0.63.0. Musk on Team Bots and XChat. Grokipedia v0.3.</description>
+    </item>
+    <item>
+      <title>Grok Bot upgrades and Grokipedia v0.3</title>
+      <link>https://gravityst.github.io/signal-brief/</link>
+      <guid isPermaLink="false">2026-09-30</guid>
+      <pubDate>Tue, 30 Sep 2026 12:00:00 GMT</pubDate>
+      <description>Team bots, Plaid, voice calls. Grokipedia v0.3. Desktop 0.61–0.63.</description>
+    </item>
+    <item>
+      <title>Musk sets a 2–3 month bar</title>
+      <link>https://gravityst.github.io/signal-brief/</link>
+      <guid isPermaLink="false">2026-09-24</guid>
+      <pubDate>Wed, 24 Sep 2026 12:00:00 GMT</pubDate>
+      <description>Cautiously optimistic Fable/GPT-6 level model in 2–3 months.</description>
+    </item>
+    <item>
+      <title>Grok 4.7 ships</title>
+      <link>https://gravityst.github.io/signal-brief/</link>
+      <guid isPermaLink="false">2026-09-21</guid>
+      <pubDate>Sun, 21 Sep 2026 12:00:00 GMT</pubDate>
+      <description>Coding/knowledge flagship at $2/$6. CursorBench 46.3%.</description>
+    </item>
+  </channel>
+</rss>
