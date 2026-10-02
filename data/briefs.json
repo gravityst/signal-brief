@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-02T13:49:00Z",
+  "updatedAt": "2026-10-02T14:15:00Z",
   "status": {
     "model": "Grok 4.7",
     "modelHint": "$2 / $6 · AA Index ~46 · 500k ctx",
@@ -15,7 +15,7 @@
     "Pricing": "$2 in / $6 out per 1M",
     "Desktop": "Grok Bot (Mac client)",
     "AA Index (indep.)": "Grok 4.7 ≈ 46 · Opus 5.5 ≈ 58 · Fable/Astra ≈ 53",
-    "Watch": "@elonmusk · @SpaceXAI"
+    "Watch": "@elonmusk · @SpaceXAI · @AlexFinn"
   },
   "watchNext": [
     "Named next-flagship (Grok 5 / successor) matching Musk 2–3 month bar",
@@ -84,6 +84,62 @@
   ],
   "xPosts": [
     {
+      "date": "2026-09-29",
+      "author": "@AlexFinn",
+      "handle": "AlexFinn",
+      "text": "OpenAI Dots vs Grok Bot: early access take — biggest edge is full ChatGPT memory + harness (voice, plugins, Spaces). Strong for power users / desktop agent work; less about simple reservations.",
+      "topic": "Review",
+      "url": "https://x.com/AlexFinn/status/2105018969925243364"
+    },
+    {
+      "date": "2026-09-28",
+      "author": "@AlexFinn",
+      "handle": "AlexFinn",
+      "text": "Sonnet 5.5 early access: at first hard to tell from Opus 5.5, fraction of the price. Calls Anthropic’s 5.5 family the biggest leap in intelligence, speed, and affordability he’s seen — use it for standard daily work.",
+      "topic": "Review",
+      "url": "https://x.com/AlexFinn/status/2104635519305154986"
+    },
+    {
+      "date": "2026-09-24",
+      "author": "@AlexFinn",
+      "handle": "AlexFinn",
+      "text": "Opus 5.5 video guide: ‘greatest AI model ever released’ — intelligent, fast, efficient. Positions it as the new daily driver.",
+      "topic": "Review",
+      "url": "https://x.com/AlexFinn/status/2102922269203042809"
+    },
+    {
+      "date": "2026-09-23",
+      "author": "@AlexFinn",
+      "handle": "AlexFinn",
+      "text": "Next two weeks hype stack: GPT-6.1 Astra rumors, Fable 5.5, Grok Bot upgrades, Muse hardware, OpenAI dev day — ‘great lock in’ after Opus 5.5 shocked labs.",
+      "topic": "Roadmap",
+      "url": "https://x.com/AlexFinn/status/2102811827893948606"
+    },
+    {
+      "date": "2026-09-22",
+      "author": "@AlexFinn",
+      "handle": "AlexFinn",
+      "text": "Opus 5.5: smarter than Fable/Astra, faster, cheaper, and ‘feels human again’ after months of generic AI voice. Strong push to try it.",
+      "topic": "Review",
+      "url": "https://x.com/AlexFinn/status/2102457851637850510"
+    },
+    {
+      "date": "2026-09-22",
+      "author": "@AlexFinn",
+      "handle": "AlexFinn",
+      "text": "Grok Bot on Tesla / Cybertruck early access — agents while the car drives. Separate post: Grok Bot is his daily driver over Hermes mainly because of the mobile app.",
+      "topic": "Product",
+      "url": "https://x.com/AlexFinn/status/2102432674082345076"
+    },
+    {
+      "date": "2026-09-21",
+      "author": "@AlexFinn",
+      "handle": "AlexFinn",
+      "text": "Grok 4.7: ‘EXCELLENT’ — trained for Grok Bot / agentic knowledge work. Video on Grok 4.7 + Grok Bot workflow. Also: better intelligence than Opus 5 at half the price, baked into Grok Bot + cloud Cursor agents.",
+      "topic": "Review",
+      "url": "https://x.com/AlexFinn/status/2102188069483155841"
+    },
+    {
       "date": "2026-09-24",
       "author": "@elonmusk",
       "handle": "elonmusk",
@@ -111,7 +167,7 @@
       "date": "2026-10-02",
       "author": "@SergeForge",
       "handle": "SergeForge",
-      "text": "Same bugfix latency: Opus 5.5 16s · GPT-6 Astra 44s · GPT-6.1 Sol 79s · Grok 4.7 160s. All 12/12 hidden tests — higher model number ≠ speed.",
+      "text": "Same bug fix latency: Opus 5.5 16s · GPT-6 Astra 44s · GPT-6.1 Sol 79s · Grok 4.7 160s. All 12/12 hidden tests — higher model number ≠ speed.",
       "topic": "Benchmark",
       "url": "https://x.com/SergeForge/status/2106002831451058526"
     },
@@ -162,6 +218,7 @@
         "OpenAI GPT-6 line: Astra (Sep 3, flagship), Sol ($2/$10) and Luna ($0.10/$0.50) on Sep 22 for cost tiers under the same generation.",
         "GitHub Copilot weekly (Sep 25): added Opus 5.5, GPT-6 Sol/Luna, and Grok 4.7 — multi-model is the default product posture.",
         "X practitioners: multi-model stacks (Grok explore/write + Opus plan) and latency tests (Opus fastest, Grok slowest in one head-to-head) matter more than a single leaderboard row.",
+        "@AlexFinn: strong on Grok 4.7 + Grok Bot workflows; also heavy Opus 5.5 / Sonnet 5.5 daily-driver takes — useful counterweight to pure benchmarks.",
         "Musk still owns the only first-party next-Grok date: cautiously optimistic Fable/GPT-6 level in 2–3 months (from Sep 24)."
       ],
       "assumption": "Expect SpaceXAI to optimize the next ship for Terminal-Bench / long-horizon agents and AA composite, not only price. Until then Grok is a strong value/coding option inside multi-model setups, not the solo AA #1.",
