@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Daily signal brief on SpaceXAI, Grok models, Grok Bot, and desktop releases." />
+  <title>Signal Brief — SpaceXAI / Grok</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Newsreader:opsz,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="page">
+    <header class="site-header">
+      <div class="brand">
+        <span class="mark" aria-hidden="true"></span>
+        <div>
+          <p class="brand-name">Signal Brief</p>
+          <p class="brand-sub">SpaceXAI · Grok · desktop</p>
+        </div>
+      </div>
+      <div class="header-meta">
+        <p id="last-updated">—</p>
+        <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">Theme</button>
+      </div>
+    </header>
+
+    <section class="status-bar" id="status-bar" aria-label="Current status">
+      <!-- filled by app.js -->
+    </section>
+
+    <main class="layout">
+      <section class="briefs" aria-label="Daily briefs">
+        <div class="section-head">
+          <h1>Daily briefs</h1>
+          <p class="section-note">Confirmed signals first. Assumptions labeled.</p>
+        </div>
+        <div id="brief-list" class="brief-list"></div>
+      </section>
+
+      <aside class="sidebar" aria-label="Reference">
+        <div class="panel">
+          <h2>Quick reference</h2>
+          <dl class="ref-list" id="ref-list"></dl>
+        </div>
+        <div class="panel muted">
+          <h2>How this works</h2>
+          <p>Updated on a schedule from public reporting and X posts. History stays on this page so you do not need the chat UI.</p>
+          <p class="small">Source repo: <a href="https://github.com/gravityst/signal-brief" rel="noopener">gravityst/signal-brief</a></p>
+        </div>
+      </aside>
+    </main>
+
+    <footer class="site-footer">
+      <p>Not affiliated with SpaceX, xAI, or X. For personal tracking.</p>
+    </footer>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>

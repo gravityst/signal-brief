@@ -1,0 +1,71 @@
+{
+  "updatedAt": "2026-10-02T13:20:00Z",
+  "status": {
+    "model": "Grok 4.7",
+    "modelHint": "$2 / $6 per 1M tokens · 500k context",
+    "desktop": "Grok Bot 0.63.0",
+    "desktopHint": "macOS + Windows stable",
+    "nextModel": "2–3 months",
+    "nextModelHint": "Musk: Fable / GPT-6 level target",
+    "cadence": "Mon · Wed · Fri",
+    "cadenceHint": "Brief + site update"
+  },
+  "reference": {
+    "API model": "grok-4.7",
+    "Pricing": "$2 in / $6 out per 1M",
+    "Desktop": "Grok Bot (not a separate chat Mac app)",
+    "Official news": "x.ai / SpaceXAI",
+    "Watch accounts": "@elonmusk · @SpaceXAI"
+  },
+  "briefs": [
+    {
+      "date": "2026-10-02",
+      "dateLabel": "Fri, Oct 2, 2026",
+      "tag": "Today",
+      "title": "Grok 4.7 holds as flagship; Bot and Pages activity",
+      "points": [
+        "Grok 4.7 remains the documented flagship (Sep 21): coding / knowledge work, same price as 4.6, larger base + longer RL.",
+        "Now also listed on Amazon Bedrock and Gemini Enterprise Agent Platform.",
+        "Grok Bot Desktop stable at 0.63.0 (macOS Apple silicon & Intel, Windows): team bots, docs, Slack, voice-call templates, plugins.",
+        "Musk pushed Team Bots, proactive assistant behavior, and Ask Grok in XChat.",
+        "Grokipedia v0.3 live (design + live edits); Musk tied it to an Encyclopedia Galactica hiring pitch.",
+        "Voice Transcribe 2.0 (Sep 18) claimed ~2× accuracy of 1.0 at the same price."
+      ],
+      "assumption": "Next flagship more likely a new generation than another 4.x point release, timed to the late-2026 Fable/GPT-6 comment. Standalone consumer Grok Mac chat app is not what current docs describe—Grok Bot desktop is the real Mac client."
+    },
+    {
+      "date": "2026-09-30",
+      "dateLabel": "Tue, Sep 30, 2026",
+      "tag": "Product",
+      "title": "Grok Bot upgrades and Grokipedia v0.3",
+      "points": [
+        "Team bots, Plaid finances, and voice calls that can search chats highlighted by Musk.",
+        "Grokipedia v0.3 released with refreshed homepage and live-edits view.",
+        "Desktop stable moved through 0.61 → 0.62 → 0.63 with documents, Slack, and marketplace plugins."
+      ]
+    },
+    {
+      "date": "2026-09-24",
+      "dateLabel": "Wed, Sep 24, 2026",
+      "tag": "Roadmap",
+      "title": "Musk sets a 2–3 month bar",
+      "points": [
+        "\"Cautiously optimistic that SpaceX will have a Fable/GPT-6 level model in 2 to 3 months.\"",
+        "Same thread: if the improvement rate holds, ~6 months to \"pole position\"; effort ~3 years old vs longer at peers.",
+        "Window points roughly to late Nov–late Dec 2026; model name not given."
+      ]
+    },
+    {
+      "date": "2026-09-21",
+      "dateLabel": "Sun, Sep 21, 2026",
+      "tag": "Model",
+      "title": "Grok 4.7 ships",
+      "points": [
+        "Positioned as most capable for coding and knowledge work; price held at $2 / $6.",
+        "CursorBench 4.0: 46.3% (vs 4.6 40.4%, GPT-5.6 Sol 41.7%, Fable 5.1 51.8%).",
+        "Stronger on EEBench and some safety benches; still trails Fable on several long-horizon coding tests.",
+        "Available in Cursor, Grok Build, API, routers, and clouds."
+      ]
+    }
+  ]
+}
