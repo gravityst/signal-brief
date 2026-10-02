@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Editorial daily brief on SpaceXAI, Grok models, Grok Bot, and desktop releases. Confirmed first." />
-  <meta name="theme-color" content="#f6f4ef" media="(prefers-color-scheme: light)" />
-  <meta name="theme-color" content="#141210" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#f3f0ea" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#12100e" media="(prefers-color-scheme: dark)" />
   <meta property="og:title" content="Signal Brief — SpaceXAI / Grok" />
   <meta property="og:description" content="Daily model, product, and desktop signals. Confirmed first." />
   <meta property="og:type" content="website" />
@@ -19,6 +19,7 @@
 </head>
 <body>
   <a class="skip" href="#main">Skip to briefs</a>
+
   <div class="page">
     <header class="site-header">
       <div class="brand">
@@ -31,26 +32,34 @@
       <div class="header-actions">
         <p class="updated" id="last-updated">Loading…</p>
         <div class="action-row">
+          <button type="button" class="ghost-btn" id="btn-focus" title="Focus mode (F)">Focus</button>
+          <button type="button" class="ghost-btn" id="btn-density" title="Toggle density (D)">Comfort</button>
           <a class="ghost-btn" href="feed.xml" title="RSS feed">RSS</a>
-          <a class="ghost-btn" href="https://github.com/gravityst/signal-brief" rel="noopener">Source</a>
+          <button type="button" class="ghost-btn" id="btn-export" title="Download JSON">Export</button>
           <button type="button" class="ghost-btn" id="theme-toggle" aria-label="Toggle color theme">Theme</button>
         </div>
       </div>
     </header>
 
+    <div class="banner" id="new-banner" hidden>
+      <span id="new-banner-text"></span>
+      <button type="button" class="ghost-btn" id="mark-seen">Mark seen</button>
+    </div>
+
     <section class="status-bar" id="status-bar" aria-label="Current status"></section>
+
+    <div class="stats" id="stats" aria-label="Board stats"></div>
 
     <div class="toolbar" role="search">
       <label class="search-wrap">
         <span class="visually-hidden">Search briefs</span>
+        <kbd class="kbd-hint">/</kbd>
         <input type="search" id="search" placeholder="Search titles and points…" autocomplete="off" />
       </label>
-      <div class="filters" id="filters" role="group" aria-label="Filter by tag">
-        <button type="button" class="chip active" data-filter="all">All</button>
-        <button type="button" class="chip" data-filter="Model">Model</button>
-        <button type="button" class="chip" data-filter="Product">Product</button>
-        <button type="button" class="chip" data-filter="Roadmap">Roadmap</button>
-        <button type="button" class="chip" data-filter="Today">Today</button>
+      <div class="filters" id="filters" role="group" aria-label="Filter by tag"></div>
+      <div class="toolbar-end">
+        <button type="button" class="ghost-btn" id="expand-all" title="Expand or collapse all">Expand</button>
+        <button type="button" class="ghost-btn" id="clear-filters" title="Reset filters" hidden>Clear</button>
       </div>
     </div>
 
@@ -61,10 +70,10 @@
           <p class="section-note" id="result-count">Confirmed signals first. Assumptions labeled.</p>
         </div>
         <div id="brief-list" class="brief-list"></div>
-        <p class="empty" id="empty" hidden>No briefs match that filter.</p>
+        <p class="empty" id="empty" hidden>No briefs match.</p>
       </section>
 
-      <aside class="sidebar" aria-label="Reference">
+      <aside class="sidebar" id="sidebar" aria-label="Reference">
         <div class="panel sticky-panel">
           <h2>Quick reference</h2>
           <dl class="ref-list" id="ref-list"></dl>
@@ -74,17 +83,32 @@
           <ul class="watch-list" id="watch-list"></ul>
         </div>
         <div class="panel muted">
+          <h2>Shortcuts</h2>
+          <ul class="keys">
+            <li><kbd>/</kbd> Search</li>
+            <li><kbd>F</kbd> Focus mode</li>
+            <li><kbd>D</kbd> Density</li>
+            <li><kbd>E</kbd> Expand all</li>
+            <li><kbd>Esc</kbd> Clear / exit</li>
+          </ul>
+          <p class="small">Deep link: <code>#2026-10-02</code></p>
+        </div>
+        <div class="panel muted">
           <h2>About</h2>
           <p>Personal tracking board. Not affiliated with SpaceX, xAI, or X.</p>
-          <p class="small">Updated Mon · Wed · Fri · Central. Data lives in <code>data/briefs.json</code>.</p>
+          <p class="small"><a href="https://github.com/gravityst/signal-brief" rel="noopener">gravityst/signal-brief</a></p>
         </div>
       </aside>
     </main>
 
+    <button type="button" class="to-top" id="to-top" hidden aria-label="Back to top">↑</button>
+
     <footer class="site-footer">
-      <p>Signal Brief · <a href="https://github.com/gravityst/signal-brief">gravityst/signal-brief</a></p>
+      <p>Signal Brief · updated on a schedule · data in <code>data/briefs.json</code></p>
     </footer>
   </div>
+
+  <div class="toast" id="toast" hidden role="status"></div>
   <script src="app.js"></script>
 </body>
 </html>

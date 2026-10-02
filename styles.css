@@ -9,11 +9,15 @@
   --warn: #9a3412;
   --warn-soft: #ffedd5;
   --spine: #d6d3d1;
+  --unread: #c2410c;
   --radius: 14px;
   --shadow: 0 1px 2px rgba(28, 25, 23, 0.05), 0 10px 28px rgba(28, 25, 23, 0.05);
   --font-sans: "DM Sans", system-ui, -apple-system, sans-serif;
   --font-serif: "Newsreader", Georgia, "Times New Roman", serif;
   --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --card-pad: 18px 20px;
+  --title-size: 1.22rem;
+  --gap-list: 14px;
 }
 
 [data-theme="dark"] {
@@ -27,18 +31,32 @@
   --warn: #fdba74;
   --warn-soft: #3f1d0a;
   --spine: #3f3a36;
+  --unread: #fb923c;
   --shadow: 0 1px 2px rgba(0, 0, 0, 0.25), 0 12px 32px rgba(0, 0, 0, 0.35);
 }
 
-* { box-sizing: border-box; }
+[data-density="compact"] {
+  --card-pad: 12px 14px;
+  --title-size: 1.05rem;
+  --gap-list: 10px;
+}
 
+[data-density="compact"] .brief-points li { margin-bottom: 4px; }
+[data-density="compact"] .status-card { min-height: 78px; padding: 12px 14px; }
+[data-density="compact"] .brief-title { margin-bottom: 8px; }
+
+[data-focus="on"] .sidebar { display: none; }
+[data-focus="on"] .layout { grid-template-columns: 1fr; max-width: 760px; margin-inline: auto; }
+[data-focus="on"] .status-bar { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+* { box-sizing: border-box; }
 html { color-scheme: light dark; scroll-behavior: smooth; }
 
 body {
   margin: 0;
   font-family: var(--font-sans);
   background:
-    radial-gradient(1200px 600px at 10% -10%, color-mix(in srgb, var(--accent) 8%, transparent), transparent 55%),
+    radial-gradient(1100px 520px at 8% -12%, color-mix(in srgb, var(--accent) 9%, transparent), transparent 55%),
     var(--bg);
   color: var(--ink);
   line-height: 1.55;
@@ -51,11 +69,23 @@ a {
   text-underline-offset: 3px;
 }
 
+code, kbd {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.82em;
+}
+
 code {
-  font-size: 0.86em;
   background: color-mix(in srgb, var(--line) 70%, transparent);
   padding: 0.1em 0.35em;
   border-radius: 4px;
+}
+
+kbd {
+  border: 1px solid var(--line);
+  background: var(--bg-elevated);
+  border-radius: 5px;
+  padding: 0.05em 0.4em;
+  color: var(--ink-soft);
 }
 
 .skip {
@@ -83,7 +113,7 @@ code {
 .page {
   max-width: 1120px;
   margin: 0 auto;
-  padding: 28px 20px 72px;
+  padding: 28px 20px 80px;
 }
 
 .site-header {
@@ -91,7 +121,7 @@ code {
   align-items: flex-start;
   justify-content: space-between;
   gap: 16px;
-  margin-bottom: 24px;
+  margin-bottom: 18px;
 }
 
 .brand {
@@ -121,9 +151,7 @@ code {
   font-size: 0.88rem;
 }
 
-.header-actions {
-  text-align: right;
-}
+.header-actions { text-align: right; }
 
 .updated {
   margin: 0 0 8px;
@@ -151,18 +179,40 @@ code {
   text-decoration: none;
   display: inline-flex;
   align-items: center;
-  transition: border-color 0.15s var(--ease), background 0.15s var(--ease);
+  gap: 4px;
+  transition: border-color 0.15s var(--ease), background 0.15s var(--ease), color 0.15s var(--ease);
 }
 
 .ghost-btn:hover {
   border-color: color-mix(in srgb, var(--ink-soft) 50%, var(--line));
 }
 
+.ghost-btn.active-toggle {
+  background: var(--accent-soft);
+  color: var(--accent);
+  border-color: color-mix(in srgb, var(--accent) 30%, var(--line));
+}
+
+.banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
 .status-bar {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 12px;
-  margin-bottom: 22px;
+  margin-bottom: 14px;
 }
 
 .status-card {
@@ -197,22 +247,44 @@ code {
   line-height: 1.35;
 }
 
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  margin-bottom: 16px;
+  color: var(--ink-soft);
+  font-size: 0.84rem;
+}
+
+.stats strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
 .toolbar {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px 16px;
+  gap: 10px 14px;
   align-items: center;
-  justify-content: space-between;
-  margin-bottom: 28px;
-  padding: 12px 14px;
-  background: color-mix(in srgb, var(--bg-elevated) 80%, transparent);
+  margin-bottom: 26px;
+  padding: 10px 12px 10px 14px;
+  background: color-mix(in srgb, var(--bg-elevated) 85%, transparent);
   border: 1px solid var(--line);
-  border-radius: 999px;
+  border-radius: 16px;
+  backdrop-filter: blur(8px);
 }
 
 .search-wrap {
-  flex: 1 1 220px;
+  flex: 1 1 200px;
   min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.kbd-hint {
+  opacity: 0.7;
+  flex-shrink: 0;
 }
 
 #search {
@@ -223,7 +295,7 @@ code {
   font: inherit;
   font-size: 0.95rem;
   outline: none;
-  padding: 4px 8px;
+  padding: 4px 0;
 }
 
 #search::placeholder { color: var(--ink-soft); }
@@ -232,6 +304,12 @@ code {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
+}
+
+.toolbar-end {
+  display: flex;
+  gap: 6px;
+  margin-left: auto;
 }
 
 .chip {
@@ -253,6 +331,12 @@ code {
   background: var(--accent-soft);
   color: var(--accent);
   border-color: color-mix(in srgb, var(--accent) 25%, transparent);
+}
+
+.chip .count {
+  opacity: 0.65;
+  font-weight: 500;
+  margin-left: 4px;
 }
 
 .layout {
@@ -314,13 +398,14 @@ code {
 
 .brief-card {
   position: relative;
-  margin: 0 0 14px 16px;
+  margin: 0 0 var(--gap-list) 16px;
   background: var(--bg-elevated);
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  padding: 18px 20px;
+  padding: var(--card-pad);
   box-shadow: var(--shadow);
-  transition: border-color 0.15s var(--ease), transform 0.15s var(--ease);
+  transition: border-color 0.15s var(--ease), box-shadow 0.15s var(--ease);
+  scroll-margin-top: 20px;
 }
 
 .brief-card::before {
@@ -344,6 +429,16 @@ code {
   border-color: var(--accent);
   background: var(--accent);
   box-shadow: 0 0 0 4px var(--accent-soft);
+}
+
+.brief-card.unread::before {
+  border-color: var(--unread);
+  background: var(--unread);
+}
+
+.brief-card.target {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft), var(--shadow);
 }
 
 .brief-card:hover {
@@ -378,13 +473,37 @@ code {
   font-weight: 600;
 }
 
+.pill-new {
+  font-size: 0.7rem;
+  padding: 2px 7px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--unread) 18%, transparent);
+  color: var(--unread);
+  font-weight: 650;
+}
+
 .brief-title {
   margin: 0 0 12px;
   font-family: var(--font-serif);
-  font-size: 1.22rem;
+  font-size: var(--title-size);
   font-weight: 550;
   letter-spacing: -0.02em;
   line-height: 1.3;
+}
+
+.brief-title button {
+  all: unset;
+  cursor: pointer;
+  display: block;
+  width: 100%;
+}
+
+.brief-title button:hover { color: var(--accent); }
+
+.brief-title button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
 }
 
 .brief-points {
@@ -398,6 +517,14 @@ code {
 }
 
 .brief-points li:last-child { margin-bottom: 0; }
+
+.brief-card.collapsed .brief-points,
+.brief-card.collapsed .assumption,
+.brief-card.collapsed .brief-links {
+  display: none;
+}
+
+.brief-card.collapsed .brief-title { margin-bottom: 0; }
 
 .assumption {
   margin-top: 14px;
@@ -437,10 +564,11 @@ code {
 .card-actions {
   margin-top: 12px;
   display: flex;
-  gap: 8px;
+  flex-wrap: wrap;
+  gap: 10px 14px;
 }
 
-.copy-btn {
+.card-actions button {
   border: 0;
   background: transparent;
   color: var(--ink-soft);
@@ -450,7 +578,14 @@ code {
   padding: 0;
 }
 
-.copy-btn:hover { color: var(--accent); }
+.card-actions button:hover { color: var(--accent); }
+
+mark.hit {
+  background: color-mix(in srgb, var(--accent) 28%, transparent);
+  color: inherit;
+  border-radius: 2px;
+  padding: 0 1px;
+}
 
 .panel {
   background: var(--bg-elevated);
@@ -481,15 +616,12 @@ code {
 }
 
 .ref-list { margin: 0; }
-
 .ref-list dt {
   font-size: 0.75rem;
   color: var(--ink-soft);
   margin-top: 11px;
 }
-
 .ref-list dt:first-child { margin-top: 0; }
-
 .ref-list dd {
   margin: 2px 0 0;
   font-weight: 550;
@@ -502,16 +634,29 @@ code {
   color: var(--ink-soft);
   font-size: 0.9rem;
 }
-
 .watch-list li { margin: 0 0 8px; }
 .watch-list li:last-child { margin-bottom: 0; }
+
+.keys {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  color: var(--ink-soft);
+  font-size: 0.88rem;
+}
+.keys li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+.keys li:last-child { margin-bottom: 0; }
 
 .panel p {
   margin: 0 0 10px;
   color: var(--ink-soft);
   font-size: 0.9rem;
 }
-
 .panel p:last-child { margin-bottom: 0; }
 .small { font-size: 0.8rem !important; }
 
@@ -522,6 +667,36 @@ code {
   border: 1px dashed var(--line);
   border-radius: var(--radius);
   margin-left: 16px;
+}
+
+.to-top {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: var(--bg-elevated);
+  color: var(--ink);
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  font-size: 1rem;
+  z-index: 40;
+}
+
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  transform: translateX(-50%);
+  background: var(--ink);
+  color: var(--bg);
+  padding: 10px 16px;
+  border-radius: 999px;
+  font-size: 0.88rem;
+  z-index: 50;
+  box-shadow: var(--shadow);
 }
 
 .site-footer {
@@ -536,7 +711,7 @@ code {
   .status-bar { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .layout { grid-template-columns: 1fr; }
   .sticky-panel { position: static; }
-  .toolbar { border-radius: 16px; }
+  [data-focus="on"] .status-bar { grid-template-columns: 1fr 1fr; }
 }
 
 @media (max-width: 540px) {
@@ -548,11 +723,14 @@ code {
   .brief-list { padding-left: 6px; }
   .brief-card { margin-left: 12px; }
   .brief-card::before { left: -19px; }
+  .toolbar-end { margin-left: 0; width: 100%; }
 }
 
 @media print {
   body { background: white; color: black; }
-  .toolbar, .action-row, .copy-btn, .sidebar { display: none !important; }
+  .toolbar, .action-row, .card-actions, .sidebar, .to-top, .banner, .stats { display: none !important; }
   .brief-card { box-shadow: none; break-inside: avoid; }
+  .brief-card.collapsed .brief-points,
+  .brief-card.collapsed .assumption { display: block !important; }
   .layout { grid-template-columns: 1fr; }
 }
