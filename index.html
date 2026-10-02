@@ -61,16 +61,20 @@
     <section class="status-bar" id="status-bar" aria-label="Current status"></section>
     <div class="stats" id="stats"></div>
 
+    <section class="links-strip" id="links-strip" aria-label="Official links"></section>
+
     <nav class="section-nav" aria-label="Sections">
       <a href="#frontier">Frontier</a>
+      <a href="#stacks">Stacks</a>
       <a href="#x-posts">X posts</a>
       <a href="#history">History</a>
+      <a href="#starred" id="starred-nav" hidden>Starred</a>
     </nav>
 
     <section class="block" id="frontier">
       <div class="block-head">
         <h1>Frontier board</h1>
-        <p class="section-note">Higher-end Claude, GPT-6, Grok, and peers — price and independent AA where known.</p>
+        <p class="section-note">Higher-end Claude, GPT-6, Grok, and peers — price and independent AA where known. Bars scale to the highest AA in the table.</p>
       </div>
       <div class="table-wrap">
         <table class="frontier-table" id="frontier-table">
@@ -89,12 +93,21 @@
       </div>
     </section>
 
+    <section class="block" id="stacks">
+      <div class="block-head">
+        <h1>Useful stacks</h1>
+        <p class="section-note">How practitioners combine models — not prescriptions, patterns from the field.</p>
+      </div>
+      <div class="stack-grid" id="stack-grid"></div>
+    </section>
+
     <section class="block" id="x-posts">
       <div class="block-head">
         <h1>X signals</h1>
-        <p class="section-note">Curated posts including @AlexFinn, official accounts, and practitioner reviews.</p>
+        <p class="section-note">Curated posts: @AlexFinn, official accounts, reviews and benchmarks.</p>
       </div>
       <div class="x-filters" id="x-filters"></div>
+      <div class="x-author-filters" id="x-author-filters"></div>
       <div class="x-list" id="x-list"></div>
     </section>
 
@@ -106,6 +119,7 @@
       </label>
       <div class="filters" id="filters" role="group" aria-label="Filter by tag"></div>
       <div class="toolbar-end">
+        <button type="button" class="ghost-btn" id="btn-stars-only" title="Show starred only">Stars</button>
         <button type="button" class="ghost-btn" id="expand-all">Collapse</button>
         <button type="button" class="ghost-btn" id="clear-filters" hidden>Clear</button>
       </div>
@@ -130,6 +144,10 @@
           <h2>Watch next</h2>
           <ul class="watch-list" id="watch-list"></ul>
         </div>
+        <div class="panel" id="starred-panel" hidden>
+          <h2>Starred</h2>
+          <ul class="star-list" id="star-list"></ul>
+        </div>
         <div class="panel muted">
           <h2>Shortcuts</h2>
           <ul class="keys">
@@ -137,6 +155,7 @@
             <li><kbd>F</kbd> Focus</li>
             <li><kbd>D</kbd> Density</li>
             <li><kbd>E</kbd> Expand</li>
+            <li><kbd>S</kbd> Stars only</li>
             <li><kbd>Esc</kbd> Clear</li>
           </ul>
         </div>
@@ -153,6 +172,14 @@
       <p>Signal Brief · Grok + frontier + X · data in <code>data/briefs.json</code></p>
     </footer>
   </div>
+
+  <nav class="mobile-dock" aria-label="Quick jump">
+    <a href="#frontier">Frontier</a>
+    <a href="#stacks">Stacks</a>
+    <a href="#x-posts">X</a>
+    <a href="#history">History</a>
+  </nav>
+
   <div class="toast" id="toast" hidden role="status"></div>
   <script src="app.js"></script>
 </body>
