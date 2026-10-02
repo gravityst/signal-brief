@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+  <!-- Standalone line mark for light/dark via currentColor -->
+  <path d="M6 9h20M6 16h14M6 23h9" stroke="currentColor" stroke-width="2.25" stroke-linecap="round"/>
+  <circle cx="24" cy="16" r="2.5" fill="currentColor"/>
+</svg>
