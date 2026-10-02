@@ -1,10 +1,10 @@
 {
-  "updatedAt": "2026-10-02T14:15:00Z",
+  "updatedAt": "2026-10-02T14:45:00Z",
   "status": {
     "model": "Grok 4.7",
     "modelHint": "$2 / $6 · AA Index ~46 · 500k ctx",
     "desktop": "Grok Bot 0.63.0",
-    "desktopHint": "macOS + Windows stable",
+    "desktopHint": "macOS + Windows · ~400k WAU (mid-Sep)",
     "nextModel": "2–3 months",
     "nextModelHint": "Musk: Fable/GPT-6 level target",
     "cadence": "Mon · Wed · Fri",
@@ -13,13 +13,42 @@
   "reference": {
     "API model": "grok-4.7",
     "Pricing": "$2 in / $6 out per 1M",
-    "Desktop": "Grok Bot (Mac client)",
+    "Desktop": "Grok Bot (Mac + Windows)",
     "AA Index (indep.)": "Grok 4.7 ≈ 46 · Opus 5.5 ≈ 58 · Fable/Astra ≈ 53",
     "Watch": "@elonmusk · @SpaceXAI · @AlexFinn"
   },
+  "links": [
+    { "label": "API docs", "href": "https://docs.x.ai" },
+    { "label": "Console", "href": "https://console.x.ai" },
+    { "label": "Grok", "href": "https://grok.com" },
+    { "label": "@SpaceXAI", "href": "https://x.com/SpaceXAI" },
+    { "label": "@elonmusk", "href": "https://x.com/elonmusk" },
+    { "label": "@AlexFinn", "href": "https://x.com/AlexFinn" },
+    { "label": "GitHub", "href": "https://github.com/gravityst/signal-brief" }
+  ],
+  "stacks": [
+    {
+      "title": "Explore → Plan → Write",
+      "pattern": "Grok 4.7 explores cheap → Opus 5.5 plans → Grok/Astra stress-test → Grok writes",
+      "why": "Keeps spend low on exploration; puts the strongest planner on architecture; uses Grok where $/token matters for volume.",
+      "source": "Field pattern (@macfriendy and similar)"
+    },
+    {
+      "title": "Daily driver agent",
+      "pattern": "Grok Bot + Grok 4.7 for mobile/desktop agent loops; Opus 5.5 or Sonnet 5.5 for hard reasoning bursts",
+      "why": "@AlexFinn: Grok Bot wins on mobile harness; Opus/Sonnet 5.5 for intelligence + feel when the task is hard.",
+      "source": "@AlexFinn product takes"
+    },
+    {
+      "title": "Cost ladder",
+      "pattern": "Luna / Flash for fan-out → Sol or Grok 4.7 for mid → Opus / Astra / Fable for apex",
+      "why": "Match model tier to sub-task value. Parallel cheap agents, expensive models only on the critical path.",
+      "source": "Common multi-model agent design"
+    }
+  ],
   "watchNext": [
     "Named next-flagship (Grok 5 / successor) matching Musk 2–3 month bar",
-    "Grok Bot stable after 0.63.0",
+    "Grok Bot traction after ~400k weekly users (mid-Sep report)",
     "Terminal-Bench / CursorBench gap vs Opus 5.5 and Fable",
     "Claude Opus 5.5 and GPT-6 Sol/Luna adoption in agent stacks",
     "Independent AA Index moves for Grok after 4.7"
@@ -216,6 +245,7 @@
         "Vendor tables: Grok leads EEBench (64%) and Harvey Legal (19.6%); trails Fable on CursorBench (46.3% vs 51.8%) and Terminal-Bench (~38% vs ~56–58%).",
         "Claude Opus 5.5 (Sep 22) is the current independent composite leader at lower $ than Fable ($4/$20 vs $10/$50) with strong agentic coding scores.",
         "OpenAI GPT-6 line: Astra (Sep 3, flagship), Sol ($2/$10) and Luna ($0.10/$0.50) on Sep 22 for cost tiers under the same generation.",
+        "Grok Bot: ~418k weekly users reported mid-September (one month after Aug 11 beta) — product traction, not just model scores.",
         "GitHub Copilot weekly (Sep 25): added Opus 5.5, GPT-6 Sol/Luna, and Grok 4.7 — multi-model is the default product posture.",
         "X practitioners: multi-model stacks (Grok explore/write + Opus plan) and latency tests (Opus fastest, Grok slowest in one head-to-head) matter more than a single leaderboard row.",
         "@AlexFinn: strong on Grok 4.7 + Grok Bot workflows; also heavy Opus 5.5 / Sonnet 5.5 daily-driver takes — useful counterweight to pure benchmarks.",
