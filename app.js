@@ -8,7 +8,6 @@
     collapsed: "signal-collapsed",
   };
 
-  // Theme
   const storedTheme = localStorage.getItem(STORAGE.theme);
   if (storedTheme === "dark" || (!storedTheme && matchMedia("(prefers-color-scheme: dark)").matches)) {
     document.documentElement.setAttribute("data-theme", "dark");
@@ -24,7 +23,6 @@
     }
   });
 
-  // Density + focus prefs
   if (localStorage.getItem(STORAGE.density) === "compact") {
     document.documentElement.setAttribute("data-density", "compact");
     $("btn-density").textContent = "Compact";
@@ -80,7 +78,6 @@
 
   $("last-updated").textContent = "Updated " + formatWhen(data.updatedAt);
 
-  // New since last visit
   const seen = localStorage.getItem(STORAGE.seen);
   if (data.updatedAt && seen && data.updatedAt !== seen) {
     $("new-banner").hidden = false;
@@ -107,8 +104,74 @@
     .map(([k, v]) => `<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`)
     .join("");
 
-  const watch = data.watchNext || [];
-  $("watch-list").innerHTML = watch.map((w) => `<li>${esc(w)}</li>`).join("");
+  $("watch-list").innerHTML = (data.watchNext || []).map((w) => `<li>${esc(w)}</li>`).join("");
+
+  // Frontier table
+  const frontier = data.frontier || [];
+  const tb = document.querySelector("#frontier-table tbody");
+  if (tb) {
+    tb.innerHTML = frontier
+      .map((row) => {
+        const highlight = /grok/i.test(row.name || "") ? " class=\"is-grok\"" : "";
+        return `<tr${highlight}>
+          <td><strong>${esc(row.name)}</strong></td>
+          <td>${esc(row.org || "")}</td>
+          <td>${esc(row.released || "")}</td>
+          <td>${esc(row.price || "")}</td>
+          <td>${esc(row.aaIndex || "—")}</td>
+          <td>${esc(row.note || "")}</td>
+        </tr>`;
+      })
+      .join("");
+  }
+
+  // X posts
+  const xPosts = data.xPosts || [];
+  let xFilter = "all";
+  const xTopics = ["all", ...unique(xPosts.map((p) => p.topic).filter(Boolean))];
+  const xFiltersEl = $("x-filters");
+  if (xFiltersEl) {
+    xFiltersEl.innerHTML = xTopics
+      .map(
+        (t) =>
+          `<button type="button" class="chip${t === "all" ? " active" : ""}" data-xfilter="${esc(t)}">${esc(
+            t === "all" ? "All" : t
+          )}</button>`
+      )
+      .join("");
+    xFiltersEl.addEventListener("click", (e) => {
+      const btn = e.target.closest("[data-xfilter]");
+      if (!btn) return;
+      xFilter = btn.dataset.xfilter;
+      xFiltersEl.querySelectorAll(".chip").forEach((c) => c.classList.toggle("active", c === btn));
+      renderX();
+    });
+  }
+  renderX();
+
+  function renderX() {
+    const list = $("x-list");
+    if (!list) return;
+    const rows = xPosts.filter((p) => xFilter === "all" || p.topic === xFilter);
+    list.innerHTML = rows
+      .map(
+        (p) => `
+      <article class="x-card">
+        <div class="x-meta">
+          <span class="x-author">${esc(p.author || p.handle || "")}</span>
+          <span class="x-date">${esc(p.date || "")}</span>
+          ${p.topic ? `<span class="brief-tag">${esc(p.topic)}</span>` : ""}
+        </div>
+        <p class="x-text">${esc(p.text || "")}</p>
+        ${
+          p.url
+            ? `<a class="x-open" href="${esc(p.url)}" target="_blank" rel="noopener">Open on X →</a>`
+            : ""
+        }
+      </article>`
+      )
+      .join("");
+  }
 
   const allBriefs = data.briefs || [];
   const tags = ["all", ...unique(allBriefs.map((b) => b.tag).filter(Boolean))];
@@ -125,12 +188,13 @@
     })
     .join("");
 
-  // Stats
   const modelShip = allBriefs.find((b) => b.tag === "Model");
   $("stats").innerHTML = `
-    <span><strong>${allBriefs.length}</strong> briefs tracked</span>
-    <span>Latest model note · <strong>${esc(modelShip ? modelShip.dateLabel || modelShip.date : "—")}</strong></span>
+    <span><strong>${allBriefs.length}</strong> briefs</span>
+    <span><strong>${frontier.length}</strong> frontier rows</span>
+    <span><strong>${xPosts.length}</strong> X posts</span>
     <span>Flagship · <strong>${esc(status.model || "—")}</strong></span>
+    <span>Model ship · <strong>${esc(modelShip ? modelShip.dateLabel || modelShip.date : "—")}</strong></span>
   `;
 
   let filter = "all";
@@ -180,7 +244,6 @@
     saveCollapsed();
     render();
   });
-  $("expand-all").textContent = "Collapse";
 
   $("btn-export").addEventListener("click", () => {
     const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
@@ -192,14 +255,12 @@
     toast("Downloaded JSON");
   });
 
-  // Back to top
   const toTop = $("to-top");
   window.addEventListener("scroll", () => {
     toTop.hidden = window.scrollY < 400;
   });
   toTop.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
 
-  // Keyboard
   document.addEventListener("keydown", (e) => {
     const tag = (e.target && e.target.tagName) || "";
     const typing = tag === "INPUT" || tag === "TEXTAREA";
@@ -227,7 +288,6 @@
   });
 
   render();
-  // Deep link after render
   requestAnimationFrame(() => {
     const hash = location.hash.replace(/^#/, "");
     if (hash) openHash(hash);
@@ -236,6 +296,11 @@
 
   function openHash(hash) {
     if (!hash) return;
+    if (hash === "frontier" || hash === "x-posts" || hash === "history") {
+      const el = document.getElementById(hash);
+      if (el) el.scrollIntoView({ behavior: "smooth" });
+      return;
+    }
     const el = document.getElementById("brief-" + hash);
     if (!el) return;
     collapsed[hash] = false;
@@ -289,9 +354,7 @@
         (isUnread && i === 0 ? " unread" : "");
       article.id = "brief-" + (b.date || i);
 
-      const points = (b.points || [])
-        .map((p) => `<li>${highlight(esc(p), query)}</li>`)
-        .join("");
+      const points = (b.points || []).map((p) => `<li>${highlight(esc(p), query)}</li>`).join("");
       const assumption = b.assumption
         ? `<div class="assumption"><strong>Assumption.</strong> ${highlight(esc(b.assumption), query)}</div>`
         : "";
@@ -306,7 +369,7 @@
           ${b.tag ? `<span class="brief-tag">${esc(b.tag)}</span>` : ""}
           ${isUnread && i === 0 ? `<span class="pill-new">Updated</span>` : ""}
         </div>
-        <h2 class="brief-title"><button type="button" data-toggle title="Expand or collapse">${highlight(esc(b.title), query)}</button></h2>
+        <h2 class="brief-title"><button type="button" data-toggle>${highlight(esc(b.title), query)}</button></h2>
         <ul class="brief-points">${points}</ul>
         ${assumption}
         ${links ? `<div class="brief-links">${links}</div>` : ""}
@@ -350,7 +413,6 @@
   function updateClear() {
     $("clear-filters").hidden = filter === "all" && !query;
   }
-
   function loadCollapsed() {
     try {
       return JSON.parse(localStorage.getItem(STORAGE.collapsed) || "{}");
@@ -361,7 +423,6 @@
   function saveCollapsed() {
     localStorage.setItem(STORAGE.collapsed, JSON.stringify(collapsed));
   }
-
   function toast(msg) {
     const el = $("toast");
     el.textContent = msg;
@@ -371,16 +432,9 @@
       el.hidden = true;
     }, 1600);
   }
-
   function card(label, value, hint) {
-    return `
-      <div class="status-card">
-        <p class="label">${esc(label)}</p>
-        <p class="value">${esc(value)}</p>
-        ${hint ? `<p class="hint">${esc(hint)}</p>` : ""}
-      </div>`;
+    return `<div class="status-card"><p class="label">${esc(label)}</p><p class="value">${esc(value)}</p>${hint ? `<p class="hint">${esc(hint)}</p>` : ""}</div>`;
   }
-
   function formatWhen(iso) {
     if (!iso) return "—";
     try {
@@ -395,7 +449,6 @@
       return iso;
     }
   }
-
   function relative(dateStr) {
     if (!dateStr) return "";
     const d = new Date(dateStr + "T12:00:00Z");
@@ -407,14 +460,12 @@
     if (days < 60) return "about a month ago";
     return Math.round(days / 30) + " months ago";
   }
-
   function monthKey(dateStr) {
     if (!dateStr) return "";
     const d = new Date(dateStr + "T12:00:00Z");
     if (Number.isNaN(d.getTime())) return "";
     return d.toLocaleString(undefined, { month: "long", year: "numeric" });
   }
-
   function isNewerOrSameDay(dateStr, seenIso) {
     try {
       return new Date(dateStr + "T23:59:59Z") >= new Date(seenIso);
@@ -422,11 +473,9 @@
       return false;
     }
   }
-
   function unique(arr) {
     return [...new Set(arr)];
   }
-
   function highlight(htmlEscaped, q) {
     if (!q) return htmlEscaped;
     const safe = q.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
@@ -436,7 +485,6 @@
       return htmlEscaped;
     }
   }
-
   function esc(s) {
     return String(s)
       .replace(/&/g, "&amp;")
