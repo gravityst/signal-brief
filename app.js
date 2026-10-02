@@ -6,6 +6,7 @@
     focus: "signal-focus",
     seen: "signal-seen-updated",
     collapsed: "signal-collapsed",
+    stars: "signal-stars",
   };
 
   const storedTheme = localStorage.getItem(STORAGE.theme);
@@ -91,6 +92,9 @@
     toast("Marked as seen");
   });
 
+  let stars = loadStars();
+  let starsOnly = false;
+
   const status = data.status || {};
   $("status-bar").innerHTML = [
     card("Flagship model", status.model || "—", status.modelHint),
@@ -106,36 +110,78 @@
 
   $("watch-list").innerHTML = (data.watchNext || []).map((w) => `<li>${esc(w)}</li>`).join("");
 
-  // Frontier table
+  // Official links strip
+  const links = data.links || [
+    { label: "API docs", href: "https://docs.x.ai" },
+    { label: "Console", href: "https://console.x.ai" },
+    { label: "Grok", href: "https://grok.com" },
+    { label: "@SpaceXAI", href: "https://x.com/SpaceXAI" },
+    { label: "@elonmusk", href: "https://x.com/elonmusk" },
+    { label: "@AlexFinn", href: "https://x.com/AlexFinn" },
+  ];
+  $("links-strip").innerHTML = links
+    .map((l) => `<a class="link-chip" href="${esc(l.href)}" target="_blank" rel="noopener">${esc(l.label)}</a>`)
+    .join("");
+
+  // Stacks
+  const stacks = data.stacks || [];
+  $("stack-grid").innerHTML = stacks.length
+    ? stacks
+        .map(
+          (s) => `
+      <article class="stack-card">
+        <h3>${esc(s.title || "")}</h3>
+        <p class="stack-pattern">${esc(s.pattern || "")}</p>
+        <p class="stack-why">${esc(s.why || "")}</p>
+        ${s.source ? `<p class="stack-source">${esc(s.source)}</p>` : ""}
+      </article>`
+        )
+        .join("")
+    : `<p class="section-note">No stacks in data yet.</p>`;
+
+  // Frontier table with AA bars
   const frontier = data.frontier || [];
+  const aaNums = frontier
+    .map((r) => parseFloat(String(r.aaIndex || "").replace(/[^0-9.]/g, "")))
+    .filter((n) => !Number.isNaN(n) && n > 0);
+  const aaMax = aaNums.length ? Math.max(...aaNums) : 60;
   const tb = document.querySelector("#frontier-table tbody");
   if (tb) {
     tb.innerHTML = frontier
       .map((row) => {
         const highlight = /grok/i.test(row.name || "") ? " class=\"is-grok\"" : "";
+        const num = parseFloat(String(row.aaIndex || "").replace(/[^0-9.]/g, ""));
+        const pct = !Number.isNaN(num) && num > 0 ? Math.round((num / aaMax) * 100) : 0;
+        const bar =
+          pct > 0
+            ? `<div class="aa-cell"><span class="aa-num">${esc(row.aaIndex)}</span><span class="aa-bar" aria-hidden="true"><i style="width:${pct}%"></i></span></div>`
+            : `<span class="aa-num">${esc(row.aaIndex || "—")}</span>`;
         return `<tr${highlight}>
           <td><strong>${esc(row.name)}</strong></td>
           <td>${esc(row.org || "")}</td>
           <td>${esc(row.released || "")}</td>
           <td>${esc(row.price || "")}</td>
-          <td>${esc(row.aaIndex || "—")}</td>
+          <td>${bar}</td>
           <td>${esc(row.note || "")}</td>
         </tr>`;
       })
       .join("");
   }
 
-  // X posts
+  // X posts — topic + author filters
   const xPosts = data.xPosts || [];
   let xFilter = "all";
+  let xAuthor = "all";
   const xTopics = ["all", ...unique(xPosts.map((p) => p.topic).filter(Boolean))];
+  const xAuthors = ["all", ...unique(xPosts.map((p) => p.handle || (p.author || "").replace(/^@/, "")).filter(Boolean))];
+
   const xFiltersEl = $("x-filters");
   if (xFiltersEl) {
     xFiltersEl.innerHTML = xTopics
       .map(
         (t) =>
           `<button type="button" class="chip${t === "all" ? " active" : ""}" data-xfilter="${esc(t)}">${esc(
-            t === "all" ? "All" : t
+            t === "all" ? "All topics" : t
           )}</button>`
       )
       .join("");
@@ -147,18 +193,44 @@
       renderX();
     });
   }
+
+  const xAuthorEl = $("x-author-filters");
+  if (xAuthorEl) {
+    xAuthorEl.innerHTML = xAuthors
+      .map((a) => {
+        const label = a === "all" ? "All authors" : "@" + a;
+        const special = a === "AlexFinn" ? " chip-priority" : "";
+        return `<button type="button" class="chip${special}${a === "all" ? " active" : ""}" data-xauthor="${esc(a)}">${esc(label)}</button>`;
+      })
+      .join("");
+    xAuthorEl.addEventListener("click", (e) => {
+      const btn = e.target.closest("[data-xauthor]");
+      if (!btn) return;
+      xAuthor = btn.dataset.xauthor;
+      xAuthorEl.querySelectorAll(".chip").forEach((c) => c.classList.toggle("active", c === btn));
+      renderX();
+    });
+  }
   renderX();
 
   function renderX() {
     const list = $("x-list");
     if (!list) return;
-    const rows = xPosts.filter((p) => xFilter === "all" || p.topic === xFilter);
-    list.innerHTML = rows
-      .map(
-        (p) => `
-      <article class="x-card">
+    const rows = xPosts.filter((p) => {
+      if (xFilter !== "all" && p.topic !== xFilter) return false;
+      const h = p.handle || (p.author || "").replace(/^@/, "");
+      if (xAuthor !== "all" && h !== xAuthor) return false;
+      return true;
+    });
+    list.innerHTML = rows.length
+      ? rows
+          .map((p) => {
+            const h = p.handle || (p.author || "").replace(/^@/, "");
+            const isFinn = h === "AlexFinn";
+            return `
+      <article class="x-card${isFinn ? " x-priority" : ""}">
         <div class="x-meta">
-          <span class="x-author">${esc(p.author || p.handle || "")}</span>
+          <span class="x-author">${esc(p.author || "@" + h)}</span>
           <span class="x-date">${esc(p.date || "")}</span>
           ${p.topic ? `<span class="brief-tag">${esc(p.topic)}</span>` : ""}
         </div>
@@ -168,9 +240,10 @@
             ? `<a class="x-open" href="${esc(p.url)}" target="_blank" rel="noopener">Open on X →</a>`
             : ""
         }
-      </article>`
-      )
-      .join("");
+      </article>`;
+          })
+          .join("")
+      : `<p class="empty-inline">No posts match these filters.</p>`;
   }
 
   const allBriefs = data.briefs || [];
@@ -191,8 +264,9 @@
   const modelShip = allBriefs.find((b) => b.tag === "Model");
   $("stats").innerHTML = `
     <span><strong>${allBriefs.length}</strong> briefs</span>
-    <span><strong>${frontier.length}</strong> frontier rows</span>
+    <span><strong>${frontier.length}</strong> frontier</span>
     <span><strong>${xPosts.length}</strong> X posts</span>
+    <span><strong>${stacks.length}</strong> stacks</span>
     <span>Flagship · <strong>${esc(status.model || "—")}</strong></span>
     <span>Model ship · <strong>${esc(modelShip ? modelShip.dateLabel || modelShip.date : "—")}</strong></span>
   `;
@@ -224,8 +298,17 @@
   $("clear-filters").addEventListener("click", () => {
     filter = "all";
     query = "";
+    starsOnly = false;
     $("search").value = "";
     $("filters").querySelectorAll(".chip").forEach((c) => c.classList.toggle("active", c.dataset.filter === "all"));
+    $("btn-stars-only").classList.remove("active-toggle");
+    updateClear();
+    render();
+  });
+
+  $("btn-stars-only").addEventListener("click", () => {
+    starsOnly = !starsOnly;
+    $("btn-stars-only").classList.toggle("active-toggle", starsOnly);
     updateClear();
     render();
   });
@@ -285,9 +368,11 @@
     if (e.key === "f" || e.key === "F") toggleFocus();
     if (e.key === "d" || e.key === "D") toggleDensity();
     if (e.key === "e" || e.key === "E") $("expand-all").click();
+    if (e.key === "s" || e.key === "S") $("btn-stars-only").click();
   });
 
   render();
+  updateStarPanel();
   requestAnimationFrame(() => {
     const hash = location.hash.replace(/^#/, "");
     if (hash) openHash(hash);
@@ -296,9 +381,16 @@
 
   function openHash(hash) {
     if (!hash) return;
-    if (hash === "frontier" || hash === "x-posts" || hash === "history") {
+    if (["frontier", "x-posts", "history", "stacks"].includes(hash)) {
       const el = document.getElementById(hash);
       if (el) el.scrollIntoView({ behavior: "smooth" });
+      return;
+    }
+    if (hash === "starred") {
+      starsOnly = true;
+      $("btn-stars-only").classList.add("active-toggle");
+      render();
+      $("history").scrollIntoView({ behavior: "smooth" });
       return;
     }
     const el = document.getElementById("brief-" + hash);
@@ -316,6 +408,7 @@
 
   function render() {
     const filtered = allBriefs.filter((b) => {
+      if (starsOnly && !stars[b.date]) return false;
       if (filter !== "all" && (b.tag || "") !== filter) return false;
       if (!query) return true;
       const blob = [b.title, b.dateLabel, b.tag, ...(b.points || []), b.assumption || ""]
@@ -325,11 +418,12 @@
     });
 
     $("result-count").textContent =
-      filtered.length === allBriefs.length
+      filtered.length === allBriefs.length && !starsOnly
         ? "Confirmed signals first. Assumptions labeled."
-        : filtered.length + " of " + allBriefs.length + " briefs";
+        : filtered.length + " of " + allBriefs.length + " briefs" + (starsOnly ? " · starred" : "");
 
     $("empty").hidden = filtered.length > 0;
+    $("empty").textContent = starsOnly ? "No starred briefs yet. Star one from History." : "No briefs match.";
     const list = $("brief-list");
     list.innerHTML = "";
 
@@ -346,19 +440,21 @@
 
       const isCollapsed = !!collapsed[b.date];
       const isUnread = seen && data.updatedAt && b.date && isNewerOrSameDay(b.date, seen);
+      const isStarred = !!stars[b.date];
       const article = document.createElement("article");
       article.className =
         "brief-card" +
-        (i === 0 && filter === "all" && !query ? " latest" : "") +
+        (i === 0 && filter === "all" && !query && !starsOnly ? " latest" : "") +
         (isCollapsed ? " collapsed" : "") +
-        (isUnread && i === 0 ? " unread" : "");
+        (isUnread && i === 0 ? " unread" : "") +
+        (isStarred ? " starred" : "");
       article.id = "brief-" + (b.date || i);
 
       const points = (b.points || []).map((p) => `<li>${highlight(esc(p), query)}</li>`).join("");
       const assumption = b.assumption
         ? `<div class="assumption"><strong>Assumption.</strong> ${highlight(esc(b.assumption), query)}</div>`
         : "";
-      const links = (b.links || [])
+      const linksHtml = (b.links || [])
         .map((l) => `<a href="${esc(l.href)}" rel="noopener" target="_blank">${esc(l.label)}</a>`)
         .join("");
 
@@ -368,12 +464,14 @@
           <span class="brief-ago">${relative(b.date)}</span>
           ${b.tag ? `<span class="brief-tag">${esc(b.tag)}</span>` : ""}
           ${isUnread && i === 0 ? `<span class="pill-new">Updated</span>` : ""}
+          ${isStarred ? `<span class="pill-star">Starred</span>` : ""}
         </div>
         <h2 class="brief-title"><button type="button" data-toggle>${highlight(esc(b.title), query)}</button></h2>
         <ul class="brief-points">${points}</ul>
         ${assumption}
-        ${links ? `<div class="brief-links">${links}</div>` : ""}
+        ${linksHtml ? `<div class="brief-links">${linksHtml}</div>` : ""}
         <div class="card-actions">
+          <button type="button" data-star>${isStarred ? "Unstar" : "Star"}</button>
           <button type="button" data-copy>Copy</button>
           <button type="button" data-link>Link</button>
           <button type="button" data-toggle>${isCollapsed ? "Expand" : "Collapse"}</button>
@@ -385,6 +483,15 @@
           saveCollapsed();
           render();
         });
+      });
+
+      article.querySelector("[data-star]").addEventListener("click", () => {
+        if (stars[b.date]) delete stars[b.date];
+        else stars[b.date] = b.title || b.date;
+        saveStars();
+        updateStarPanel();
+        render();
+        toast(stars[b.date] ? "Starred" : "Unstarred");
       });
 
       article.querySelector("[data-copy]").addEventListener("click", () => {
@@ -410,8 +517,24 @@
     });
   }
 
+  function updateStarPanel() {
+    const keys = Object.keys(stars);
+    const panel = $("starred-panel");
+    const nav = $("starred-nav");
+    if (!keys.length) {
+      panel.hidden = true;
+      nav.hidden = true;
+      return;
+    }
+    panel.hidden = false;
+    nav.hidden = false;
+    $("star-list").innerHTML = keys
+      .map((d) => `<li><a href="#${esc(d)}">${esc(stars[d] || d)}</a></li>`)
+      .join("");
+  }
+
   function updateClear() {
-    $("clear-filters").hidden = filter === "all" && !query;
+    $("clear-filters").hidden = filter === "all" && !query && !starsOnly;
   }
   function loadCollapsed() {
     try {
@@ -422,6 +545,16 @@
   }
   function saveCollapsed() {
     localStorage.setItem(STORAGE.collapsed, JSON.stringify(collapsed));
+  }
+  function loadStars() {
+    try {
+      return JSON.parse(localStorage.getItem(STORAGE.stars) || "{}");
+    } catch {
+      return {};
+    }
+  }
+  function saveStars() {
+    localStorage.setItem(STORAGE.stars, JSON.stringify(stars));
   }
   function toast(msg) {
     const el = $("toast");
@@ -487,9 +620,9 @@
   }
   function esc(s) {
     return String(s)
-      .replace(/&/g, "&amp;")
-      .replace(/</g, "&lt;")
-      .replace(/>/g, "&gt;")
-      .replace(/"/g, "&quot;");
+      .replace(/&/g, "&")
+      .replace(/</g, "<")
+      .replace(/>/g, ">")
+      .replace(/"/g, """);
   }
 })();
