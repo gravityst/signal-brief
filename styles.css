@@ -121,14 +121,32 @@ kbd {
   margin-bottom: 18px;
 }
 
-.brand { display: flex; gap: 14px; align-items: center; }
+.brand { display: flex; gap: 12px; align-items: center; }
+
+/* Minimal product-style mark: rounded square + line icon */
 .mark {
-  width: 13px;
-  height: 13px;
-  border-radius: 3px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
   background: var(--accent);
-  box-shadow: 0 0 0 5px var(--accent-soft);
+  color: #ecfdf5;
+  flex-shrink: 0;
+  box-shadow: 0 0 0 4px var(--accent-soft);
 }
+
+.mark-svg {
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+
+[data-theme="dark"] .mark {
+  color: #042f2e;
+}
+
 .brand-name {
   margin: 0;
   font-weight: 650;
