@@ -1,4 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180">
+  <!-- Signal Brief home-screen mark -->
   <rect width="180" height="180" rx="40" fill="#0f766e"/>
   <g fill="none" stroke="#ecfdf5" stroke-width="12" stroke-linecap="round">
     <path d="M40 55h100"/>
