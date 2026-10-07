@@ -110,7 +110,6 @@
 
   $("watch-list").innerHTML = (data.watchNext || []).map((w) => `<li>${esc(w)}</li>`).join("");
 
-  // Official links strip
   const links = data.links || [
     { label: "API docs", href: "https://docs.x.ai" },
     { label: "Console", href: "https://console.x.ai" },
@@ -123,7 +122,6 @@
     .map((l) => `<a class="link-chip" href="${esc(l.href)}" target="_blank" rel="noopener">${esc(l.label)}</a>`)
     .join("");
 
-  // Stacks
   const stacks = data.stacks || [];
   $("stack-grid").innerHTML = stacks.length
     ? stacks
@@ -139,7 +137,6 @@
         .join("")
     : `<p class="section-note">No stacks in data yet.</p>`;
 
-  // Frontier table with AA bars
   const frontier = data.frontier || [];
   const aaNums = frontier
     .map((r) => parseFloat(String(r.aaIndex || "").replace(/[^0-9.]/g, "")))
@@ -168,7 +165,6 @@
       .join("");
   }
 
-  // X posts — topic + author filters
   const xPosts = data.xPosts || [];
   let xFilter = "all";
   let xAuthor = "all";
@@ -487,38 +483,45 @@
 
       article.querySelector("[data-star]").addEventListener("click", () => {
         if (stars[b.date]) delete stars[b.date];
-        else stars[b.date] = b.title || b.date;
+        else stars[b.date] = true;
         saveStars();
         updateStarPanel();
         render();
-        toast(stars[b.date] ? "Starred" : "Unstarred");
       });
 
-      article.querySelector("[data-copy]").addEventListener("click", () => {
-        const text = [
-          b.dateLabel || b.date,
-          b.title,
-          "",
-          ...(b.points || []).map((p) => "• " + p),
-          b.assumption ? "\nAssumption: " + b.assumption : "",
-        ]
+      article.querySelector("[data-copy]").addEventListener("click", async () => {
+        const text = [b.dateLabel || b.date, b.title, ...(b.points || []), b.assumption ? "Assumption: " + b.assumption : ""]
           .filter(Boolean)
           .join("\n");
-        navigator.clipboard.writeText(text).then(() => toast("Copied brief"));
+        try {
+          await navigator.clipboard.writeText(text);
+          toast("Copied brief");
+        } catch {
+          toast("Copy failed");
+        }
       });
 
-      article.querySelector("[data-link]").addEventListener("click", () => {
-        const url = location.origin + location.pathname + "#" + b.date;
-        navigator.clipboard.writeText(url).then(() => toast("Link copied"));
-        history.replaceState(null, "", "#" + b.date);
+      article.querySelector("[data-link]").addEventListener("click", async () => {
+        const url = location.origin + location.pathname + "#" + (b.date || "");
+        try {
+          await navigator.clipboard.writeText(url);
+          toast("Link copied");
+        } catch {
+          toast("Copy failed");
+        }
       });
 
       list.appendChild(article);
     });
   }
 
+  function updateClear() {
+    const on = filter !== "all" || query || starsOnly;
+    $("clear-filters").hidden = !on;
+  }
+
   function updateStarPanel() {
-    const keys = Object.keys(stars);
+    const keys = Object.keys(stars).filter((k) => stars[k]);
     const panel = $("starred-panel");
     const nav = $("starred-nav");
     if (!keys.length) {
@@ -529,12 +532,23 @@
     panel.hidden = false;
     nav.hidden = false;
     $("star-list").innerHTML = keys
-      .map((d) => `<li><a href="#${esc(d)}">${esc(stars[d] || d)}</a></li>`)
+      .map((d) => {
+        const b = allBriefs.find((x) => x.date === d);
+        const title = b ? b.title : d;
+        return `<li><a href="#${esc(d)}">${esc(title)}</a></li>`;
+      })
       .join("");
   }
 
-  function updateClear() {
-    $("clear-filters").hidden = filter === "all" && !query && !starsOnly;
+  function loadStars() {
+    try {
+      return JSON.parse(localStorage.getItem(STORAGE.stars) || "{}");
+    } catch {
+      return {};
+    }
+  }
+  function saveStars() {
+    localStorage.setItem(STORAGE.stars, JSON.stringify(stars));
   }
   function loadCollapsed() {
     try {
@@ -546,15 +560,11 @@
   function saveCollapsed() {
     localStorage.setItem(STORAGE.collapsed, JSON.stringify(collapsed));
   }
-  function loadStars() {
-    try {
-      return JSON.parse(localStorage.getItem(STORAGE.stars) || "{}");
-    } catch {
-      return {};
-    }
-  }
-  function saveStars() {
-    localStorage.setItem(STORAGE.stars, JSON.stringify(stars));
+
+  function card(label, value, hint) {
+    return `<div class="status-card"><p class="status-label">${esc(label)}</p><p class="status-value">${esc(value)}</p>${
+      hint ? `<p class="status-hint">${esc(hint)}</p>` : ""
+    }</div>`;
   }
   function toast(msg) {
     const el = $("toast");
@@ -563,20 +573,14 @@
     clearTimeout(toast._t);
     toast._t = setTimeout(() => {
       el.hidden = true;
-    }, 1600);
-  }
-  function card(label, value, hint) {
-    return `<div class="status-card"><p class="label">${esc(label)}</p><p class="value">${esc(value)}</p>${hint ? `<p class="hint">${esc(hint)}</p>` : ""}</div>`;
+    }, 1800);
   }
   function formatWhen(iso) {
     if (!iso) return "—";
     try {
       return new Date(iso).toLocaleString(undefined, {
-        year: "numeric",
-        month: "short",
-        day: "numeric",
-        hour: "numeric",
-        minute: "2-digit",
+        dateStyle: "medium",
+        timeStyle: "short",
       });
     } catch {
       return iso;
@@ -584,14 +588,16 @@
   }
   function relative(dateStr) {
     if (!dateStr) return "";
-    const d = new Date(dateStr + "T12:00:00Z");
-    if (Number.isNaN(d.getTime())) return "";
-    const days = Math.round((Date.now() - d.getTime()) / 86400000);
-    if (days <= 0) return "today";
-    if (days === 1) return "1 day ago";
-    if (days < 30) return days + " days ago";
-    if (days < 60) return "about a month ago";
-    return Math.round(days / 30) + " months ago";
+    try {
+      const d = new Date(dateStr + "T12:00:00Z");
+      const days = Math.round((Date.now() - d.getTime()) / 86400000);
+      if (days <= 0) return "today";
+      if (days === 1) return "yesterday";
+      if (days < 14) return days + "d ago";
+      return "";
+    } catch {
+      return "";
+    }
   }
   function monthKey(dateStr) {
     if (!dateStr) return "";
@@ -620,9 +626,9 @@
   }
   function esc(s) {
     return String(s)
-      .replace(/&/g, "&")
-      .replace(/</g, "<")
-      .replace(/>/g, ">")
-      .replace(/"/g, """);
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;");
   }
 })();
