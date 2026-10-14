@@ -1,1 +1,373 @@
-PLACEHOLDER
+{
+  "updatedAt": "2026-10-14T14:43:00Z",
+  "status": {
+    "model": "Grok 4.7",
+    "modelHint": "$2 / $6 · AA Index ~46.4 · 500k ctx",
+    "desktop": "Grok Bot 0.70.2",
+    "desktopHint": "macOS + Windows · bot email, X search, payments, slide decks",
+    "nextModel": "late Nov–Dec",
+    "nextModelHint": "Musk Sep 24: Fable/GPT-6 level in 2–3 months",
+    "cadence": "Mon · Wed · Fri",
+    "cadenceHint": "Brief + site · Central"
+  },
+  "reference": {
+    "API model": "grok-4.7",
+    "Pricing": "$2 in / $6 out per 1M (≤200k; doubles above)",
+    "Desktop": "Grok Bot 0.70.2 (Mac + Windows, Oct 11; bot email + X search + payments)",
+    "AA Index (indep.)": "Opus 5.5 57.6 · Sonnet 5.5 56 · Fable 5.1 53.4 · Astra 52.7 · Argon 52.6 · GPT-6.1 Sol 51.8 · Grok 4.7 46.4",
+    "Watch": "@elonmusk · @SpaceXSI · @AlexFinn"
+  },
+  "links": [
+    { "label": "API docs", "href": "https://docs.x.ai" },
+    { "label": "Console", "href": "https://console.x.ai" },
+    { "label": "Grok", "href": "https://grok.com" },
+    { "label": "Bot changelog", "href": "https://x.ai/changelog/bot" },
+    { "label": "@SpaceXSI", "href": "https://x.com/SpaceXSI" },
+    { "label": "@elonmusk", "href": "https://x.com/elonmusk" },
+    { "label": "@AlexFinn", "href": "https://x.com/AlexFinn" },
+    { "label": "GitHub", "href": "https://github.com/gravityst/signal-brief" }
+  ],
+  "stacks": [
+    {
+      "title": "Explore → Plan → Write",
+      "pattern": "Grok 4.7 explores cheap → Opus 5.5 plans → Grok/Astra stress-test → Grok writes",
+      "why": "Keeps spend low on exploration; puts the strongest planner on architecture; uses Grok where $/token matters for volume.",
+      "source": "Field pattern (@macfriendy and similar)"
+    },
+    {
+      "title": "Daily driver agent",
+      "pattern": "Grok Bot for knowledge-work loops and autonomous side projects; Opus 5.5 or Sonnet 5.5 when the task is hard reasoning",
+      "why": "@AlexFinn treats Grok Bot as a knowledge worker that can ship sites and PRs; Musk says Bot routes to best backend including Opus.",
+      "source": "@AlexFinn product takes + Musk Oct 7 + Oct 11–14 demos"
+    },
+    {
+      "title": "Cost ladder",
+      "pattern": "Luna / Flash for fan-out → Sol, Sonnet 5.5, or Grok 4.7 for mid → Opus / Astra / Fable / Argon for apex",
+      "why": "Match model tier to sub-task value. Parallel cheap agents, expensive models only on the critical path.",
+      "source": "Common multi-model agent design"
+    }
+  ],
+  "watchNext": [
+    "Reliability and cost of Grok Bot shopping / tax / music-video flows (routing to Opus/Suno/Midjourney)",
+    "Adoption and usage caps of The X Subscription (Premium $30 for latest Grok + Bot)",
+    "Named next-flagship vs Musk's late Nov–Dec Fable/GPT-6 bar",
+    "Whether SpaceXSI rebrand is fully rolled out on docs and products",
+    "Gemini 4 Argon public API access and intro price duration"
+  ],
+  "frontier": [
+    {
+      "name": "Claude Opus 5.5",
+      "org": "Anthropic",
+      "released": "2026-09-22",
+      "price": "$4 / $20",
+      "aaIndex": "57.6",
+      "note": "AA Intelligence Index lead (max effort). $4/$20, cache reads $0.20. Strong on HLE, SciCode, Terminal-Bench. 1M context."
+    },
+    {
+      "name": "Claude Sonnet 5.5",
+      "org": "Anthropic",
+      "released": "2026-09-28",
+      "price": "$2 / $10",
+      "aaIndex": "56",
+      "note": "Mid-tier near Opus on AA (56). Practitioner default for daily work; often ahead of GPT-6.1 Sol at the same list price."
+    },
+    {
+      "name": "Claude Fable 5.1",
+      "org": "Anthropic",
+      "released": "2026-09-01",
+      "price": "$10 / $50",
+      "aaIndex": "53.4",
+      "note": "Premium long-horizon tier. Still ahead of Grok 4.7 on vendor CursorBench and Terminal-Bench; AA composite below Opus 5.5."
+    },
+    {
+      "name": "GPT-6 Astra",
+      "org": "OpenAI",
+      "released": "2026-09-03",
+      "price": "$10 / $50",
+      "aaIndex": "52.7",
+      "note": "OpenAI flagship. AA 52.7 at max. Fewer output tokens per index task than peers. Long-context surcharge above 272k."
+    },
+    {
+      "name": "GPT-6.1 Sol",
+      "org": "OpenAI",
+      "released": "2026-09-29",
+      "price": "$2 / $10",
+      "aaIndex": "51.8",
+      "note": "Current Sol line. Reported AA 51.8. Workhorse under a stronger planner."
+    },
+    {
+      "name": "GPT-6 Luna",
+      "org": "OpenAI",
+      "released": "2026-09-22",
+      "price": "$0.10 / $0.50",
+      "aaIndex": "—",
+      "note": "Cheap fan-out tier. No published flagship index score."
+    },
+    {
+      "name": "Gemini 4 Argon",
+      "org": "Google",
+      "released": "2026-09-30",
+      "price": "$2 / $10 intro",
+      "aaIndex": "52.6",
+      "note": "AA 52.6 at high. Intro 50% off list $4/$20. 1M context. Public access limited."
+    },
+    {
+      "name": "Grok 4.7",
+      "org": "SpaceXSI",
+      "released": "2026-09-21",
+      "price": "$2 / $6",
+      "aaIndex": "46.4",
+      "note": "Flagship. Price/performance, not AA peak. Vendor wins on some specialist benches; trails on Terminal-Bench and the AA composite."
+    }
+  ],
+  "xPosts": [
+    {
+      "date": "2026-10-14",
+      "author": "@elonmusk",
+      "handle": "elonmusk",
+      "text": "Amplifies Grok Bot tax review: user dumped 266 financial files; Bot found CPA errors (missing mortgage interest, double-counted HSA, etc.), led to amended return in hours with ~90s of user time.",
+      "topic": "Product",
+      "url": "https://x.com/elonmusk/status/2110253157758673079"
+    },
+    {
+      "date": "2026-10-14",
+      "author": "@elonmusk",
+      "handle": "elonmusk",
+      "text": "Amplifies Grok Bot making music videos autonomously using Suno, Midjourney, and Opus.",
+      "topic": "Product",
+      "url": "https://x.com/elonmusk/status/2110244638900773147"
+    },
+    {
+      "date": "2026-10-14",
+      "author": "@elonmusk",
+      "handle": "elonmusk",
+      "text": "Amplifies Grok Bot handling complex overseas tax filing: organized documents, filled forms, saved >$1k.",
+      "topic": "Product",
+      "url": "https://x.com/elonmusk/status/2110223110003982788"
+    },
+    {
+      "date": "2026-10-14",
+      "author": "@AlexFinn",
+      "handle": "AlexFinn",
+      "text": "Grok Bot built and maintains fully autonomous microbusiness (agentusecases.ai): $1,100 generated, 56k visitors, 2 sponsors, 40+ PRs, SEO optimized. Walkthrough video of setup process.",
+      "topic": "Workflow",
+      "url": "https://x.com/AlexFinn/status/2110181971280433613"
+    },
+    {
+      "date": "2026-10-13",
+      "author": "@AlexFinn",
+      "handle": "AlexFinn",
+      "text": "Autonomous Grok Bot business update: $1,100, 56k visitors / 123k page views, 2 sponsors. Details process: idea from audience posts, build, autonomous maintenance (SEO, newsletter, PRs, monetize).",
+      "topic": "Workflow",
+      "url": "https://x.com/AlexFinn/status/2110082377552888312"
+    },
+    {
+      "date": "2026-10-12",
+      "author": "@elonmusk",
+      "handle": "elonmusk",
+      "text": "Amplifies Grok Bot in Tesla Cybercab: sign in once, Bots available on rides, auto-logout on exit. Voice tasks including Amazon cart, email, coffee, calendar.",
+      "topic": "Product",
+      "url": "https://x.com/elonmusk/status/2109507243007979558"
+    },
+    {
+      "date": "2026-10-11",
+      "author": "@elonmusk",
+      "handle": "elonmusk",
+      "text": "Confirms Grok Bot bought an iPhone 18 Pro Max by emailing stores, verifying stock, ordering, and delivering. Frames Bot as 24/7 resourceful employee.",
+      "topic": "Product",
+      "url": "https://x.com/elonmusk/status/2109387553010851887"
+    },
+    {
+      "date": "2026-10-11",
+      "author": "@AlexFinn",
+      "handle": "AlexFinn",
+      "text": "Tool stack: Claude Code in Herdr (Opus 5.5), ChatGPT Voice, Grok Bot for knowledge work, Hark personal, Hermes/Qwen local, Claude Fable for planning.",
+      "topic": "Workflow",
+      "url": "https://x.com/AlexFinn/status/2109475532580729170"
+    },
+    {
+      "date": "2026-10-10",
+      "author": "@AlexFinn",
+      "handle": "AlexFinn",
+      "text": "Anthropic 5.5 family (Opus/Sonnet/Haiku) best in class; speed and usage strong. Multi-agent via Herdr with Haiku subagents.",
+      "topic": "Review",
+      "url": "https://x.com/AlexFinn/status/2108747211198840866"
+    },
+    {
+      "date": "2026-10-07",
+      "author": "@elonmusk",
+      "handle": "elonmusk",
+      "text": "Grok Bot will use the best backend model per task, including Claude Opus 5.5, Midjourney, Suno, and other APIs.",
+      "topic": "Product",
+      "url": "https://x.com/elonmusk/status/2107724314451878104"
+    },
+    {
+      "date": "2026-10-07",
+      "author": "@SpaceXSI",
+      "handle": "SpaceXSI",
+      "text": "Grok 4.7 is now live on Microsoft Foundry.",
+      "topic": "Product",
+      "url": "https://x.com/SpaceXSI/status/2107623124909060174"
+    },
+    {
+      "date": "2026-10-02",
+      "author": "@SergeForge",
+      "handle": "SergeForge",
+      "text": "Bug-fix latency: Opus 5.5 16s · Astra 44s · Sol 79s · Grok 4.7 160s. All passed hidden tests.",
+      "topic": "Benchmark",
+      "url": "https://x.com/SergeForge/status/2106002831451058526"
+    },
+    {
+      "date": "2026-09-24",
+      "author": "@elonmusk",
+      "handle": "elonmusk",
+      "text": "Cautiously optimistic SpaceX will have a Fable/GPT-6 level model in 2 to 3 months.",
+      "topic": "Roadmap",
+      "url": "https://x.com/elonmusk/status/2103151040858067289"
+    },
+    {
+      "date": "2026-09-21",
+      "author": "@AlexFinn",
+      "handle": "AlexFinn",
+      "text": "Grok 4.7 excellent for Grok Bot / agentic knowledge work; better than Opus 5 at half price in his use.",
+      "topic": "Review",
+      "url": "https://x.com/AlexFinn/status/2102188069483155841"
+    }
+  ],
+  "briefs": [
+    {
+      "date": "2026-10-14",
+      "dateLabel": "Tue, Oct 14, 2026",
+      "tag": "Product",
+      "title": "The X Subscription + Grok Bot autonomy demos",
+      "points": [
+        "SpaceXSI launched The X Subscription (Oct 12–13): unified tiers bundling X Premium, Grok, Grok Bot, and Cursor. Free / Plus $8 / Premium $30 / Super $100 / Ultra $200. Shared weekly AI usage pool. Premium+ required for latest Grok models and full Bot. Migration from existing plans rolling out; claims more usage-per-dollar than prior separate plans.",
+        "Desktop advanced to 0.70.2 (Oct 11): bots can claim own email (approval on send), search X without account connection, pay via X Money/Stripe Link, interactive app cards (Figma/Notion/Canva), and other reliability fixes. Builds on 0.68.1 slide decks and formatted email.",
+        "Musk amplifying Grok Bot real-world use (Oct 14): tax review of 266 unlabeled files finding CPA errors leading to amended return; autonomous music video creation routing to Suno/Midjourney/Opus; complex overseas tax filing saving >$1k.",
+        "@AlexFinn: Grok Bot autonomously built and maintains microbusiness (agentusecases.ai) generating $1,100 from sponsors, 56k visitors, 40+ PRs, SEO. Provides step-by-step setup (audience challenge → build via Cursor agents → autonomous maintain). Continues treating Bot as knowledge-work agent alongside Opus/Sonnet for coding.",
+        "Independent AA Intelligence Index unchanged at top: Opus 5.5 max 57.6, Sonnet 5.5 max 56, Fable 5.1 53.4, Astra 52.7, Argon 52.6, Grok 4.7 ~46.4. Grok remains value option at $2/$6.",
+        "Roadmap clock still Sep 24: Fable/GPT-6 level in 2–3 months (late Nov–Dec). No new named ship. Rebrand to SpaceXSI continues (account @SpaceXSI)."
+      ],
+      "assumption": "Subscription usage pools and migration details are first-party; actual cost and rate-limit behavior vs prior plans not independently measured. Bot tax/music demos are user reports amplified by Musk—success rate, error handling, and full cost (including any Opus routing) remain unbenchmarked. AlexFinn autonomy is a strong practitioner signal for knowledge-work loops, not a controlled study.",
+      "links": [
+        { "label": "TechCrunch on X Subscription", "href": "https://techcrunch.com/2026/10/13/spacexsi-bundles-x-premium-grok-and-cursor-into-one-subscription/" },
+        { "label": "Bot changelog 0.70.2", "href": "https://x.ai/changelog/bot" },
+        { "label": "AlexFinn autonomous business", "href": "https://x.com/AlexFinn/status/2110181971280433613" },
+        { "label": "Musk on taxes", "href": "https://x.com/elonmusk/status/2110253157758673079" }
+      ]
+    },
+    {
+      "date": "2026-10-12",
+      "dateLabel": "Sun, Oct 12, 2026",
+      "tag": "Product",
+      "title": "Grok Bot shopping, Tesla voice, practitioner autonomy",
+      "points": [
+        "Musk (Oct 11–12): Grok Bot can research best prices, email stores, verify stock, order, and deliver (iPhone 18 Pro Max example; Lego kits). Virtual card or photo of card. Frames as 24/7 employee.",
+        "Tesla Cybercab / Model Y: sign into Grok once; Bots available on rides with voice for cart, email, coffee, calendar, finances. Auto-logout on exit. Confirmed by Tesla engineer post.",
+        "Desktop 0.68.1 (Oct 7): slide deck creation (PowerPoint/Google Slides), formatted email drafts, faster computer actions, larger screen. Changelog at x.ai/changelog/bot.",
+        "@AlexFinn: dedicated Grok Bot (Milo) launched and maintains Agent Use Cases site autonomously (website, PRs, newsletter, sponsors, SEO, analytics). 20k visitors / 1.5k emails reported in 15 hours. Mixes with Claude Opus/Sonnet in Herdr for coding.",
+        "Independent AA Intelligence Index (v4.3.2, Oct 12): Opus 5.5 max 57.6 · Sonnet 5.5 max 56 · Fable 5.1 max 53.4 · Astra max 52.7 · Argon high 52.6 · GPT-6.1 Sol max 51.8 · Grok 4.7 xhigh 46.4. Grok remains value/coding option, not composite leader.",
+        "Name: Musk confirmed Oct 4 SpaceXAI → SpaceXSI ('No more AI, SI is better'). X account now @SpaceXSI in some posts; full rollout not dated.",
+        "Distribution continues: Foundry (Oct 7), earlier Bedrock and Gemini Enterprise. Grok Imagine Video 1.5 Lite API (Oct 8) for lower-cost video.",
+        "Roadmap unchanged: Sep 24 Musk line of Fable/GPT-6 level in 2–3 months (late Nov–Dec). No new named ship date. Grok 4.7 still flagship at $2/$6."
+      ],
+      "assumption": "Shopping and Tesla demos are first-party claims and user reports; independent measurement of success rate, error handling, and cost (especially when routing to Opus) is not yet public. Practitioner autonomy (AlexFinn site) is a strong signal for knowledge-work loops but not a controlled benchmark.",
+      "links": [
+        { "label": "Musk on Cybercab", "href": "https://x.com/elonmusk/status/2109507243007979558" },
+        { "label": "Musk on iPhone order", "href": "https://x.com/elonmusk/status/2109387553010851887" },
+        { "label": "AlexFinn site", "href": "https://x.com/AlexFinn/status/2109350802041291031" }
+      ]
+    },
+    {
+      "date": "2026-10-07",
+      "dateLabel": "Wed, Oct 7, 2026",
+      "tag": "Product",
+      "title": "Grok Bot will call rival models",
+      "points": [
+        "Musk (Oct 7): SpaceX will use the best backend per Grok Bot task, including Claude Opus 5.5, Midjourney, Suno, and other leading APIs. Outcome over house model.",
+        "That is a product change, not a new Grok weight. grok-4.7 API price is still $2/$6 (≤200k; $4/$12 above). Independent AA Intelligence Index still ~46 vs Opus 5.5 at 58.",
+        "Distribution the same day: SpaceXAI says Grok 4.7 is live on Microsoft Foundry, after Gemini Enterprise Agent Platform (Oct 1) and Bedrock.",
+        "Desktop stable is 0.66.0 (Oct 2), up from 0.63.0: voice memos, MCP/plugin import, 1Password, cloud agents, team-bot access lists. Changelog: x.ai/changelog/bot.",
+        "Frontier map unchanged at the top: Opus 5.5 AA 58 ($4/$20); Sonnet 5.5 AA 56 ($2/$10, Sep 28); Fable 5.1, GPT-6 Astra, and Gemini 4 Argon all AA 53. Argon intro price $2/$10, list $4/$20.",
+        "GPT-6.1 Sol (late Sep) is the current Sol at $2/$10, reported AA 52. Luna stays the cheap fan-out at $0.10/$0.50.",
+        "@AlexFinn (Oct 6): Grok Bot is his knowledge worker, not his personal agent (Hark/Muse for personal). Opus 5.5 remains the model he points at for serious vibe-coding sessions.",
+        "Vendor-side Grok claims to keep separate from AA: Musk on AA cyber index #1 (xHigh, Sep 30) and a quoted VulcanBench Frontier v4 sweep (Oct 6). Specialist benches, not the composite.",
+        "Roadmap clock is still the Sep 24 line: cautiously optimistic of a Fable/GPT-6 level model in 2–3 months (late Nov–late Dec). No name, no ship date."
+      ],
+      "assumption": "Routing to Opus is announced, not measured. Which tasks leave Grok 4.7, and whether the user pays Opus rates, is not in the post. Until a named successor ships, treat Grok as the value model inside a multi-model Bot, not the AA leader.",
+      "links": [
+        { "label": "Musk on Bot routing", "href": "https://x.com/elonmusk/status/2107724314451878104" },
+        { "label": "Foundry", "href": "https://x.com/SpaceXAI/status/2107623124909060174" }
+      ]
+    },
+    {
+      "date": "2026-10-02",
+      "dateLabel": "Fri, Oct 2, 2026",
+      "tag": "Today",
+      "title": "Frontier map: Grok 4.7 vs Opus 5.5, Fable, GPT-6",
+      "points": [
+        "Grok 4.7 remains SpaceXAI flagship (Sep 21): $2/$6, 500k context, coding + knowledge work focus.",
+        "Independent AA Intelligence Index: Grok 4.7 ≈ 46 vs Claude Opus 5.5 ≈ 58 and Fable 5.1 / GPT-6 Astra ≈ 53 — mid-pack on the composite, not the peak.",
+        "Vendor tables: Grok leads EEBench (64%) and Harvey Legal (19.6%); trails Fable on CursorBench (46.3% vs 51.8%) and Terminal-Bench (~38% vs ~56–58%).",
+        "Claude Opus 5.5 (Sep 22) is the current independent composite leader at lower $ than Fable ($4/$20 vs $10/$50) with strong agentic coding scores.",
+        "OpenAI GPT-6 line: Astra (Sep 3, flagship), Sol ($2/$10) and Luna ($0.10/$0.50) on Sep 22 for cost tiers under the same generation.",
+        "Grok Bot: ~418k weekly users reported mid-September (one month after Aug 11 beta) — product traction, not just model scores.",
+        "GitHub Copilot weekly (Sep 25): added Opus 5.5, GPT-6 Sol/Luna, and Grok 4.7 — multi-model is the default product posture.",
+        "X practitioners: multi-model stacks (Grok explore/write + Opus plan) and latency tests (Opus fastest, Grok slowest in one head-to-head) matter more than a single leaderboard row.",
+        "@AlexFinn: strong on Grok 4.7 + Grok Bot workflows; also heavy Opus 5.5 / Sonnet 5.5 daily-driver takes — useful counterweight to pure benchmarks.",
+        "Musk still owns the only first-party next-Grok date: cautiously optimistic Fable/GPT-6 level in 2–3 months (from Sep 24)."
+      ],
+      "assumption": "Expect SpaceXAI to optimize the next ship for Terminal-Bench / long-horizon agents and AA composite, not only price. Until then Grok is a strong value/coding option inside multi-model setups, not the solo AA #1.",
+      "links": [
+        { "label": "Repo", "href": "https://github.com/gravityst/signal-brief" }
+      ]
+    },
+    {
+      "date": "2026-09-30",
+      "dateLabel": "Tue, Sep 30, 2026",
+      "tag": "Product",
+      "title": "Grok Bot, Grokipedia, distribution",
+      "points": [
+        "Team bots, Plaid finances, voice calls that search chats; Musk amplifying Grok Bot heavily.",
+        "Grokipedia v0.3: homepage + live-edits refresh.",
+        "Desktop stable 0.61 → 0.63: documents, Slack, marketplace plugins, voice templates.",
+        "Grok 4.7 on Amazon Bedrock and Gemini Enterprise Agent Platform."
+      ]
+    },
+    {
+      "date": "2026-09-24",
+      "dateLabel": "Wed, Sep 24, 2026",
+      "tag": "Roadmap",
+      "title": "Musk: 2–3 months to Fable/GPT-6 level",
+      "points": [
+        "\"Cautiously optimistic that SpaceX will have a Fable/GPT-6 level model in 2 to 3 months.\"",
+        "Same thread: if second derivative holds, ~6 months to pole position; effort ~3 years old vs longer peers.",
+        "Window ≈ late Nov–late Dec 2026; no model name given."
+      ]
+    },
+    {
+      "date": "2026-09-22",
+      "dateLabel": "Mon, Sep 22, 2026",
+      "tag": "Frontier",
+      "title": "Opus 5.5 and GPT-6 Sol/Luna land same day",
+      "points": [
+        "Anthropic ships Claude Opus 5.5: AA Index 58, $4/$20, strong Terminal-Bench / CursorBench vs Fable and Astra.",
+        "OpenAI ships GPT-6 Sol ($2/$10) and Luna ($0.10/$0.50) as cost-tuned siblings to Astra.",
+        "Crowded September: Astra (3rd), Gemini 3.8 Flash (2nd), Fable 5.1 (1st), Grok 4.7 (21st), then Opus + Sol/Luna (22nd)."
+      ]
+    },
+    {
+      "date": "2026-09-21",
+      "dateLabel": "Sun, Sep 21, 2026",
+      "tag": "Model",
+      "title": "Grok 4.7 ships — value, not AA peak",
+      "points": [
+        "Same $2/$6 as 4.6; larger base; longer RL on multi-hour tasks; new safeguards.",
+        "CursorBench 4.0: 46.3% (4.6 40.4%, GPT-5.6 Sol 41.7%, Fable 5.1 51.8%).",
+        "Terminal-Bench roughly doubled vs 4.6 but still well behind Fable/Astra/Opus tier.",
+        "Independent AA Index ~46; critics call mid-pack vs 53–58 frontier; defenders stress $/task and specialist wins.",
+        "Available in Cursor, Grok Build, API, routers, clouds."
+      ]
+    }
+  ]
+}
