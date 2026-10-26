@@ -1,1 +1,88 @@
-PLACEHOLDER_FOR_CONTENT
+{
+  "updatedAt": "2026-10-26T14:00:00Z",
+  "status": {
+    "model": "Grok 4.7",
+    "modelHint": "$2 / $6 · AA Index ~46.4 · 500k ctx",
+    "desktop": "Grok Bot (teams + macOS/Windows + phone apps)",
+    "desktopHint": "v0.77+: calling (dial/hold/transfer + live transcript), vault (logins/cards/contacts), payments, phone app integrations, multi-bot teams",
+    "nextModel": "late Nov–Dec",
+    "nextModelHint": "Musk Sep 24: Fable/GPT-6 level in 2–3 months; 4.8 mentioned for fast Bot",
+    "cadence": "Mon · Wed · Fri",
+    "cadenceHint": "Brief + site · Central"
+  },
+  "reference": {
+    "API model": "grok-4.7",
+    "Pricing": "$2 in / $6 out per 1M (≤200k; doubles above)",
+    "Desktop": "Grok Bot: calling + vault + payments, multi-bot teams, persistent agents, phone app integrations, larger attachments, pre-filled forms, bot email + X search",
+    "AA Index (indep.)": "Opus 5.5 57.6 · Sonnet 5.5 56 · Fable 5.1 53.4 · Astra 52.7 · Argon 52.6 · GPT-6.1 Sol 51.8 · Grok 4.7 46.4",
+    "Voice": "Grok Voice 3.0 (Oct 14) · AA Speech-to-Speech #1 at 86.9 · $0.08/min",
+    "Watch": "@elonmusk · @SpaceXSI · @AlexFinn"
+  },
+  "links": [
+    {"label": "API docs", "href": "https://docs.x.ai"},
+    {"label": "Console", "href": "https://console.x.ai"},
+    {"label": "Grok", "href": "https://grok.com"},
+    {"label": "Bot changelog", "href": "https://x.ai/changelog/bot"},
+    {"label": "@SpaceXSI", "href": "https://x.com/SpaceXSI"},
+    {"label": "@elonmusk", "href": "https://x.com/elonmusk"},
+    {"label": "@AlexFinn", "href": "https://x.com/AlexFinn"},
+    {"label": "GitHub", "href": "https://github.com/gravityst/signal-brief"}
+  ],
+  "stacks": [
+    {"title": "Explore → Plan → Write", "pattern": "Grok 4.7 explores cheap → Opus 5.5 plans → Grok/Astra stress-test → Grok writes", "why": "Keeps spend low on exploration; puts the strongest planner on architecture; uses Grok where $/token matters for volume.", "source": "Field pattern (@macfriendy and similar)"},
+    {"title": "Daily driver agent", "pattern": "Grok Bot for knowledge-work loops and autonomous side projects; Opus 5.5 or Sonnet 5.5 when the task is hard reasoning", "why": "@AlexFinn treats Grok Bot as a knowledge worker that can ship sites and PRs; Musk says Bot routes to best backend including Opus. Duet emerging as Opus-powered competitor.", "source": "@AlexFinn product takes + Musk Oct 7 + Oct 11–23 demos"},
+    {"title": "Cost ladder", "pattern": "Luna / Flash for fan-out → Sol, Sonnet 5.5, or Grok 4.7 for mid → Opus / Astra / Fable / Argon for apex", "why": "Match model tier to sub-task value. Parallel cheap agents, expensive models only on the critical path.", "source": "Common multi-model agent design"}
+  ],
+  "watchNext": [
+    "Real-world reliability and cost of Grok Bot calling (hold/transfer) and vault flows post-0.77",
+    "SpaceX Super Intelligence Partner Network adoption and early customer outcomes",
+    "Claude Duet research preview vs Grok Bot in proactive personal/agent harness race",
+    "Named next-flagship (4.8 or later) vs Musk's late Nov–Dec Fable/GPT-6 bar",
+    "Full SpaceXSI rebrand consistency and Grok Bot Android polish"
+  ],
+  "frontier": [
+    {"name": "Claude Opus 5.5", "org": "Anthropic", "released": "2026-09-22", "price": "$4 / $20", "aaIndex": "57.6", "note": "AA Intelligence Index lead (max). Strong HLE, SciCode, Terminal-Bench. 1M context, no long-prompt surcharge."},
+    {"name": "Claude Sonnet 5.5", "org": "Anthropic", "released": "2026-09-28", "price": "$2 / $10", "aaIndex": "56", "note": "Near-Opus mid-tier on AA (56). Practitioner default for daily work at same price as Sol."},
+    {"name": "Claude Fable 5.1", "org": "Anthropic", "released": "2026-09-01", "price": "$10 / $50", "aaIndex": "53.4", "note": "Premium long-horizon. Ahead of Grok on some specialist agentic benches; AA composite below Opus."},
+    {"name": "GPT-6 Astra", "org": "OpenAI", "released": "2026-09-03", "price": "$10 / $50", "aaIndex": "52.7", "note": "OpenAI flagship. AA 52.7 max. Token-efficient on some tasks. Long-context surcharge above 272k."},
+    {"name": "GPT-6.1 Sol", "org": "OpenAI", "released": "2026-09-29", "price": "$2 / $10", "aaIndex": "51.8", "note": "Current Sol. AA 51.8. Strong value workhorse under a stronger planner."},
+    {"name": "GPT-6 Luna", "org": "OpenAI", "released": "2026-09-22", "price": "$0.10 / $0.50", "aaIndex": "—", "note": "Cheap fan-out tier. No published flagship AA score."},
+    {"name": "Gemini 4 Argon", "org": "Google", "released": "2026-10-13", "price": "$2 / $10 intro", "aaIndex": "52.6", "note": "AA 52.6 high. Intro $2/$10 through ~Nov 30, then list $4/$20. 1M context."},
+    {"name": "Grok 4.7", "org": "SpaceXSI", "released": "2026-09-21", "price": "$2 / $6", "aaIndex": "46.4", "note": "Flagship. Price/performance leader in mid-tier, not AA peak. Strong specialist agentic signals; trails on composite and Terminal-Bench. No 4.8 ship yet."}
+  ],
+  "xPosts": [
+    {"date": "2026-10-26", "author": "@AlexFinn", "handle": "AlexFinn", "text": "EVERY AI app on the iPhone Duo reviewed. Grok Bot really good, but the only major AI app not yet optimized for the Duo. ChatGPT and Claude both GREAT. Meta Muse is something completely different (10 out of 10).", "topic": "Review", "url": "https://x.com/AlexFinn/status/2114551758433480875"},
+    {"date": "2026-10-25", "author": "@elonmusk", "handle": "elonmusk", "text": "Grok @Bot can now call someone or a business for you, make a request on your behalf, take notes on the response and send you a note summarizing the conversation!", "topic": "Product", "url": "https://x.com/elonmusk/status/2114365361068138990"},
+    {"date": "2026-10-25", "author": "@elonmusk", "handle": "elonmusk", "text": "The best way to use Grok @Bot is assume you are hiring a super competent employee", "topic": "Product", "url": "https://x.com/elonmusk/status/2114375896073216334"},
+    {"date": "2026-10-25", "author": "@elonmusk", "handle": "elonmusk", "text": "Grok @Bot saves sensitive info in a vault (logins, cards, contacts).", "topic": "Product", "url": "https://x.com/elonmusk/status/2113796183688982771"},
+    {"date": "2026-10-24", "author": "@AlexFinn", "handle": "AlexFinn", "text": "The iPhone Duo is the greatest way to manage Grok Bots ever", "topic": "Review", "url": "https://x.com/AlexFinn/status/2113701510735663170"},
+    {"date": "2026-10-23", "author": "@AlexFinn", "handle": "AlexFinn", "text": "Dots too many rough edges. Not reliable enough. Grok Bot is number 1 at the moment but Duet has a shot because Anthropic.", "topic": "Review", "url": "https://x.com/AlexFinn/status/2113630020224901307"},
+    {"date": "2026-10-22", "author": "@AlexFinn", "handle": "AlexFinn", "text": "Claude Duet excellent: multi-tasking best in space, one thread spins tasks automatically, great coding/PRs, proactive, human feel. Research preview.", "topic": "Review", "url": "https://x.com/AlexFinn/status/2113073549397332479"},
+    {"date": "2026-10-20", "author": "@AlexFinn", "handle": "AlexFinn", "text": "Last week Grok Bot built me a completely autonomous business. Since then: $1,800, ~100k visitors, 200k+ page views, 3k newsletter subscribers.", "topic": "Workflow", "url": "https://x.com/AlexFinn/status/2112640023803871268"},
+    {"date": "2026-10-14", "author": "@SpaceXSI", "handle": "SpaceXSI", "text": "Introducing Grok Voice 3.0, the world’s most intelligent speech-to-speech model. Excels at resolving customer calls, responds in under a second, costs less than other frontier models.", "topic": "Product", "url": "https://x.com/SpaceXSI/status/2110416580899168305"},
+    {"date": "2026-10-07", "author": "@elonmusk", "handle": "elonmusk", "text": "Most @Bot requests are pretty simple and will be handled by a lightning-fast version of Grok 4.8 when that comes out. Operating principle: best combination of speed & intelligence.", "topic": "Roadmap", "url": "https://x.com/elonmusk/status/2107894231922876510"},
+    {"date": "2026-09-24", "author": "@elonmusk", "handle": "elonmusk", "text": "Cautiously optimistic SpaceX will have a Fable/GPT-6 level model in 2 to 3 months.", "topic": "Roadmap", "url": "https://x.com/elonmusk/status/2103151040858067289"}
+  ],
+  "briefs": [
+    {
+      "date": "2026-10-26",
+      "dateLabel": "Mon, Oct 26, 2026",
+      "tag": "Product",
+      "title": "Grok Bot calling + vault features; frontier still stable",
+      "points": [
+        "Grok Bot ~0.77 (community reports, Musk-confirmed Oct 25): Bot can dial a person or business, sit on hold, press keys, get transferred while user watches live transcript; make request on behalf, take notes, summarize conversation. Builds on prior voice and phone app integrations.",
+        "Vault feature: Bot securely saves logins, cards, and contact information once; remembers for future use. Payments screen to connect accounts and pick default (on top of Vault). Sharing/invites require Premium or Ultra. Tailscale private network join pending admin approval.",
+        "Musk continues high-volume promotion of Grok Bot as “super competent employee” / life & business manager. Amplifying user stories (shopping, payments, content, calendar) and framing “best way to use is assume you are hiring.” Car login with main Bot floated. No new model ship.",
+        "@AlexFinn (Oct 26): Reviewed AI apps on iPhone Duo. Grok Bot “really good” but only major AI app not yet optimized for Duo. ChatGPT and Claude both great; Meta Muse “something completely different (10/10).” Earlier: Grok Bot #1 currently, Duet has a shot.",
+        "Frontier map unchanged: Claude Opus 5.5 still leads independent AA Intelligence Index at 57.6 (max). Sonnet 5.5 56, Fable 5.1 53.4, GPT-6 Astra 52.7, Gemini 4 Argon 52.6, GPT-6.1 Sol 51.8. Grok 4.7 remains ~46.4 at $2/$6 — value mid-tier, not composite peak. No Grok 4.8 release; still only prior Musk mentions. Kimi K3.1 Pro (Oct 23) at 55.1 noted in trackers but not a closed flagship shift."
+      ],
+      "assumption": "Calling, vault, and payments features confirmed via Musk posts and detailed community screenshots (0.77). Reliability, error rates on live calls (hold/transfer), full cost (including any routed models), and scale not independently measured. AlexFinn Duo review is practitioner product signal. AA Index scores consistent with multiple independent trackers as of Oct 26; no new flagship model shipped by any major lab since prior brief.",
+      "links": [
+        {"label": "Musk on Bot calling", "href": "https://x.com/elonmusk/status/2114365361068138990"},
+        {"label": "Community 0.77 details", "href": "https://x.com/alexmichaelio/status/2114056103373758724"},
+        {"label": "AlexFinn Duo reviews", "href": "https://x.com/AlexFinn/status/2114551758433480875"},
+        {"label": "AA Index trackers", "href": "https://www.benchleader.com/benchmarks/aa_intelligence_index"}
+      ]
+    }
+  ]
+}
