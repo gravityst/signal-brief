@@ -1,1 +1,231 @@
-FULL_CONTENT_FROM_TMP
+{
+  "updatedAt": "2026-10-30T13:43:44Z",
+  "status": {
+    "model": "Grok 4.7",
+    "modelHint": "Flagship since Sep 21 · $2/$6 · 500k ctx · coding/agent focus",
+    "desktop": "Grok Bot (desktop + mobile)",
+    "desktopHint": "Pages & dashboards update Oct 29 · own cloud computer · connectors",
+    "nextModel": "Grok 4.8",
+    "nextModelHint": "2.5T · in RL · Musk Oct 30: not optimizing for benchmarks, will be useful; longer than expected",
+    "cadence": "~monthly model drops",
+    "cadenceHint": "4.5 Jul · 4.6 Aug · 4.7 Sep · Voice 3.0 Oct 14"
+  },
+  "reference": {
+    "Flagship API": "grok-4.7 · $2/$6 (cached $0.5) · 500k",
+    "Voice": "Grok Voice 3.0 · $0.08/min · <1s latency",
+    "Grok Bot": "Always-on agents · own computer · pages/dashboards",
+    "Company": "SpaceXAI (xAI) · Super Intelligence segment",
+    "AA Index v5": "Grok 4.7 ~35 (private-test heavy index)"
+  },
+  "watchNext": [
+    "Grok 4.8 ship date and public benchmarks (Musk: useful > leaderboard)",
+    "Grok Bot enterprise rollout and shared bots",
+    "AA Index v5 movement for Grok after 4.8",
+    "X Subscription bundling Grok + Cursor + Premium",
+    "Grok 4.9 / Grok 5 signals (Musk roadmap: 4.9 Astra/Fable class)"
+  ],
+  "links": [
+    { "label": "API docs", "href": "https://docs.x.ai" },
+    { "label": "Console", "href": "https://console.x.ai" },
+    { "label": "Grok", "href": "https://grok.com" },
+    { "label": "@SpaceXSI", "href": "https://x.com/SpaceXSI" },
+    { "label": "@elonmusk", "href": "https://x.com/elonmusk" },
+    { "label": "@AlexFinn", "href": "https://x.com/AlexFinn" }
+  ],
+  "stacks": [
+    {
+      "title": "Coding agent (Grok Bot + Grok 4.7)",
+      "pattern": "Grok Bot as orchestrator with own computer + Grok 4.7 for code/knowledge tasks",
+      "why": "Bot handles long-running UI/tool work; 4.7 priced at $2/$6 with strong agent training",
+      "source": "Practitioner reports + vendor positioning"
+    },
+    {
+      "title": "Frontier routing",
+      "pattern": "Route hard reasoning to Opus 5.5 or GPT-6 Astra; routine/coding to Grok 4.7 or Sol",
+      "why": "AA v5: Opus ~58, Astra ~57, Grok 4.7 ~35; cost differs 5x+",
+      "source": "AA Index v5 + pricing pages"
+    }
+  ],
+  "frontier": [
+    {
+      "name": "Gemini 4 Carbon (high)",
+      "org": "Google",
+      "released": "2026-10",
+      "price": "$2/$10 intro (limited)",
+      "aaIndex": "59",
+      "note": "Leads AA v5; cyber-defender access only for now"
+    },
+    {
+      "name": "Claude Opus 5.5 (max)",
+      "org": "Anthropic",
+      "released": "2026-09-21",
+      "price": "$4/$20",
+      "aaIndex": "58",
+      "note": "Top usable model on AA v5; 1M ctx"
+    },
+    {
+      "name": "GPT-6 Astra (max)",
+      "org": "OpenAI",
+      "released": "2026-09-03",
+      "price": "$10/$50",
+      "aaIndex": "57",
+      "note": "Strong science/reasoning; high cost"
+    },
+    {
+      "name": "GPT-6.1 Sol (max)",
+      "org": "OpenAI",
+      "released": "2026-09-29",
+      "price": "$2/$10",
+      "aaIndex": "55",
+      "note": "Near-Astra at lower price; coding/agent pick"
+    },
+    {
+      "name": "Claude Sonnet 5.5 (max)",
+      "org": "Anthropic",
+      "released": "2026-09",
+      "price": "$2/$10",
+      "aaIndex": "54",
+      "note": "Strong office/agent; widely available"
+    },
+    {
+      "name": "Gemini 4 Argon (high)",
+      "org": "Google",
+      "released": "2026-10",
+      "price": "$2/$10 intro → $4/$20",
+      "aaIndex": "50",
+      "note": "GA; intro pricing through Nov 30"
+    },
+    {
+      "name": "Claude Fable 5.1 (max)",
+      "org": "Anthropic",
+      "released": "2026-09-01",
+      "price": "$10/$50",
+      "aaIndex": "50",
+      "note": "High-end; cache discount improved"
+    },
+    {
+      "name": "Grok 4.7 (high/xhigh)",
+      "org": "SpaceXAI",
+      "released": "2026-09-21",
+      "price": "$2/$6",
+      "aaIndex": "35",
+      "note": "Current flagship; AA v5 drop from private tests; strong agent/coding positioning"
+    }
+  ],
+  "xPosts": [
+    {
+      "date": "2026-10-30",
+      "author": "Elon Musk",
+      "handle": "elonmusk",
+      "text": "I know it’s taken longer than expected, but Grok 4.8 will not be a disappointment. We’re not optimizing for benchmarks and I really don’t care how Grok does on those, but it will be incredibly useful.",
+      "topic": "Roadmap",
+      "url": "https://x.com/elonmusk/status/2116036703538606301"
+    },
+    {
+      "date": "2026-10-30",
+      "author": "Elon Musk",
+      "handle": "elonmusk",
+      "text": "Hire Grok @Bot to be an employee",
+      "topic": "Product",
+      "url": "https://x.com/elonmusk/status/2116025645385867631"
+    },
+    {
+      "date": "2026-10-29",
+      "author": "Alex Finn",
+      "handle": "AlexFinn",
+      "text": "Grok Bot just had its biggest update yet. It introduces pages and dashboards, 2 things that solve Grok's BIGGEST problem. Video covering 5 dashboards that make Grok Bot much nicer to use, including one that saves a ton of usage.",
+      "topic": "Workflow",
+      "url": "https://x.com/AlexFinn/status/2115596225793921048"
+    },
+    {
+      "date": "2026-10-26",
+      "author": "Alex Finn",
+      "handle": "AlexFinn",
+      "text": "EVERY AI app on the iPhone Duo reviewed. Grok Bot really good, but the only major AI app not yet optimized for the Duo. ChatGPT and Claude both great; Meta Muse 10/10.",
+      "topic": "Review",
+      "url": "https://x.com/AlexFinn/status/2114551758433480875"
+    },
+    {
+      "date": "2026-10-21",
+      "author": "SpaceX Super Intelligence",
+      "handle": "SpaceXSI",
+      "text": "Use Grok 4.7 in Viktor",
+      "topic": "Product",
+      "url": "https://x.com/SpaceXSI/status/2112959750786953386"
+    },
+    {
+      "date": "2026-10-14",
+      "author": "SpaceX Super Intelligence",
+      "handle": "SpaceXSI",
+      "text": "Introducing Grok Voice 3.0, the world’s most intelligent speech-to-speech model. Excels at resolving customer calls, responds in under a second, costs less than other frontier models. $0.08/min.",
+      "topic": "Product",
+      "url": "https://x.com/SpaceXSI/status/2110416580899168305"
+    },
+    {
+      "date": "2026-10-14",
+      "author": "SpaceX Super Intelligence",
+      "handle": "SpaceXSI",
+      "text": "Grok Voice 3.0 achieves frontier performance in voice agent tasks at 40% lower latency. At SpaceX, it resolves 70% of Starlink support calls on its own.",
+      "topic": "Benchmark",
+      "url": "https://x.com/SpaceXSI/status/2110416584183628161"
+    },
+    {
+      "date": "2026-10-12",
+      "author": "SpaceX Super Intelligence",
+      "handle": "SpaceXSI",
+      "text": "Current subscribers can keep their plan or switch to The X Subscription, and link their Grok, Cursor, and X accounts. Rolling out gradually.",
+      "topic": "Product",
+      "url": "https://x.com/SpaceXSI/status/2109783341255819328"
+    }
+  ],
+  "briefs": [
+    {
+      "date": "2026-10-30",
+      "dateLabel": "30 Oct 2026",
+      "tag": "Roadmap",
+      "title": "Musk: Grok 4.8 delayed but will be useful; not optimizing for benchmarks",
+      "points": [
+        "Musk posts that Grok 4.8 has taken longer than expected but “will not be a disappointment.”",
+        "Explicitly states not optimizing for benchmarks; prioritizes usefulness.",
+        "Earlier (Sep 14): 2.5T model trained on new C++ stack finishing pretrain then RL; 4.8 noticeable improvement, 4.9 probably Astra/Fable class, Grok 5 maybe better than anything.",
+        "AA Intelligence Index v5 (Oct 27) ranks Grok 4.7 ~35; leaders Claude Opus 5.5 ~58, GPT-6 Astra ~57, Gemini 4 Carbon 59 (limited)."
+      ],
+      "assumption": "Grok 4.8 public release still weeks away; exact AA recovery unknown until independent measurement."
+    },
+    {
+      "date": "2026-10-29",
+      "dateLabel": "29 Oct 2026",
+      "tag": "Product",
+      "title": "Grok Bot ships pages and dashboards",
+      "points": [
+        "Alex Finn (practitioner) calls it the biggest Grok Bot update yet.",
+        "Pages and dashboards address prior usability limits; video demos multiple dashboards including one that reduces usage.",
+        "Bot continues to run on its own cloud computer with connectors and app access."
+      ]
+    },
+    {
+      "date": "2026-10-14",
+      "dateLabel": "14 Oct 2026",
+      "tag": "Product",
+      "title": "Grok Voice 3.0 launches at $0.08/min",
+      "points": [
+        "Speech-to-speech model with sub-second latency.",
+        "Same price as Voice 2.0; available in Voice Agent API and Builder.",
+        "SpaceX reports 70% of Starlink support calls resolved autonomously.",
+        "Powers voice mode in Grok Bot and Tesla."
+      ]
+    },
+    {
+      "date": "2026-09-21",
+      "dateLabel": "21 Sep 2026",
+      "tag": "Model",
+      "title": "Grok 4.7 ships as current flagship",
+      "points": [
+        "Released Sep 21; available in API (grok-4.7), Cursor, Grok Build, Bedrock, Foundry.",
+        "Pricing held at $2 input / $6 output per M (cached $0.5); 500k context.",
+        "Reasoning effort low/medium/high/xhigh; positioned for coding, agents, knowledge work.",
+        "Lab claims improvements on CursorBench, DeepSWE, verification, longer tasks."
+      ]
+    }
+  ]
+}
