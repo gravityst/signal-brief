@@ -1,28 +1,28 @@
 {
-  "updatedAt": "2026-10-30T13:43:44Z",
+  "updatedAt": "2026-11-02T14:48:25Z",
   "status": {
     "model": "Grok 4.7",
-    "modelHint": "Flagship since Sep 21 · $2/$6 · 500k ctx · coding/agent focus",
+    "modelHint": "Flagship since Sep 21 · $2/$6 · 500k ctx · coding/agent focus · API watermark from Nov 7",
     "desktop": "Grok Bot (desktop + mobile)",
-    "desktopHint": "Pages & dashboards update Oct 29 · own cloud computer · connectors",
+    "desktopHint": "Pages & dashboards (Oct 29) · own cloud computer · connectors · daily fixes",
     "nextModel": "Grok 4.8",
-    "nextModelHint": "2.5T · in RL · Musk Oct 30: not optimizing for benchmarks, will be useful; longer than expected",
+    "nextModelHint": "2.5T · in RL · Musk Oct 30: longer than expected, not optimizing for benchmarks, prioritizes usefulness",
     "cadence": "~monthly model drops",
-    "cadenceHint": "4.5 Jul · 4.6 Aug · 4.7 Sep · Voice 3.0 Oct 14"
+    "cadenceHint": "4.5 Jul · 4.6 Aug · 4.7 Sep · Voice 3.0 Oct 14 · 4.8 still pending"
   },
   "reference": {
-    "Flagship API": "grok-4.7 · $2/$6 (cached $0.5) · 500k",
+    "Flagship API": "grok-4.7 · $2/$6 (cached $0.5) · 500k · watermark from Nov 7",
     "Voice": "Grok Voice 3.0 · $0.08/min · <1s latency",
-    "Grok Bot": "Always-on agents · own computer · pages/dashboards",
-    "Company": "SpaceXAI (xAI) · Super Intelligence segment",
-    "AA Index v5": "Grok 4.7 ~35 (private-test heavy index)"
+    "Grok Bot": "Always-on agents · own computer · pages/dashboards · chief-of-staff patterns",
+    "Company": "SpaceX Super Intelligence (SpaceXSI / SpaceXAI) · Super Intelligence segment",
+    "AA Index v5": "Grok 4.7 ~35 (private-test heavy index); leaders Gemini Carbon 59, Opus 5.5 58, Astra 57"
   },
   "watchNext": [
-    "Grok 4.8 ship date and public benchmarks (Musk: useful > leaderboard)",
-    "Grok Bot enterprise rollout and shared bots",
-    "AA Index v5 movement for Grok after 4.8",
+    "Grok 4.8 public release and independent AA measurement (Musk: useful > leaderboard)",
+    "Grok Bot enterprise / shared bots and further Pages maturity",
+    "API watermark rollout and opt-out behavior (Nov 7)",
     "X Subscription bundling Grok + Cursor + Premium",
-    "Grok 4.9 / Grok 5 signals (Musk roadmap: 4.9 Astra/Fable class)"
+    "Grok 4.9 / Grok 5 signals (roadmap: 4.9 Astra/Fable class)"
   ],
   "links": [
     { "label": "API docs", "href": "https://docs.x.ai" },
@@ -36,7 +36,7 @@
     {
       "title": "Coding agent (Grok Bot + Grok 4.7)",
       "pattern": "Grok Bot as orchestrator with own computer + Grok 4.7 for code/knowledge tasks",
-      "why": "Bot handles long-running UI/tool work; 4.7 priced at $2/$6 with strong agent training",
+      "why": "Bot handles long-running UI/tool work; 4.7 priced at $2/$6 with strong agent training; Pages/dashboards improve usability",
       "source": "Practitioner reports + vendor positioning"
     },
     {
@@ -53,7 +53,7 @@
       "released": "2026-10",
       "price": "$2/$10 intro (limited)",
       "aaIndex": "59",
-      "note": "Leads AA v5; cyber-defender access only for now"
+      "note": "Leads AA v5; cyber-defender / limited access only"
     },
     {
       "name": "Claude Opus 5.5 (max)",
@@ -61,7 +61,7 @@
       "released": "2026-09-21",
       "price": "$4/$20",
       "aaIndex": "58",
-      "note": "Top usable model on AA v5; 1M ctx"
+      "note": "Top usable model on AA v5; 1M ctx; strong cost/quality"
     },
     {
       "name": "GPT-6 Astra (max)",
@@ -82,7 +82,7 @@
     {
       "name": "Claude Sonnet 5.5 (max)",
       "org": "Anthropic",
-      "released": "2026-09",
+      "released": "2026-09-28",
       "price": "$2/$10",
       "aaIndex": "54",
       "note": "Strong office/agent; widely available"
@@ -90,8 +90,8 @@
     {
       "name": "Gemini 4 Argon (high)",
       "org": "Google",
-      "released": "2026-10",
-      "price": "$2/$10 intro → $4/$20",
+      "released": "2026-10-13",
+      "price": "$2/$10 intro → $4/$20 Dec 1",
       "aaIndex": "50",
       "note": "GA; intro pricing through Nov 30"
     },
@@ -101,7 +101,7 @@
       "released": "2026-09-01",
       "price": "$10/$50",
       "aaIndex": "50",
-      "note": "High-end; cache discount improved"
+      "note": "High-end long-horizon; cache discount improved"
     },
     {
       "name": "Grok 4.7 (high/xhigh)",
@@ -109,10 +109,42 @@
       "released": "2026-09-21",
       "price": "$2/$6",
       "aaIndex": "35",
-      "note": "Current flagship; AA v5 drop from private tests; strong agent/coding positioning"
+      "note": "Current flagship; AA v5 drop from private tests; strong agent/coding positioning; API watermark Nov 7"
     }
   ],
   "xPosts": [
+    {
+      "date": "2026-11-02",
+      "author": "Alex Finn",
+      "handle": "AlexFinn",
+      "text": "Deepseek article on AI agents: routers vs workers (chief-of-staff model works well in Grok Bot), proactive on events not chats, message queue, watchdog layer, protect human attention. Grok Bot already strong on several of these.",
+      "topic": "Workflow",
+      "url": "https://x.com/AlexFinn/status/2117127095038218733"
+    },
+    {
+      "date": "2026-11-01",
+      "author": "Elon Musk",
+      "handle": "elonmusk",
+      "text": "Try Grok @Bot! You will love it. We land a few dozen fixes, features and sometimes powers to Bot 7 days a week and we look at your feedback to make Bot as perfect as possible.",
+      "topic": "Product",
+      "url": "https://x.com/elonmusk/status/2117033967782113327"
+    },
+    {
+      "date": "2026-11-01",
+      "author": "Elon Musk",
+      "handle": "elonmusk",
+      "text": "RTs on Grok Bot quality, templates as distribution, and Grok Jarvis (Bot + Page) patterns.",
+      "topic": "Product",
+      "url": "https://x.com/elonmusk/status/2117041294165905886"
+    },
+    {
+      "date": "2026-10-31",
+      "author": "Alex Finn",
+      "handle": "AlexFinn",
+      "text": "as always, if you give your grok bot this video it will just set it up for you in one shot",
+      "topic": "Workflow",
+      "url": "https://x.com/AlexFinn/status/2116359781300765035"
+    },
     {
       "date": "2026-10-30",
       "author": "Elon Musk",
@@ -136,6 +168,14 @@
       "text": "Grok Bot just had its biggest update yet. It introduces pages and dashboards, 2 things that solve Grok's BIGGEST problem. Video covering 5 dashboards that make Grok Bot much nicer to use, including one that saves a ton of usage.",
       "topic": "Workflow",
       "url": "https://x.com/AlexFinn/status/2115596225793921048"
+    },
+    {
+      "date": "2026-10-29",
+      "author": "Alex Finn",
+      "handle": "AlexFinn",
+      "text": "Mission Control dashboard prompt for Grok Bot Pages: live clock, waiting-on-me approvals, activity timeline, routines, and 2D office view with real bot data.",
+      "topic": "Workflow",
+      "url": "https://x.com/AlexFinn/status/2115612249826148795"
     },
     {
       "date": "2026-10-26",
@@ -168,17 +208,22 @@
       "text": "Grok Voice 3.0 achieves frontier performance in voice agent tasks at 40% lower latency. At SpaceX, it resolves 70% of Starlink support calls on its own.",
       "topic": "Benchmark",
       "url": "https://x.com/SpaceXSI/status/2110416584183628161"
-    },
-    {
-      "date": "2026-10-12",
-      "author": "SpaceX Super Intelligence",
-      "handle": "SpaceXSI",
-      "text": "Current subscribers can keep their plan or switch to The X Subscription, and link their Grok, Cursor, and X accounts. Rolling out gradually.",
-      "topic": "Product",
-      "url": "https://x.com/SpaceXSI/status/2109783341255819328"
     }
   ],
   "briefs": [
+    {
+      "date": "2026-11-02",
+      "dateLabel": "2 Nov 2026",
+      "tag": "Product",
+      "title": "Grok API text watermark starts Nov 7; Bot Pages continue to mature",
+      "points": [
+        "SpaceXSI docs: from Nov 7, text from grok-4.7 / 4.6 / 4.5 / 4.3 and selected 4.20 variants will include an invisible statistical watermark by default (Responses and Chat Completions). Team admins can opt out per model; opt-outs audit-logged.",
+        "Grok Bot Pages & dashboards (shipped ~Oct 29) seeing practitioner adoption; Alex Finn highlights router/worker + attention-protection patterns that already match Grok Bot’s chief-of-staff design.",
+        "Musk continues RTing strong Grok Bot user feedback and notes daily fixes/features.",
+        "AA Intelligence Index v5 (private-test heavy) still ranks Grok 4.7 ~35 vs Gemini 4 Carbon 59, Claude Opus 5.5 58, GPT-6 Astra 57. Pricing unchanged: Grok $2/$6, Opus $4/$20, Astra $10/$50, Sol $2/$10."
+      ],
+      "assumption": "Watermark is statistical/invisible and does not alter model behavior; exact opt-out scope and downstream redistribution impact still to be observed. Grok 4.8 timeline remains unconfirmed."
+    },
     {
       "date": "2026-10-30",
       "dateLabel": "30 Oct 2026",
