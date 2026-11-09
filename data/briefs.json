@@ -1,26 +1,26 @@
 {
-  "updatedAt": "2026-11-06T14:45:00Z",
+  "updatedAt": "2026-11-09T14:55:00Z",
   "status": {
     "model": "Grok 4.7",
-    "modelHint": "Flagship since Sep 21 · $2/$6 · 500k ctx · coding/agent focus · API watermark from Nov 7",
+    "modelHint": "Flagship since Sep 21 · $2/$6 · 500k ctx · coding/agent focus · API watermark live since Nov 7",
     "desktop": "Grok Bot (desktop + mobile)",
-    "desktopHint": "Pages & dashboards · own cloud computer · connectors · usage limits tightened (cost pressure)",
+    "desktopHint": "Pages & dashboards · own cloud computer · connectors · usage limits tightened (cost pressure); overnight fixes Nov 9",
     "nextModel": "Grok 4.8",
     "nextModelHint": "2.5T · in RL · Musk Oct 30: longer than expected, not optimizing for benchmarks, prioritizes usefulness",
     "cadence": "~monthly model drops",
     "cadenceHint": "4.5 Jul · 4.6 Aug · 4.7 Sep · Voice 3.0 Oct 14 · 4.8 still pending"
   },
   "reference": {
-    "Flagship API": "grok-4.7 · $2/$6 (cached $0.5) · 500k · watermark from Nov 7",
+    "Flagship API": "grok-4.7 · $2/$6 (cached $0.5) · 500k · watermark live since Nov 7",
     "Voice": "Grok Voice 3.0 · $0.08/min · <1s latency",
-    "Grok Bot": "Always-on agents · own computer · pages/dashboards · chief-of-staff patterns · tighter weekly limits",
+    "Grok Bot": "Always-on agents · own computer · pages/dashboards · chief-of-staff patterns · tighter weekly limits · continuous fixes",
     "Company": "SpaceX Super Intelligence (SpaceXSI / SpaceXAI) · Super Intelligence segment",
     "AA Index v5": "Grok 4.7 ~35; leaders Gemini Carbon 60 (limited), Opus 5.5 ~59, Astra ~57"
   },
   "watchNext": [
     "Grok 4.8 public release and independent AA measurement (Musk: useful > leaderboard)",
-    "Grok Bot usage economics and any new allowance tiers or pricing changes",
-    "API watermark rollout and opt-out behavior (Nov 7)",
+    "Grok Bot usage economics, allowance tiers, and impact of overnight fixes",
+    "API watermark behavior and any opt-out effects",
     "X Subscription bundling Grok + Cursor + Premium",
     "Grok 4.9 / Grok 5 signals (roadmap: 4.9 Astra/Fable class)"
   ],
@@ -36,7 +36,7 @@
     {
       "title": "Coding agent (Grok Bot + Grok 4.7)",
       "pattern": "Grok Bot as orchestrator with own computer + Grok 4.7 for code/knowledge tasks",
-      "why": "Bot handles long-running UI/tool work; 4.7 priced at $2/$6 with strong agent training; Pages/dashboards improve usability; watch usage caps",
+      "why": "Bot handles long-running UI/tool work; 4.7 priced at $2/$6 with strong agent training; Pages/dashboards improve usability; watch usage caps and recent fixes",
       "source": "Practitioner reports + vendor positioning"
     },
     {
@@ -109,10 +109,26 @@
       "released": "2026-09-21",
       "price": "$2/$6",
       "aaIndex": "35",
-      "note": "Current flagship; AA v5 drop from private tests; strong agent/coding positioning; API watermark Nov 7"
+      "note": "Current flagship; AA v5 drop from private tests; strong agent/coding positioning; API watermark live"
     }
   ],
   "xPosts": [
+    {
+      "date": "2026-11-09",
+      "author": "Elon Musk",
+      "handle": "elonmusk",
+      "text": "Just did a round table review with the Grok @Bot engineering team. Fixes are being implemented overnight and you should notice a dramatic improvement by tomorrow.",
+      "topic": "Product",
+      "url": "https://x.com/elonmusk/status/2119617455102333206"
+    },
+    {
+      "date": "2026-11-07",
+      "author": "Alex Finn",
+      "handle": "AlexFinn",
+      "text": "After using Grok Bot nonstop for the past couple months: it's the best AI agent ever. Dead simple and just works. Has automated basically 100% of work I don't want to do. Examples: X monitoring every 15 min, full autonomous business, continuous app testing + PRs, content repurposing, community monitoring, retention outreach.",
+      "topic": "Workflow",
+      "url": "https://x.com/AlexFinn/status/2118882927610360204"
+    },
     {
       "date": "2026-11-05",
       "author": "Alex Finn",
@@ -184,25 +200,23 @@
       "text": "Grok Bot just had its biggest update yet. It introduces pages and dashboards, 2 things that solve Grok's BIGGEST problem. Video covering 5 dashboards that make Grok Bot much nicer to use, including one that saves a ton of usage.",
       "topic": "Workflow",
       "url": "https://x.com/AlexFinn/status/2115596225793921048"
-    },
-    {
-      "date": "2026-10-21",
-      "author": "SpaceX Super Intelligence",
-      "handle": "SpaceXSI",
-      "text": "Use Grok 4.7 in Viktor",
-      "topic": "Product",
-      "url": "https://x.com/SpaceXSI/status/2112959750786953386"
-    },
-    {
-      "date": "2026-10-14",
-      "author": "SpaceX Super Intelligence",
-      "handle": "SpaceXSI",
-      "text": "Introducing Grok Voice 3.0, the world’s most intelligent speech-to-speech model. Excels at resolving customer calls, responds in under a second, costs less than other frontier models. $0.08/min.",
-      "topic": "Product",
-      "url": "https://x.com/SpaceXSI/status/2110416580899168305"
     }
   ],
   "briefs": [
+    {
+      "date": "2026-11-09",
+      "dateLabel": "9 Nov 2026",
+      "tag": "Product",
+      "title": "Musk reviews Grok Bot team for overnight fixes; practitioners detail full autonomous workflows",
+      "points": [
+        "Musk (Nov 9): conducted round-table with Grok Bot engineering team; fixes implemented overnight with expectation of dramatic improvement by next day. Invites remaining issues via reply.",
+        "Alex Finn (Nov 7, practitioner): after months of heavy use, calls Grok Bot the best AI agent due to UX; lists concrete automations including 15-min X monitoring of AI accounts, fully autonomous revenue-generating business, continuous app testing + PR generation, content repurposing, 24/7 community monitoring/DMs, and retention outreach from product analytics.",
+        "Grok app growth (Oct): ~93.4M monthly active users, 12.7M downloads (per Musk RT of metrics).",
+        "AA Intelligence Index v5 (latest independent): Grok 4.7 ~35 (notable drop vs prior private-test readings); usable leaders Claude Opus 5.5 ~59, GPT-6 Astra ~57, GPT-6.1 Sol / Sonnet 5.5 ~55. Gemini 4 Carbon 60 remains limited-access. Pricing unchanged across flagships.",
+        "API watermark for grok-4.7 and related models live since Nov 7 (invisible statistical; team opt-out available)."
+      ],
+      "assumption": "Overnight fixes address reported reliability/UX friction; exact nature of improvements not detailed. Grok 4.8 release date remains unconfirmed. Bot unit economics still under pressure from always-on usage."
+    },
     {
       "date": "2026-11-06",
       "dateLabel": "6 Nov 2026",
