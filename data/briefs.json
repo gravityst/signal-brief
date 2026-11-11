@@ -1,28 +1,28 @@
 {
-  "updatedAt": "2026-11-09T14:55:00Z",
+  "updatedAt": "2026-11-11T14:45:00Z",
   "status": {
     "model": "Grok 4.7",
     "modelHint": "Flagship since Sep 21 · $2/$6 · 500k ctx · coding/agent focus · API watermark live since Nov 7",
     "desktop": "Grok Bot (desktop + mobile)",
-    "desktopHint": "Pages & dashboards · own cloud computer · connectors · usage limits tightened (cost pressure); overnight fixes Nov 9",
+    "desktopHint": "Pages & dashboards · own cloud computer · connectors · usage limits tightened (cost pressure); soft rollout of 4.8 expected this week",
     "nextModel": "Grok 4.8",
-    "nextModelHint": "2.5T · in RL · Musk Oct 30: longer than expected, not optimizing for benchmarks, prioritizes usefulness",
+    "nextModelHint": "Pre-train done · in RL · soft Bot rollout this week · new C/C++ stack · Musk: no resemblance to 4.7, foundations right",
     "cadence": "~monthly model drops",
-    "cadenceHint": "4.5 Jul · 4.6 Aug · 4.7 Sep · Voice 3.0 Oct 14 · 4.8 still pending"
+    "cadenceHint": "4.5 Jul · 4.6 Aug · 4.7 Sep · Voice 3.0 Oct 14 · 4.8 soft Bot this week"
   },
   "reference": {
     "Flagship API": "grok-4.7 · $2/$6 (cached $0.5) · 500k · watermark live since Nov 7",
     "Voice": "Grok Voice 3.0 · $0.08/min · <1s latency",
-    "Grok Bot": "Always-on agents · own computer · pages/dashboards · chief-of-staff patterns · tighter weekly limits · continuous fixes",
+    "Grok Bot": "Always-on agents · own computer · pages/dashboards · chief-of-staff patterns · tighter weekly limits · 4.8 soft rollout imminent",
     "Company": "SpaceX Super Intelligence (SpaceXSI / SpaceXAI) · Super Intelligence segment",
-    "AA Index v5": "Grok 4.7 ~35; leaders Gemini Carbon 60 (limited), Opus 5.5 ~59, Astra ~57"
+    "AA Index v5": "Leaders: Fable 5.2 ~64.6, Gemini Carbon 60, Opus 5.5 ~59, Astra ~57; Grok 4.7 ~35.5"
   },
   "watchNext": [
-    "Grok 4.8 public release and independent AA measurement (Musk: useful > leaderboard)",
-    "Grok Bot usage economics, allowance tiers, and impact of overnight fixes",
+    "Grok 4.8 soft Bot rollout results and independent AA measurement",
+    "Grok Bot usage economics and any post-4.8 changes",
     "API watermark behavior and any opt-out effects",
     "X Subscription bundling Grok + Cursor + Premium",
-    "Grok 4.9 / Grok 5 signals (roadmap: 4.9 Astra/Fable class)"
+    "Grok 5 signals (Musk: exceed Opus 5.5 in 2-3 months)"
   ],
   "links": [
     { "label": "API docs", "href": "https://docs.x.ai" },
@@ -36,39 +36,47 @@
     {
       "title": "Coding agent (Grok Bot + Grok 4.7)",
       "pattern": "Grok Bot as orchestrator with own computer + Grok 4.7 for code/knowledge tasks",
-      "why": "Bot handles long-running UI/tool work; 4.7 priced at $2/$6 with strong agent training; Pages/dashboards improve usability; watch usage caps and recent fixes",
+      "why": "Bot handles long-running UI/tool work; 4.7 priced at $2/$6 with strong agent training; Pages/dashboards improve usability; 4.8 soft rollout may change dynamics",
       "source": "Practitioner reports + vendor positioning"
     },
     {
       "title": "Frontier routing",
-      "pattern": "Route hard reasoning to Opus 5.5 or GPT-6 Astra; routine/coding to Grok 4.7 or Sol",
-      "why": "AA v5: Opus ~59, Astra ~57, Grok 4.7 ~35; cost differs 5x+",
+      "pattern": "Route hard reasoning/planning to Fable 5.2 or Opus 5.5; routine/coding to Grok 4.7 or Sol",
+      "why": "AA v5: Fable 5.2 ~64.6, Opus ~59, Astra ~57, Grok 4.7 ~35; cost differs significantly",
       "source": "AA Index v5 + pricing pages"
     }
   ],
   "frontier": [
     {
+      "name": "Claude Fable 5.2 (max)",
+      "org": "Anthropic",
+      "released": "2026-11-09",
+      "price": "$8/$40",
+      "aaIndex": "64.6",
+      "note": "Current AA v5 leader; strong planning/reasoning; restricted Mythos variant for vetted orgs"
+    },
+    {
       "name": "Gemini 4 Carbon (high)",
       "org": "Google",
       "released": "2026-10",
-      "price": "$2/$10 intro (limited)",
+      "price": "$2/$10",
       "aaIndex": "60",
-      "note": "Leads AA v5; cyber-defender / limited access only"
+      "note": "AA v5 #2; broader availability (Google AI Ultra) since ~Nov 10"
     },
     {
       "name": "Claude Opus 5.5 (max)",
       "org": "Anthropic",
       "released": "2026-09-21",
       "price": "$4/$20",
-      "aaIndex": "59",
-      "note": "Top usable model on AA v5; 1M ctx; strong cost/quality"
+      "aaIndex": "59.1",
+      "note": "Strong usable flagship; 1M ctx; excellent cost/quality for execution"
     },
     {
       "name": "GPT-6 Astra (max)",
       "org": "OpenAI",
       "released": "2026-09-03",
       "price": "$10/$50",
-      "aaIndex": "57",
+      "aaIndex": "56.9",
       "note": "Strong science/reasoning; high cost"
     },
     {
@@ -76,43 +84,67 @@
       "org": "OpenAI",
       "released": "2026-09-29",
       "price": "$2/$10",
-      "aaIndex": "55",
-      "note": "Near-Astra at lower price; coding/agent pick"
+      "aaIndex": "54.6",
+      "note": "Near-Astra capability at lower price; coding/agent pick"
     },
     {
       "name": "Claude Sonnet 5.5 (max)",
       "org": "Anthropic",
       "released": "2026-09-28",
       "price": "$2/$10",
-      "aaIndex": "55",
+      "aaIndex": "54.5",
       "note": "Strong office/agent; widely available"
     },
     {
       "name": "Gemini 4 Argon (high)",
       "org": "Google",
       "released": "2026-10-13",
-      "price": "$2/$10 intro → $4/$20 Dec 1",
+      "price": "$2/$10",
       "aaIndex": "50",
       "note": "GA; intro pricing through Nov 30"
     },
     {
-      "name": "Claude Fable 5.1 (max)",
-      "org": "Anthropic",
-      "released": "2026-09-01",
-      "price": "$10/$50",
-      "aaIndex": "50",
-      "note": "High-end long-horizon; cache discount improved"
-    },
-    {
-      "name": "Grok 4.7 (high/xhigh)",
+      "name": "Grok 4.7 (xhigh)",
       "org": "SpaceXAI",
       "released": "2026-09-21",
       "price": "$2/$6",
-      "aaIndex": "35",
-      "note": "Current flagship; AA v5 drop from private tests; strong agent/coding positioning; API watermark live"
+      "aaIndex": "35.5",
+      "note": "Current flagship; AA v5 ~35.5; strong agent/coding positioning; API watermark live; 4.8 soft Bot rollout imminent"
     }
   ],
   "xPosts": [
+    {
+      "date": "2026-11-11",
+      "author": "Alex Finn",
+      "handle": "AlexFinn",
+      "text": "Run this prompt in Grok Bot to lighten cognitive load: have it propose systems, subagents, and routines based on your history to automate more of the work it already knows about you.",
+      "topic": "Workflow",
+      "url": "https://x.com/AlexFinn/status/2120316818132984120"
+    },
+    {
+      "date": "2026-11-10",
+      "author": "Elon Musk",
+      "handle": "elonmusk",
+      "text": "Dumped JAX/SGLang; rewrote entire RL and inference stack in C/C++. Pre-training done for 4.8; now in RL with evals climbing. Soft rollout to Bot users later this week. Will bear no resemblance to 4.7; foundations built right.",
+      "topic": "Roadmap",
+      "url": "https://x.com/elonmusk/status/2120088070443655190"
+    },
+    {
+      "date": "2026-11-10",
+      "author": "Elon Musk",
+      "handle": "elonmusk",
+      "text": "Opus 5.5 is a masterpiece. Grok 5 should exceed it in 2 or 3 months, with continued acceleration thereafter.",
+      "topic": "Roadmap",
+      "url": "https://x.com/elonmusk/status/2120099798078656909"
+    },
+    {
+      "date": "2026-11-09",
+      "author": "Alex Finn",
+      "handle": "AlexFinn",
+      "text": "Fable 5.2 is the greatest model ever for planning. Use it to iron out ideas and create detailed tasks, then switch to Opus 5.5 for execution and Sonnet/Haiku for testing to save tokens and improve results.",
+      "topic": "Workflow",
+      "url": "https://x.com/AlexFinn/status/2119891924316454975"
+    },
     {
       "date": "2026-11-09",
       "author": "Elon Musk",
@@ -139,27 +171,11 @@
     },
     {
       "date": "2026-11-05",
-      "author": "Alex Finn",
-      "handle": "AlexFinn",
-      "text": "You can send this to your grok bot and have it implement everything.",
-      "topic": "Workflow",
-      "url": "https://x.com/AlexFinn/status/2118491708828828132"
-    },
-    {
-      "date": "2026-11-05",
       "author": "Elon Musk",
       "handle": "elonmusk",
       "text": "Grok @Bot can call your dentist on the phone!",
       "topic": "Product",
       "url": "https://x.com/elonmusk/status/2118251808179323102"
-    },
-    {
-      "date": "2026-11-05",
-      "author": "Elon Musk",
-      "handle": "elonmusk",
-      "text": "Everyone is using Grok @Bot",
-      "topic": "Product",
-      "url": "https://x.com/elonmusk/status/2118250472373129319"
     },
     {
       "date": "2026-11-03",
@@ -168,14 +184,6 @@
       "text": "This year we saw the 3 most important AI releases ever: Grok Bot, Opus 5.5, Hermes Agent. Used together they can build a business, generate revenue, and automate unwanted tasks.",
       "topic": "Review",
       "url": "https://x.com/AlexFinn/status/2117719430042202311"
-    },
-    {
-      "date": "2026-11-02",
-      "author": "Alex Finn",
-      "handle": "AlexFinn",
-      "text": "Deepseek article on AI agents: routers vs workers (chief-of-staff model works well in Grok Bot), proactive on events not chats, message queue, watchdog layer, protect human attention. Grok Bot already strong on several of these.",
-      "topic": "Workflow",
-      "url": "https://x.com/AlexFinn/status/2117127095038218733"
     },
     {
       "date": "2026-11-01",
@@ -192,17 +200,23 @@
       "text": "I know it’s taken longer than expected, but Grok 4.8 will not be a disappointment. We’re not optimizing for benchmarks and I really don’t care how Grok does on those, but it will be incredibly useful.",
       "topic": "Roadmap",
       "url": "https://x.com/elonmusk/status/2116036703538606301"
-    },
-    {
-      "date": "2026-10-29",
-      "author": "Alex Finn",
-      "handle": "AlexFinn",
-      "text": "Grok Bot just had its biggest update yet. It introduces pages and dashboards, 2 things that solve Grok's BIGGEST problem. Video covering 5 dashboards that make Grok Bot much nicer to use, including one that saves a ton of usage.",
-      "topic": "Workflow",
-      "url": "https://x.com/AlexFinn/status/2115596225793921048"
     }
   ],
   "briefs": [
+    {
+      "date": "2026-11-11",
+      "dateLabel": "11 Nov 2026",
+      "tag": "Roadmap",
+      "title": "Grok 4.8 soft Bot rollout this week after C/C++ stack rewrite; Fable 5.2 leads AA Index",
+      "points": [
+        "Musk (Nov 10): Pre-training finished for Grok 4.8; model now in RL with evals climbing. Soft rollout to Grok Bot users later this week. Entire RL and inference stack rewritten from JAX/SGLang into C/C++ (derived from Starlink engineering). 'Will bear no resemblance to 4.7 (thankfully).' Foundations built right; expects it to evolve into something special. Not yet incredible.",
+        "Musk: Opus 5.5 is a masterpiece; Grok 5 should exceed it in 2–3 months with continued acceleration.",
+        "Claude Fable 5.2 (Anthropic, ~Nov 9): tops AA Intelligence Index v5 at ~64.6 (max). Gemini 4 Carbon ~60, Opus 5.5 ~59.1, GPT-6 Astra ~56.9. Grok 4.7 remains ~35.5. Pricing: Fable $8/$40.",
+        "Alex Finn (Nov 11): Shares prompt for Grok Bot (or similar agents) to propose systems, subagents, and routines that reduce cognitive load based on shared history.",
+        "Alex Finn on Fable 5.2: Use for thorough planning and task creation, then hand execution to Opus 5.5 and testing to Sonnet/Haiku for better results and lower token use."
+      ],
+      "assumption": "Soft rollout limited to Bot users; full API and independent AA scores for 4.8 unknown. Stack rewrite targets serving cost and reliability. Grok 5 timeline remains Musk's projection."
+    },
     {
       "date": "2026-11-09",
       "dateLabel": "9 Nov 2026",
