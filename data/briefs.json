@@ -1,27 +1,27 @@
 {
-  "updatedAt": "2026-11-11T14:45:00Z",
+  "updatedAt": "2026-11-13T14:46:00Z",
   "status": {
     "model": "Grok 4.7",
     "modelHint": "Flagship since Sep 21 · $2/$6 · 500k ctx · coding/agent focus · API watermark live since Nov 7",
-    "desktop": "Grok Bot (desktop + mobile)",
-    "desktopHint": "Pages & dashboards · own cloud computer · connectors · usage limits tightened (cost pressure); soft rollout of 4.8 expected this week",
+    "desktop": "Grok Bot 1.0 (desktop + mobile)",
+    "desktopHint": "Team Bots · meeting joins (Meet/Zoom/Teams) · Mac local access (Messages/Mail/Notes/etc.) · pages & dashboards · own cloud computer · tighter usage limits",
     "nextModel": "Grok 4.8",
-    "nextModelHint": "Pre-train done · in RL · soft Bot rollout this week · new C/C++ stack · Musk: no resemblance to 4.7, foundations right",
+    "nextModelHint": "Pre-train done · in RL · soft Bot rollout planned week of Nov 10 · new C/C++ stack · Musk: no resemblance to 4.7, foundations right; not yet confirmed live",
     "cadence": "~monthly model drops",
-    "cadenceHint": "4.5 Jul · 4.6 Aug · 4.7 Sep · Voice 3.0 Oct 14 · 4.8 soft Bot this week"
+    "cadenceHint": "4.5 Jul · 4.6 Aug · 4.7 Sep · Voice 3.0 Oct 14 · Bot 1.0 Nov 11 · 4.8 soft Bot expected"
   },
   "reference": {
     "Flagship API": "grok-4.7 · $2/$6 (cached $0.5) · 500k · watermark live since Nov 7",
     "Voice": "Grok Voice 3.0 · $0.08/min · <1s latency",
-    "Grok Bot": "Always-on agents · own computer · pages/dashboards · chief-of-staff patterns · tighter weekly limits · 4.8 soft rollout imminent",
+    "Grok Bot": "1.0: Team Bots (shareable) · joins video calls · Mac local app access · always-on agents · own computer · pages/dashboards · tighter weekly limits",
     "Company": "SpaceX Super Intelligence (SpaceXSI / SpaceXAI) · Super Intelligence segment",
-    "AA Index v5": "Leaders: Fable 5.2 ~64.6, Gemini Carbon 60, Opus 5.5 ~59, Astra ~57; Grok 4.7 ~35.5"
+    "AA Index v5": "Leaders: Fable 5.2 ~64.6, Gemini Carbon 60, Opus 5.5 ~59.1, Astra ~56.9; Grok 4.7 ~35.5"
   },
   "watchNext": [
-    "Grok 4.8 soft Bot rollout results and independent AA measurement",
-    "Grok Bot usage economics and any post-4.8 changes",
+    "Grok 4.8 soft Bot rollout confirmation, independent AA scores, and full API availability",
+    "Grok Bot 1.0 usage economics and any post-1.0 / 4.8 limit changes",
+    "Team Bot collaboration patterns and meeting-join reliability",
     "API watermark behavior and any opt-out effects",
-    "X Subscription bundling Grok + Cursor + Premium",
     "Grok 5 signals (Musk: exceed Opus 5.5 in 2-3 months)"
   ],
   "links": [
@@ -34,15 +34,15 @@
   ],
   "stacks": [
     {
-      "title": "Coding agent (Grok Bot + Grok 4.7)",
-      "pattern": "Grok Bot as orchestrator with own computer + Grok 4.7 for code/knowledge tasks",
-      "why": "Bot handles long-running UI/tool work; 4.7 priced at $2/$6 with strong agent training; Pages/dashboards improve usability; 4.8 soft rollout may change dynamics",
+      "title": "Coding agent (Grok Bot 1.0 + Grok 4.7)",
+      "pattern": "Grok Bot as orchestrator with own computer + Grok 4.7 for code/knowledge tasks; Team Bots for shared workflows",
+      "why": "Bot 1.0 adds collaboration, meeting joins, and Mac local access; 4.7 priced at $2/$6 with strong agent training; Pages/dashboards improve usability; 4.8 soft rollout may change dynamics",
       "source": "Practitioner reports + vendor positioning"
     },
     {
       "title": "Frontier routing",
       "pattern": "Route hard reasoning/planning to Fable 5.2 or Opus 5.5; routine/coding to Grok 4.7 or Sol",
-      "why": "AA v5: Fable 5.2 ~64.6, Opus ~59, Astra ~57, Grok 4.7 ~35; cost differs significantly",
+      "why": "AA v5: Fable 5.2 ~64.6, Opus ~59.1, Astra ~56.9, Grok 4.7 ~35.5; cost differs significantly",
       "source": "AA Index v5 + pricing pages"
     }
   ],
@@ -53,7 +53,7 @@
       "released": "2026-11-09",
       "price": "$8/$40",
       "aaIndex": "64.6",
-      "note": "Current AA v5 leader; strong planning/reasoning; restricted Mythos variant for vetted orgs"
+      "note": "Current AA v5 leader; strong planning/reasoning; restricted Mythos variant for vetted orgs; 20% cheaper than 5.1"
     },
     {
       "name": "Gemini 4 Carbon (high)",
@@ -61,7 +61,7 @@
       "released": "2026-10",
       "price": "$2/$10",
       "aaIndex": "60",
-      "note": "AA v5 #2; broader availability (Google AI Ultra) since ~Nov 10"
+      "note": "AA v5 #2; broader availability (Google AI Ultra) since ~Nov 10; intro pricing through Nov 30"
     },
     {
       "name": "Claude Opus 5.5 (max)",
@@ -109,10 +109,66 @@
       "released": "2026-09-21",
       "price": "$2/$6",
       "aaIndex": "35.5",
-      "note": "Current flagship; AA v5 ~35.5; strong agent/coding positioning; API watermark live; 4.8 soft Bot rollout imminent"
+      "note": "Current flagship; AA v5 ~35.5; strong agent/coding positioning; API watermark live; 4.8 soft Bot rollout not yet confirmed live"
     }
   ],
   "xPosts": [
+    {
+      "date": "2026-11-13",
+      "author": "Elon Musk",
+      "handle": "elonmusk",
+      "text": "Grok is a straight shooter (replying to Sundar Pichai's 'Nice summary @grok').",
+      "topic": "Review",
+      "url": "https://x.com/elonmusk/status/2121242367684661286"
+    },
+    {
+      "date": "2026-11-13",
+      "author": "Elon Musk",
+      "handle": "elonmusk",
+      "text": "Grok Bot (quoting announcement of Mac local access to Messages, Mail, Notes, Reminders, Calendar, Location, Contacts).",
+      "topic": "Product",
+      "url": "https://x.com/elonmusk/status/2121123425213399408"
+    },
+    {
+      "date": "2026-11-13",
+      "author": "Elon Musk",
+      "handle": "elonmusk",
+      "text": "Give Grok @Bot your most laborious tasks! (quoting Maye Musk on Bot moving 2000 Dropbox photos in 5 minutes).",
+      "topic": "Workflow",
+      "url": "https://x.com/elonmusk/status/2121120295884837183"
+    },
+    {
+      "date": "2026-11-13",
+      "author": "Alex Finn",
+      "handle": "AlexFinn",
+      "text": "You can download Grok Bot right now and by end of night have an autonomous revenue-generating 24/7 army of AI employees. Mine has already made $1,800. Zero programming required.",
+      "topic": "Workflow",
+      "url": "https://x.com/AlexFinn/status/2121124337919094890"
+    },
+    {
+      "date": "2026-11-12",
+      "author": "Elon Musk",
+      "handle": "elonmusk",
+      "text": "Try Grok @Bot (quoting Greg Isenberg on Bot as best AI agent orchestrator running Claude Code + Paper).",
+      "topic": "Product",
+      "url": "https://x.com/elonmusk/status/2120758305047904548"
+    },
+    {
+      "date": "2026-11-11",
+      "author": "Alex Finn",
+      "handle": "AlexFinn",
+      "text": "MASSIVE. Grok Bot 1.0 just dropped (everything before was beta). Features: Team Bots for multiplayer, join video calls and act, more proactive, better self-improvement/memory, significantly better browser use.",
+      "topic": "Product",
+      "url": "https://x.com/AlexFinn/status/2120591155503219175"
+    },
+    {
+      "date": "2026-11-11",
+      "author": "SpaceX Super Intelligence",
+      "handle": "SpaceXSI",
+      "text": "Introducing Grok Bot 1.0. Bots can be shared and are more collaborative and capable than ever.",
+      "topic": "Product",
+      "url": "https://x.com/SpaceXSI/status/2120584928983441826"
+    },
     {
       "date": "2026-11-11",
       "author": "Alex Finn",
@@ -146,63 +202,29 @@
       "url": "https://x.com/AlexFinn/status/2119891924316454975"
     },
     {
-      "date": "2026-11-09",
-      "author": "Elon Musk",
-      "handle": "elonmusk",
-      "text": "Just did a round table review with the Grok @Bot engineering team. Fixes are being implemented overnight and you should notice a dramatic improvement by tomorrow.",
-      "topic": "Product",
-      "url": "https://x.com/elonmusk/status/2119617455102333206"
-    },
-    {
       "date": "2026-11-07",
       "author": "Alex Finn",
       "handle": "AlexFinn",
-      "text": "After using Grok Bot nonstop for the past couple months: it's the best AI agent ever. Dead simple and just works. Has automated basically 100% of work I don't want to do. Examples: X monitoring every 15 min, full autonomous business, continuous app testing + PRs, content repurposing, community monitoring, retention outreach.",
+      "text": "After using Grok Bot nonstop for the past couple months: it's the best AI agent ever. Dead simple and just works. Has automated basically 100% of work I don't want to do.",
       "topic": "Workflow",
       "url": "https://x.com/AlexFinn/status/2118882927610360204"
-    },
-    {
-      "date": "2026-11-05",
-      "author": "Alex Finn",
-      "handle": "AlexFinn",
-      "text": "Grok Bot is easily the best AI agent on planet Earth right now. People want more tokens; he covers 7 tricks to 10x usage from Grok Bot.",
-      "topic": "Workflow",
-      "url": "https://x.com/AlexFinn/status/2118402980340961507"
-    },
-    {
-      "date": "2026-11-05",
-      "author": "Elon Musk",
-      "handle": "elonmusk",
-      "text": "Grok @Bot can call your dentist on the phone!",
-      "topic": "Product",
-      "url": "https://x.com/elonmusk/status/2118251808179323102"
-    },
-    {
-      "date": "2026-11-03",
-      "author": "Alex Finn",
-      "handle": "AlexFinn",
-      "text": "This year we saw the 3 most important AI releases ever: Grok Bot, Opus 5.5, Hermes Agent. Used together they can build a business, generate revenue, and automate unwanted tasks.",
-      "topic": "Review",
-      "url": "https://x.com/AlexFinn/status/2117719430042202311"
-    },
-    {
-      "date": "2026-11-01",
-      "author": "Elon Musk",
-      "handle": "elonmusk",
-      "text": "Try Grok @Bot! You will love it. We land a few dozen fixes, features and sometimes powers to Bot 7 days a week and we look at your feedback to make Bot as perfect as possible.",
-      "topic": "Product",
-      "url": "https://x.com/elonmusk/status/2117033967782113327"
-    },
-    {
-      "date": "2026-10-30",
-      "author": "Elon Musk",
-      "handle": "elonmusk",
-      "text": "I know it’s taken longer than expected, but Grok 4.8 will not be a disappointment. We’re not optimizing for benchmarks and I really don’t care how Grok does on those, but it will be incredibly useful.",
-      "topic": "Roadmap",
-      "url": "https://x.com/elonmusk/status/2116036703538606301"
     }
   ],
   "briefs": [
+    {
+      "date": "2026-11-13",
+      "dateLabel": "13 Nov 2026",
+      "tag": "Product",
+      "title": "Grok Bot 1.0 ships with Team Bots, meeting joins, and Mac local access; 4.8 soft rollout still pending confirmation",
+      "points": [
+        "SpaceXSI (Nov 11): Introduced Grok Bot 1.0. Bots can be shared (Team Bots) and are more collaborative. Features include joining Google Meet/Zoom/Teams calls (answer in chat, send summaries), more proactive behavior, better self-improvement/memory of team workflows, and significantly improved browser use.",
+        "Grok Bot on Mac (Nov 12–13): Can now access Messages, Mail, Notes, Reminders, Calendar, Location, and Contacts. Musk highlighted real-world use (Maye Musk: Bot moved 2000 Dropbox photos in 5 minutes after offering to do it).",
+        "Alex Finn (practitioner, Nov 11–13): Called 1.0 massive (prior was beta); listed multiplayer Team Bots, call joining/action, proactivity, better browser. Separate post: download Bot and have autonomous revenue army by night; his made $1,800. Zero programming required.",
+        "Musk (Nov 10): Pre-training done for Grok 4.8; now in RL with evals climbing. Soft rollout to Bot users later that week. Entire stack rewritten from JAX/SGLang to C/C++. 'Will bear no resemblance to 4.7.' Foundations right; not yet incredible. As of Nov 13, no confirmed public live status or independent AA score.",
+        "AA Intelligence Index v5 (latest): Fable 5.2 ~64.6 (leader, $8/$40), Gemini 4 Carbon 60 ($2/$10 intro), Opus 5.5 ~59.1 ($4/$20), Astra ~56.9 ($10/$50), Sol ~54.6 ($2/$10), Grok 4.7 ~35.5 ($2/$6). No change in Grok ranking."
+      ],
+      "assumption": "Grok 4.8 soft Bot rollout was planned for the week of Nov 10 but remains unconfirmed as live with no public AA scores or API identifier. Bot 1.0 usage economics and weekly limits still under prior cost pressure. Team Bot and meeting features depend on plan tier."
+    },
     {
       "date": "2026-11-11",
       "dateLabel": "11 Nov 2026",
