@@ -1,27 +1,27 @@
 {
-  "updatedAt": "2026-11-16T14:54:40Z",
+  "updatedAt": "2026-11-18T15:30:00Z",
   "status": {
     "model": "Grok 4.7",
-    "modelHint": "Flagship since Sep 21 · $2/$6 · 500k ctx · coding/agent focus · text watermark now opt-in",
+    "modelHint": "Flagship since Sep 21 · $2/$6 · 500k ctx · coding/agent focus · text watermark opt-in",
     "desktop": "Grok Bot 1.0 (desktop + mobile)",
-    "desktopHint": "Team Bots · meeting joins · Mac local access · pages & dashboards · own cloud computer · phone calls & video edit demos · tighter usage limits",
+    "desktopHint": "Team Bots · meeting joins · Mac local access · accounting deployments · own cloud computer · pages/dashboards · tighter usage limits",
     "nextModel": "Grok 4.8",
-    "nextModelHint": "Pre-train done · in RL on new C/C++ stack · soft Bot rollout planned week of Nov 10 · not yet confirmed live · no public API",
+    "nextModelHint": "Pre-train done · in RL on new C/C++ stack · soft Bot rollout planned week of Nov 10 · not yet confirmed live as of Nov 18 · no public API",
     "cadence": "~monthly model drops",
-    "cadenceHint": "4.5 Jul · 4.6 Aug · 4.7 Sep · Voice 3.0 Oct 14 · Bot 1.0 Nov 11 · 4.8 soft Bot expected"
+    "cadenceHint": "4.5 Jul · 4.6 Aug · 4.7 Sep · Voice 3.0 Oct 14 · Bot 1.0 Nov 11 · 4.8 soft Bot still unconfirmed"
   },
   "reference": {
     "Flagship API": "grok-4.7 · $2/$6 (cached $0.5) · 500k · text watermark opt-in",
     "Voice": "Grok Voice 3.0 · $0.08/min · <1s latency",
-    "Grok Bot": "1.0: Team Bots · joins video calls · Mac local app access · always-on agents · own computer · pages/dashboards · phone/video demos",
+    "Grok Bot": "1.0: Team Bots · joins video calls · Mac local app access · always-on agents · own computer · accounting use cases · pages/dashboards",
     "Company": "SpaceX Super Intelligence (SpaceXSI / SpaceXAI) · Super Intelligence segment",
-    "AA Index v5": "Leaders: Fable 5.2 ~64.6, Gemini Carbon 60, Opus 5.5 ~59.1, Astra ~56.9; Grok 4.7 ~35.5"
+    "AA Index v5": "Leaders: Fable 5.2 64.6, GPT-6.2 Astra 62.1, Gemini Carbon 60, Opus 5.5 59.1; Grok 4.7 35.5"
   },
   "watchNext": [
     "Grok 4.8 soft Bot rollout confirmation, independent AA scores, and full API availability",
-    "Grok Bot 1.0 usage economics and any post-1.0 / 4.8 limit changes",
+    "Grok Bot 1.0 accounting/enterprise economics and reliability (vendor-reported savings)",
     "Team Bot collaboration patterns and meeting-join / phone-call reliability",
-    "API watermark opt-in behavior and residual legal requirements",
+    "GPT-6.2 Astra/Sol independent evaluations and cost-efficiency vs Fable",
     "Grok 5 signals (Musk: exceed Opus 5.5 in 2-3 months)"
   ],
   "links": [
@@ -36,39 +36,54 @@
     {
       "title": "Coding agent (Grok Bot 1.0 + Grok 4.7)",
       "pattern": "Grok Bot as orchestrator with own computer + Grok 4.7 for code/knowledge tasks; Team Bots for shared workflows",
-      "why": "Bot 1.0 adds collaboration, meeting joins, Mac local access, phone/video capability; 4.7 priced at $2/$6 with strong agent training; Pages/dashboards improve usability; 4.8 soft rollout may change dynamics",
+      "why": "Bot 1.0 adds collaboration, meeting joins, Mac local access, accounting deployments; 4.7 priced at $2/$6 with strong agent training; Pages/dashboards improve usability; 4.8 soft rollout still unconfirmed",
       "source": "Practitioner reports + vendor positioning"
     },
     {
       "title": "Frontier routing",
-      "pattern": "Route hard reasoning/planning to Fable 5.2 or Opus 5.5; routine/coding to Grok 4.7 or Sol",
-      "why": "AA v5: Fable 5.2 ~64.6, Opus ~59.1, Astra ~56.9, Grok 4.7 ~35.5; cost differs significantly",
+      "pattern": "Route hard reasoning/planning to Fable 5.2 or Opus 5.5; routine/coding to Grok 4.7, Sol, or GPT-6.2 variants",
+      "why": "AA v5: Fable 5.2 64.6, GPT-6.2 Astra 62.1, Opus ~59.1, Grok 4.7 35.5; cost differs significantly",
       "source": "AA Index v5 + pricing pages"
     }
   ],
   "frontier": [
-    {"name": "Claude Fable 5.2 (max)", "org": "Anthropic", "released": "2026-11-09", "price": "$8/$40", "aaIndex": "64.6", "note": "Current AA v5 leader; strong planning/reasoning; 20% cheaper than 5.1"},
-    {"name": "Gemini 4 Carbon (high)", "org": "Google", "released": "2026-10", "price": "$2/$10 (intro through Nov 30)", "aaIndex": "60", "note": "AA v5 #2; intro pricing ends Dec 1"},
+    {"name": "Claude Fable 5.2 (max)", "org": "Anthropic", "released": "2026-11-09", "price": "$8/$40", "aaIndex": "64.6", "note": "Current AA v5 leader; strong planning/reasoning"},
+    {"name": "GPT-6.2 Astra (max)", "org": "OpenAI", "released": "2026-11-17", "price": "~$8/$40 (blended ~$16)", "aaIndex": "62.1", "note": "New AA #2; efficient on practitioner tests; computer use strength"},
+    {"name": "Gemini 4 Carbon (high)", "org": "Google", "released": "2026-10", "price": "$2/$10 (intro through Nov 30)", "aaIndex": "60", "note": "AA v5 #3; intro pricing ends Dec 1"},
     {"name": "Claude Opus 5.5 (max)", "org": "Anthropic", "released": "2026-09-21", "price": "$4/$20", "aaIndex": "59.1", "note": "Strong usable flagship; 1M ctx; excellent cost/quality for execution"},
-    {"name": "GPT-6 Astra (max)", "org": "OpenAI", "released": "2026-09-03", "price": "$10/$50", "aaIndex": "56.9", "note": "Strong science/reasoning; high cost; long-prompt surcharge"},
-    {"name": "GPT-6.1 Sol (max)", "org": "OpenAI", "released": "2026-09-29", "price": "$2/$10", "aaIndex": "54.6", "note": "Near-Astra capability at lower price; coding/agent pick"},
+    {"name": "GPT-6.2 Sol (max)", "org": "OpenAI", "released": "2026-11-17", "price": "$2/$10", "aaIndex": "57.3", "note": "Efficient near-Astra capability; coding/agent pick"},
     {"name": "Claude Sonnet 5.5 (max)", "org": "Anthropic", "released": "2026-09-28", "price": "$2/$10", "aaIndex": "54.5", "note": "Strong office/agent; widely available"},
-    {"name": "Gemini 4 Argon (high)", "org": "Google", "released": "2026-10-13", "price": "$2/$10 (intro through Nov 30)", "aaIndex": "50", "note": "GA; intro pricing through Nov 30"},
-    {"name": "Grok 4.7 (xhigh)", "org": "SpaceXAI", "released": "2026-09-21", "price": "$2/$6", "aaIndex": "35.5", "note": "Current flagship; AA v5 ~35.5; strong agent/coding positioning; text watermark now opt-in; 4.8 soft Bot still unconfirmed"}
+    {"name": "Gemini 4 Argon (high)", "org": "Google", "released": "2026-10-13", "price": "$2/$10 (intro through Nov 30)", "aaIndex": "50.4", "note": "GA; intro pricing through Nov 30"},
+    {"name": "Grok 4.7 (xhigh)", "org": "SpaceXAI", "released": "2026-09-21", "price": "$2/$6", "aaIndex": "35.5", "note": "Current flagship; AA v5 35.5; strong agent/coding positioning; text watermark opt-in; 4.8 soft Bot still unconfirmed"}
   ],
   "xPosts": [
+    {"date": "2026-11-18", "author": "Elon Musk", "handle": "elonmusk", "text": "Grok @Bot can do your accounting (quoting SpaceXSI five Bots on full-time order-to-cash roles).", "topic": "Workflow", "url": "https://x.com/elonmusk/status/2122891480729829482"},
+    {"date": "2026-11-18", "author": "Alex Finn", "handle": "AlexFinn", "text": "Ran ChatGPT Astra 6.2 on my benchmark: 312.7/500, Fable 5.2 beat by 0.3. But Astra finished in 1/3 time, 1/3 price, 1/4 tokens. Efficiency matters.", "topic": "Benchmark", "url": "https://x.com/AlexFinn/status/2122851769311236129"},
+    {"date": "2026-11-17", "author": "Alex Finn", "handle": "AlexFinn", "text": "Testing GPT-6.2 Astra: good, better than Astra 6 at better cost, incredible at computer use, efficient. Not matching Fable 5.2 yet; test yourself against own workflows.", "topic": "Review", "url": "https://x.com/AlexFinn/status/2122811334173880705"},
+    {"date": "2026-11-16", "author": "Alex Finn", "handle": "AlexFinn", "text": "Sped up AI coding 20x: have Fable 5.2 ask as many questions as needed for full plan, then create detailed Linear issues (40+), then iterate 'work on next'.", "topic": "Workflow", "url": "https://x.com/AlexFinn/status/2122381648679608354"},
     {"date": "2026-11-16", "author": "Elon Musk", "handle": "elonmusk", "text": "Grok @Bot can do almost anything (quoting Starship Flight 15 highlight reel made by Bot: download livestream, select moments, edit, effects, music).", "topic": "Workflow", "url": "https://x.com/elonmusk/status/2122164224382447808"},
     {"date": "2026-11-16", "author": "Elon Musk", "handle": "elonmusk", "text": "Important (quoting confirmation that Grok text watermarking is now off by default in SpaceXSI API; only on where law requires or user asks).", "topic": "Product", "url": "https://x.com/elonmusk/status/2122223599079559603"},
     {"date": "2026-11-16", "author": "Alex Finn", "handle": "AlexFinn", "text": "The most dangerous thing you can do right now is NOT use the latest AI tools. Detailed 6-step: reverse prompt Fable 5.2, build with Claude Code + Opus 5.5, automate with Grok Bot, stay above 50% limits, build platform.", "topic": "Workflow", "url": "https://x.com/AlexFinn/status/2122064712859058210"},
-    {"date": "2026-11-16", "author": "Alex Finn", "handle": "AlexFinn", "text": "The world is about to be a very different place. Qwen 4 just dropped (API), open-direction model better than Fable 5 in some views; gatekeeping gone.", "topic": "Review", "url": "https://x.com/AlexFinn/status/2122189163403583723"},
     {"date": "2026-11-15", "author": "Elon Musk", "handle": "elonmusk", "text": "Try Grok @Bot (quoting detailed phone-call rebooking demo: AI disclosure, hold, flight, hotel, meals, cost check).", "topic": "Workflow", "url": "https://x.com/elonmusk/status/2121770874885845044"},
-    {"date": "2026-11-13", "author": "Elon Musk", "handle": "elonmusk", "text": "Grok is a straight shooter (replying to Sundar Pichai's 'Nice summary @grok').", "topic": "Review", "url": "https://x.com/elonmusk/status/2121242367684661286"},
     {"date": "2026-11-13", "author": "Alex Finn", "handle": "AlexFinn", "text": "You can download Grok Bot right now and by end of night have an autonomous revenue-generating 24/7 army of AI employees. Mine has already made $1,800. Zero programming required.", "topic": "Workflow", "url": "https://x.com/AlexFinn/status/2121124337919094890"},
     {"date": "2026-11-11", "author": "SpaceX Super Intelligence", "handle": "SpaceXSI", "text": "Introducing Grok Bot 1.0. Bots can be shared and are more collaborative and capable than ever.", "topic": "Product", "url": "https://x.com/SpaceXSI/status/2120584928983441826"},
     {"date": "2026-11-11", "author": "Alex Finn", "handle": "AlexFinn", "text": "MASSIVE. Grok Bot 1.0 just dropped (everything before was beta). Features: Team Bots for multiplayer, join video calls and act, more proactive, better self-improvement/memory, significantly better browser use.", "topic": "Product", "url": "https://x.com/AlexFinn/status/2120591155503219175"},
     {"date": "2026-11-10", "author": "Elon Musk", "handle": "elonmusk", "text": "Dumped JAX/SGLang; rewrote entire RL and inference stack in C/C++. Pre-training done for 4.8; now in RL with evals climbing. Soft rollout to Bot users later this week. Will bear no resemblance to 4.7; foundations built right.", "topic": "Roadmap", "url": "https://x.com/elonmusk/status/2120088070443655190"}
   ],
   "briefs": [
+    {
+      "date": "2026-11-18",
+      "dateLabel": "18 Nov 2026",
+      "tag": "Product",
+      "title": "Grok Bot accounting deployments highlighted; 4.8 rollout unconfirmed; AA v5 led by Fable 5.2 with GPT-6.2 Astra rising",
+      "points": [
+        "SpaceXSI (Nov 16 blog + @bot Nov 17): Five specialized Grok Bots now full-time on accounting order-to-cash (Provisioning, Billing, Billing Support, Cash Applications, Collections). Company-reported results: invoicing from ~24h to minutes; Billing Support frees ~8h/day; payment matching from 3-4h to ~30min. Estimate: would otherwise require more than doubling headcount. Musk (Nov 18): 'Grok @Bot can do your accounting' and 'can save you millions in corporate expenses' (research expenditures, call suppliers).",
+        "Grok 4.8: Still no public confirmation of soft Bot rollout or API model ID/price as of Nov 18. Musk (Nov 10) said pre-train done, now in RL on rewritten C/C++ stack, soft Bot rollout planned that week. 4.7 remains flagship ($2/$6, 500k, watermark opt-in).",
+        "AA Intelligence Index v5 (as of Nov 18): Claude Fable 5.2 (max) 64.6 leader; GPT-6.2 Astra (max) 62.1; Gemini 4 Carbon (high) 60; Claude Opus 5.5 (max) 59.1; GPT-6.2 Sol (max) 57.3; Grok 4.7 (xhigh) 35.5. Pricing for flagships largely unchanged; GPT-6.2 variants newly ranked.",
+        "Alex Finn (practitioner, Nov 16–18): Astra 6.2 scored 312.7/500 on his benchmark (Fable 5.2 +0.3) but finished in 1/3 time, 1/3 price, 1/4 tokens; calls it efficient with strong computer use. Separate workflow: Fable 5.2 asks 100+ questions for detailed plan + Linear issues (40+), then Claude Code iterates. Notes mixed X reaction to 6.2; recommends own testing."
+      ],
+      "assumption": "Accounting Bot results and savings are company-reported; independent verification of scale and unit economics limited. Grok 4.8 soft Bot rollout remains unconfirmed as live with no independent AA scores or public model card. AA scores vary slightly by tracker and effort setting."
+    },
     {
       "date": "2026-11-16",
       "dateLabel": "16 Nov 2026",
@@ -96,20 +111,6 @@
         "AA Intelligence Index v5 (latest): Fable 5.2 ~64.6 (leader, $8/$40), Gemini 4 Carbon 60 ($2/$10 intro), Opus 5.5 ~59.1 ($4/$20), Astra ~56.9 ($10/$50), Sol ~54.6 ($2/$10), Grok 4.7 ~35.5 ($2/$6). No change in Grok ranking."
       ],
       "assumption": "Grok 4.8 soft Bot rollout was planned for the week of Nov 10 but remains unconfirmed as live with no public AA scores or API identifier. Bot 1.0 usage economics and weekly limits still under prior cost pressure. Team Bot and meeting features depend on plan tier."
-    },
-    {
-      "date": "2026-11-11",
-      "dateLabel": "11 Nov 2026",
-      "tag": "Roadmap",
-      "title": "Grok 4.8 soft Bot rollout this week after C/C++ stack rewrite; Fable 5.2 leads AA Index",
-      "points": [
-        "Musk (Nov 10): Pre-training finished for Grok 4.8; model now in RL with evals climbing. Soft rollout to Grok Bot users later this week. Entire RL and inference stack rewritten from JAX/SGLang into C/C++ (derived from Starlink engineering). 'Will bear no resemblance to 4.7 (thankfully).' Foundations built right; expects it to evolve into something special. Not yet incredible.",
-        "Musk: Opus 5.5 is a masterpiece; Grok 5 should exceed it in 2–3 months with continued acceleration.",
-        "Claude Fable 5.2 (Anthropic, ~Nov 9): tops AA Intelligence Index v5 at ~64.6 (max). Gemini 4 Carbon ~60, Opus 5.5 ~59.1, GPT-6 Astra ~56.9. Grok 4.7 remains ~35.5. Pricing: Fable $8/$40.",
-        "Alex Finn (Nov 11): Shares prompt for Grok Bot (or similar agents) to propose systems, subagents, and routines that reduce cognitive load based on shared history.",
-        "Alex Finn on Fable 5.2: Use for thorough planning and task creation, then hand execution to Opus 5.5 and testing to Sonnet/Haiku for better results and lower token use."
-      ],
-      "assumption": "Soft rollout limited to Bot users; full API and independent AA scores for 4.8 unknown. Stack rewrite targets serving cost and reliability. Grok 5 timeline remains Musk's projection."
     }
   ]
 }
