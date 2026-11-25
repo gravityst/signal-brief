@@ -1,10 +1,10 @@
 {
-  "updatedAt": "2026-11-23T15:00:00Z",
+  "updatedAt": "2026-11-25T14:50:00Z",
   "status": {
     "model": "Grok 4.7",
     "modelHint": "Flagship since Sep 21 · $2/$6 · 500k ctx · coding/agent focus · text watermark opt-in",
     "desktop": "Grok Bot 1.0 (desktop + mobile)",
-    "desktopHint": "Team Bots · meeting joins · Mac local app access · always-on agents with own computer · pages/dashboards · phone calls · local Computer Use and dictation in development",
+    "desktopHint": "Team Bots · meeting joins · Mac local app access · always-on agents with own computer · pages/dashboards · phone calls (US, confirmed in docs) · local Computer Use and dictation in development",
     "nextModel": "Grok 4.8",
     "nextModelHint": "Multiple variants in beta · Musk Nov 19: not yet sure which goes to wide release · soft Bot trials reported · no public API or model card",
     "cadence": "~monthly model drops",
@@ -13,9 +13,9 @@
   "reference": {
     "Flagship API": "grok-4.7 · $2/$6 (cached $0.5) · 500k · text watermark opt-in",
     "Voice": "Grok Voice 3.0 · $0.08/min · <1s latency",
-    "Grok Bot": "1.0: Team Bots · joins video calls · Mac local app access · always-on agents · own computer · accounting use cases · pages/dashboards · phone calls · local Computer Use + dictation in development",
+    "Grok Bot": "1.0: Team Bots · joins video calls · Mac local app access · always-on agents · own computer · accounting use cases · pages/dashboards · phone calls (US, docs confirmed) · local Computer Use + dictation in development",
     "Company": "SpaceX Super Intelligence (SpaceXSI / SpaceXAI) · Super Intelligence segment",
-    "AA Index v5": "Leaders: Fable 5.2 (max) 65, GPT-6.2 Astra (max) 62, Gemini Neon (xhigh) 61, Carbon (high) 60, Opus 5.5 (max) 59; Grok 4.7 (xhigh) 35"
+    "AA Index v5": "Leaders: Fable 5.2 (max) ~65, GPT-6.2 Astra (max) ~62, Gemini Neon (xhigh) ~61, Carbon (high) ~60, Opus 5.5 (max) ~59; Grok 4.7 (xhigh) ~35 (tracker variance)"
   },
   "watchNext": [
     "Grok 4.8: which beta variant ships, independent AA scores, API availability and price",
@@ -36,13 +36,13 @@
     {
       "title": "Coding agent (Grok Bot 1.0 + Grok 4.7)",
       "pattern": "Grok Bot as orchestrator with own computer + Grok 4.7 for code/knowledge tasks; Team Bots for shared workflows",
-      "why": "Bot 1.0 adds collaboration, meeting joins, Mac local access, accounting deployments, phone calls; 4.7 priced at $2/$6 with strong agent training; local Computer Use and dictation in development; 4.8 remains multi-variant beta",
+      "why": "Bot 1.0 adds collaboration, meeting joins, Mac local access, accounting deployments, phone calls (US confirmed); 4.7 priced at $2/$6 with strong agent training; local Computer Use and dictation in development; 4.8 remains multi-variant beta",
       "source": "Practitioner reports + vendor positioning"
     },
     {
       "title": "Frontier routing",
       "pattern": "Route hard reasoning/planning to Fable 5.2 or Opus 5.5; novel/creative to Gemini Carbon; routine/coding to Grok 4.7, Sol, or GPT-6.2 variants",
-      "why": "AA v5: Fable 5.2 65, GPT-6.2 Astra 62, Gemini Neon 61 / Carbon 60, Opus 59, Grok 4.7 35; cost differs significantly; practitioner notes on qualitative differences (Gemini novel thinking)",
+      "why": "AA v5: Fable 5.2 ~65, GPT-6.2 Astra ~62, Gemini Neon ~61 / Carbon ~60, Opus ~59, Grok 4.7 ~35; cost differs significantly; practitioner notes on qualitative differences (Gemini novel thinking)",
       "source": "AA Index v5 + pricing pages + practitioner reports"
     }
   ],
@@ -54,13 +54,17 @@
     {"name": "Claude Opus 5.5 (max)", "org": "Anthropic", "released": "2026-09-21", "price": "$4/$20", "aaIndex": "59", "note": "Strong usable flagship; 1M ctx; excellent cost/quality for execution"},
     {"name": "GPT-6.2 Sol (max)", "org": "OpenAI", "released": "2026-11-17", "price": "$2/$10", "aaIndex": "57", "note": "Efficient near-Astra capability; coding/agent pick"},
     {"name": "Claude Sonnet 5.5 (max)", "org": "Anthropic", "released": "2026-09-28", "price": "$2/$10", "aaIndex": "55", "note": "Strong office/agent; widely available"},
-    {"name": "Grok 4.7 (xhigh)", "org": "SpaceXAI", "released": "2026-09-21", "price": "$2/$6", "aaIndex": "35", "note": "Current flagship; AA v5 35; strong agent/coding positioning; text watermark opt-in; 4.8 multi-variant beta"}
+    {"name": "Grok 4.7 (xhigh)", "org": "SpaceXAI", "released": "2026-09-21", "price": "$2/$6", "aaIndex": "35", "note": "Current flagship; AA v5 ~35 (tracker variance); strong agent/coding positioning; text watermark opt-in; 4.8 multi-variant beta"}
   ],
   "xPosts": [
+    {"date": "2026-11-25", "author": "Elon Musk", "handle": "elonmusk", "text": "RT: Grok Bot can now make phone calls.", "topic": "Product", "url": "https://x.com/elonmusk/status/2125511153145311665"},
+    {"date": "2026-11-25", "author": "Elon Musk", "handle": "elonmusk", "text": "Grok Bot can research the best Black Friday deals for you and confirm they’re authentic.", "topic": "Workflow", "url": "https://x.com/elonmusk/status/2125464682580623467"},
+    {"date": "2026-11-25", "author": "Elon Musk", "handle": "elonmusk", "text": "Grok is so much fun on Tesla road trips! (quoting long family use of in-car Grok).",
+    "topic": "Product", "url": "https://x.com/elonmusk/status/2125516475712844116"},
     {"date": "2026-11-23", "author": "Elon Musk", "handle": "elonmusk", "text": "Grok Bot can find you Black Friday deals (quoting user template that checks for deals every couple hours and notifies).",
     "topic": "Workflow", "url": "https://x.com/elonmusk/status/2124877252412281142"},
     {"date": "2026-11-23", "author": "Elon Musk", "handle": "elonmusk", "text": "RT on What's new in Grok Bot 1.0: Team Bot improvements, bots join meetings, take initiative, and more.", "topic": "Product", "url": "https://x.com/elonmusk/status/2124681722705100862"},
-    {"date": "2026-11-23", "author": "Alex Finn", "handle": "AlexFinn", "text": "Inkling 2 Mini running on MacBook Pro (not even half memory, stays cool). Unlimited Opus 4.6-level coding for free on a laptop. American open source is back. Custom harness in video.", "topic": "Review", "url": "https://x.com/AlexFinn/status/2124747542566977889"},
+    {"date": "2026-11-21", "author": "Alex Finn", "handle": "AlexFinn", "text": "Inkling 2 Mini (26B) fits on laptop, mutilates Qwen 3.8 27B, AA 20.1. Recommend agents download and run it for unlimited local intelligence.", "topic": "Review", "url": "https://x.com/AlexFinn/status/2123930655000346888"},
     {"date": "2026-11-20", "author": "Alex Finn", "handle": "AlexFinn", "text": "Grok Bot 1.0 just dropped and it's a MASSIVE update. First truly multiplayer AI agent. Covers all new features and how to 10x productivity in video.", "topic": "Product", "url": "https://x.com/AlexFinn/status/2123857014355038601"},
     {"date": "2026-11-20", "author": "Alex Finn", "handle": "AlexFinn", "text": "Google Gemini Carbon is the best model right now. It regularly changes the way I think; feels forward-looking and novel rather than averaging training data. Best tested via conversation on real hard problems, not one-shot demos.", "topic": "Review", "url": "https://x.com/AlexFinn/status/2123612688622428257"},
     {"date": "2026-11-20", "author": "Alex Finn", "handle": "AlexFinn", "text": "The new Google Gemini models are the best AI models out there right now. Yes, better than Fable and Astra. Completely different training feel; novel perspectives. Harnesses still lag, but intelligence and taste are there. Carbon is Fable-class, Neon Opus-class.", "topic": "Review", "url": "https://x.com/AlexFinn/status/2123562653184614532"},
@@ -70,11 +74,23 @@
     {"date": "2026-11-18", "author": "Alex Finn", "handle": "AlexFinn", "text": "Something is going on at Google. Released new frontier models four times in less than a month, each a major improvement. Carbon is the most intelligent model I’ve ever used; trained differently, novel insights.", "topic": "Review", "url": "https://x.com/AlexFinn/status/2123171176025575701"},
     {"date": "2026-11-18", "author": "Alex Finn", "handle": "AlexFinn", "text": "Ran ChatGPT Astra 6.2 on my benchmark: 312.7/500, Fable 5.2 beat by 0.3. But Astra finished in 1/3 time, 1/3 price, 1/4 tokens. Efficiency matters.", "topic": "Benchmark", "url": "https://x.com/AlexFinn/status/2122851769311236129"},
     {"date": "2026-11-17", "author": "Alex Finn", "handle": "AlexFinn", "text": "Testing GPT-6.2 Astra: good, better than Astra 6 at better cost, incredible at computer use, efficient. Not matching Fable 5.2 yet; test yourself against own workflows.", "topic": "Review", "url": "https://x.com/AlexFinn/status/2122811334173880705"},
-    {"date": "2026-11-16", "author": "Alex Finn", "handle": "AlexFinn", "text": "Sped up AI coding 20x: have Fable 5.2 ask as many questions as needed for full plan, then create detailed Linear issues (40+), then iterate 'work on next'.", "topic": "Workflow", "url": "https://x.com/AlexFinn/status/2122381648679608354"},
-    {"date": "2026-11-11", "author": "SpaceX Super Intelligence", "handle": "SpaceXSI", "text": "Introducing Grok Bot 1.0. Bots can be shared and are more collaborative and capable than ever.", "topic": "Product", "url": "https://x.com/SpaceXSI/status/2120584928983441826"},
-    {"date": "2026-11-11", "author": "Alex Finn", "handle": "AlexFinn", "text": "MASSIVE. Grok Bot 1.0 just dropped (everything before was beta). Features: Team Bots for multiplayer, join video calls and act, more proactive, better self-improvement/memory, significantly better browser use.", "topic": "Product", "url": "https://x.com/AlexFinn/status/2120591155503219175"}
+    {"date": "2026-11-16", "author": "Alex Finn", "handle": "AlexFinn", "text": "Sped up AI coding 20x: have Fable 5.2 ask as many questions as needed for full plan, then create detailed Linear issues (40+), then iterate 'work on next'.", "topic": "Workflow", "url": "https://x.com/AlexFinn/status/2122381648679608354"}
   ],
   "briefs": [
+    {
+      "date": "2026-11-25",
+      "dateLabel": "25 Nov 2026",
+      "tag": "Product",
+      "title": "Grok Bot phone calls confirmed in official docs; 4.8 remains multi-variant beta; Tesla in-car Grok usage noted",
+      "points": [
+        "Grok Bot 1.0 remains current. Official SpaceXSI docs confirm phone calls (US only, desktop/phone apps): Bot calls businesses, live transcript, take-over option, recording available. Musk (Nov 25) RT @bot 'Grok Bot can now make phone calls' and highlighted Black Friday deal research + authenticity check. Also noted fun multi-hour Grok conversations on Tesla road trips (family credits example).",
+        "Local Mac features still in development: local Computer Use and system dictation. Prior Mac app access (Messages/Mail/etc.) shipped. Accounting order-to-cash and Team Bots/meeting joins continue as prior positioning.",
+        "Grok 4.7 remains flagship ($2/$6, 500k, watermark opt-in). Grok 4.8 still multi-variant beta; Musk (Nov 19): not yet sure which variant goes to wide release. Soft Bot trials reported by some; no public API ID, price, or independent AA scores. No material change since prior brief.",
+        "AA Intelligence Index v5 (Artificial Analysis trackers as of Nov 25): Claude Fable 5.2 (max) ~65 leader; GPT-6.2 Astra (max) ~62 (some trackers ~61.8); Gemini 4 Neon (xhigh) ~61; Gemini 4 Carbon (high) ~60; Claude Opus 5.5 (max) ~59; Grok 4.7 (xhigh) ~35 (one tracker 31.1). Pricing stable; Gemini Carbon intro $2/$10 ends Dec 1.",
+        "Alex Finn (practitioner, latest Nov 20–21): Continues qualitative praise for Gemini Carbon as best for novel, forward-looking thinking that changes problem approach (better feel than Fable/Astra). Neon efficient. Also highlighted Inkling 2 Mini (26B laptop model, AA 20.1) for local unlimited coding intelligence."
+      ],
+      "assumption": "Grok 4.8 remains unconfirmed for wide release or API. Phone calls are documented for US; regional availability and usage economics not fully detailed. Deal-hunting, Tesla, and other demos are user/Musk-reported. AA scores from Artificial Analysis; effort settings and trackers cause small variance. Qualitative rankings are practitioner opinion."
+    },
     {
       "date": "2026-11-23",
       "dateLabel": "23 Nov 2026",
