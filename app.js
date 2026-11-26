@@ -1,634 +1,170 @@
 (async function () {
   const $ = (id) => document.getElementById(id);
-  const STORAGE = {
-    theme: "signal-theme",
-    density: "signal-density",
-    focus: "signal-focus",
-    seen: "signal-seen-updated",
-    collapsed: "signal-collapsed",
-    stars: "signal-stars",
-  };
 
-  const storedTheme = localStorage.getItem(STORAGE.theme);
-  if (storedTheme === "dark" || (!storedTheme && matchMedia("(prefers-color-scheme: dark)").matches)) {
-    document.documentElement.setAttribute("data-theme", "dark");
-  }
-  $("theme-toggle").addEventListener("click", () => {
-    const dark = document.documentElement.getAttribute("data-theme") === "dark";
-    if (dark) {
-      document.documentElement.removeAttribute("data-theme");
-      localStorage.setItem(STORAGE.theme, "light");
-    } else {
-      document.documentElement.setAttribute("data-theme", "dark");
-      localStorage.setItem(STORAGE.theme, "dark");
-    }
-  });
-
-  if (localStorage.getItem(STORAGE.density) === "compact") {
-    document.documentElement.setAttribute("data-density", "compact");
-    $("btn-density").textContent = "Compact";
-    $("btn-density").classList.add("active-toggle");
-  }
-  if (localStorage.getItem(STORAGE.focus) === "on") {
-    document.documentElement.setAttribute("data-focus", "on");
-    $("btn-focus").classList.add("active-toggle");
-  }
-
-  $("btn-density").addEventListener("click", toggleDensity);
-  $("btn-focus").addEventListener("click", toggleFocus);
-
-  function toggleDensity() {
-    const compact = document.documentElement.getAttribute("data-density") === "compact";
-    if (compact) {
-      document.documentElement.removeAttribute("data-density");
-      localStorage.setItem(STORAGE.density, "comfort");
-      $("btn-density").textContent = "Comfort";
-      $("btn-density").classList.remove("active-toggle");
-    } else {
-      document.documentElement.setAttribute("data-density", "compact");
-      localStorage.setItem(STORAGE.density, "compact");
-      $("btn-density").textContent = "Compact";
-      $("btn-density").classList.add("active-toggle");
-    }
-  }
-
-  function toggleFocus() {
-    const on = document.documentElement.getAttribute("data-focus") === "on";
-    if (on) {
-      document.documentElement.removeAttribute("data-focus");
-      localStorage.setItem(STORAGE.focus, "off");
-      $("btn-focus").classList.remove("active-toggle");
-    } else {
-      document.documentElement.setAttribute("data-focus", "on");
-      localStorage.setItem(STORAGE.focus, "on");
-      $("btn-focus").classList.add("active-toggle");
-    }
-  }
-
+  // Load data
   let data;
   try {
-    const res = await fetch("data/briefs.json", { cache: "no-store" });
+    const res = await fetch("data/posts.json", { cache: "no-store" });
     if (!res.ok) throw new Error(String(res.status));
     data = await res.json();
-  } catch {
-    $("last-updated").textContent = "Could not load data";
-    $("empty").hidden = false;
-    $("empty").textContent = "Failed to load briefs.json.";
-    return;
+  } catch (e) {
+    // Fallback: try old briefs.json and map xPosts if present
+    try {
+      const res2 = await fetch("data/briefs.json", { cache: "no-store" });
+      const old = await res2.json();
+      data = {
+        updatedAt: old.updatedAt,
+        posts: (old.xPosts || []).map((p) => ({
+          date: p.date,
+          author: p.author,
+          handle: p.handle,
+          text: p.text,
+          topic: p.topic,
+          url: p.url,
+        })),
+      };
+    } catch {
+      $("last-updated").textContent = "Failed to load";
+      $("loading").textContent = "Could not load posts.";
+      return;
+    }
   }
 
   $("last-updated").textContent = "Updated " + formatWhen(data.updatedAt);
 
-  const seen = localStorage.getItem(STORAGE.seen);
-  if (data.updatedAt && seen && data.updatedAt !== seen) {
-    $("new-banner").hidden = false;
-    $("new-banner-text").textContent = "Board updated since your last visit · " + formatWhen(data.updatedAt);
-  } else if (!seen && data.updatedAt) {
-    localStorage.setItem(STORAGE.seen, data.updatedAt);
-  }
-  $("mark-seen").addEventListener("click", () => {
-    localStorage.setItem(STORAGE.seen, data.updatedAt || "");
-    $("new-banner").hidden = true;
-    toast("Marked as seen");
-  });
+  const posts = data.posts || [];
+  let activeAuthor = "all";
+  let activeTab = "for-you";
 
-  let stars = loadStars();
-  let starsOnly = false;
-
-  const status = data.status || {};
-  $("status-bar").innerHTML = [
-    card("Flagship model", status.model || "—", status.modelHint),
-    card("Desktop app", status.desktop || "—", status.desktopHint),
-    card("Next model signal", status.nextModel || "—", status.nextModelHint),
-    card("Cadence", status.cadence || "—", status.cadenceHint),
-  ].join("");
-
-  const ref = data.reference || {};
-  $("ref-list").innerHTML = Object.entries(ref)
-    .map(([k, v]) => `<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`)
-    .join("");
-
-  $("watch-list").innerHTML = (data.watchNext || []).map((w) => `<li>${esc(w)}</li>`).join("");
-
-  const links = data.links || [
-    { label: "API docs", href: "https://docs.x.ai" },
-    { label: "Console", href: "https://console.x.ai" },
-    { label: "Grok", href: "https://grok.com" },
-    { label: "@SpaceXAI", href: "https://x.com/SpaceXAI" },
-    { label: "@elonmusk", href: "https://x.com/elonmusk" },
-    { label: "@AlexFinn", href: "https://x.com/AlexFinn" },
-  ];
-  $("links-strip").innerHTML = links
-    .map((l) => `<a class="link-chip" href="${esc(l.href)}" target="_blank" rel="noopener">${esc(l.label)}</a>`)
-    .join("");
-
-  const stacks = data.stacks || [];
-  $("stack-grid").innerHTML = stacks.length
-    ? stacks
-        .map(
-          (s) => `
-      <article class="stack-card">
-        <h3>${esc(s.title || "")}</h3>
-        <p class="stack-pattern">${esc(s.pattern || "")}</p>
-        <p class="stack-why">${esc(s.why || "")}</p>
-        ${s.source ? `<p class="stack-source">${esc(s.source)}</p>` : ""}
-      </article>`
-        )
-        .join("")
-    : `<p class="section-note">No stacks in data yet.</p>`;
-
-  const frontier = data.frontier || [];
-  const aaNums = frontier
-    .map((r) => parseFloat(String(r.aaIndex || "").replace(/[^0-9.]/g, "")))
-    .filter((n) => !Number.isNaN(n) && n > 0);
-  const aaMax = aaNums.length ? Math.max(...aaNums) : 60;
-  const tb = document.querySelector("#frontier-table tbody");
-  if (tb) {
-    tb.innerHTML = frontier
-      .map((row) => {
-        const highlight = /grok/i.test(row.name || "") ? " class=\"is-grok\"" : "";
-        const num = parseFloat(String(row.aaIndex || "").replace(/[^0-9.]/g, ""));
-        const pct = !Number.isNaN(num) && num > 0 ? Math.round((num / aaMax) * 100) : 0;
-        const bar =
-          pct > 0
-            ? `<div class="aa-cell"><span class="aa-num">${esc(row.aaIndex)}</span><span class="aa-bar" aria-hidden="true"><i style="width:${pct}%"></i></span></div>`
-            : `<span class="aa-num">${esc(row.aaIndex || "—")}</span>`;
-        return `<tr${highlight}>
-          <td><strong>${esc(row.name)}</strong></td>
-          <td>${esc(row.org || "")}</td>
-          <td>${esc(row.released || "")}</td>
-          <td>${esc(row.price || "")}</td>
-          <td>${bar}</td>
-          <td>${esc(row.note || "")}</td>
-        </tr>`;
-      })
-      .join("");
-  }
-
-  const xPosts = data.xPosts || [];
-  let xFilter = "all";
-  let xAuthor = "all";
-  const xTopics = ["all", ...unique(xPosts.map((p) => p.topic).filter(Boolean))];
-  const xAuthors = ["all", ...unique(xPosts.map((p) => p.handle || (p.author || "").replace(/^@/, "")).filter(Boolean))];
-
-  const xFiltersEl = $("x-filters");
-  if (xFiltersEl) {
-    xFiltersEl.innerHTML = xTopics
-      .map(
-        (t) =>
-          `<button type="button" class="chip${t === "all" ? " active" : ""}" data-xfilter="${esc(t)}">${esc(
-            t === "all" ? "All topics" : t
-          )}</button>`
-      )
-      .join("");
-    xFiltersEl.addEventListener("click", (e) => {
-      const btn = e.target.closest("[data-xfilter]");
-      if (!btn) return;
-      xFilter = btn.dataset.xfilter;
-      xFiltersEl.querySelectorAll(".chip").forEach((c) => c.classList.toggle("active", c === btn));
-      renderX();
-    });
-  }
-
-  const xAuthorEl = $("x-author-filters");
-  if (xAuthorEl) {
-    xAuthorEl.innerHTML = xAuthors
-      .map((a) => {
-        const label = a === "all" ? "All authors" : "@" + a;
-        const special = a === "AlexFinn" ? " chip-priority" : "";
-        return `<button type="button" class="chip${special}${a === "all" ? " active" : ""}" data-xauthor="${esc(a)}">${esc(label)}</button>`;
-      })
-      .join("");
-    xAuthorEl.addEventListener("click", (e) => {
-      const btn = e.target.closest("[data-xauthor]");
-      if (!btn) return;
-      xAuthor = btn.dataset.xauthor;
-      xAuthorEl.querySelectorAll(".chip").forEach((c) => c.classList.toggle("active", c === btn));
-      renderX();
-    });
-  }
-  renderX();
-
-  function renderX() {
-    const list = $("x-list");
-    if (!list) return;
-    const rows = xPosts.filter((p) => {
-      if (xFilter !== "all" && p.topic !== xFilter) return false;
-      const h = p.handle || (p.author || "").replace(/^@/, "");
-      if (xAuthor !== "all" && h !== xAuthor) return false;
-      return true;
-    });
-    list.innerHTML = rows.length
-      ? rows
-          .map((p) => {
-            const h = p.handle || (p.author || "").replace(/^@/, "");
-            const isFinn = h === "AlexFinn";
-            return `
-      <article class="x-card${isFinn ? " x-priority" : ""}">
-        <div class="x-meta">
-          <span class="x-author">${esc(p.author || "@" + h)}</span>
-          <span class="x-date">${esc(p.date || "")}</span>
-          ${p.topic ? `<span class="brief-tag">${esc(p.topic)}</span>` : ""}
-        </div>
-        <p class="x-text">${esc(p.text || "")}</p>
-        ${
-          p.url
-            ? `<a class="x-open" href="${esc(p.url)}" target="_blank" rel="noopener">Open on X →</a>`
-            : ""
-        }
-      </article>`;
-          })
-          .join("")
-      : `<p class="empty-inline">No posts match these filters.</p>`;
-  }
-
-  const allBriefs = data.briefs || [];
-  const tags = ["all", ...unique(allBriefs.map((b) => b.tag).filter(Boolean))];
-  const tagCounts = {};
-  allBriefs.forEach((b) => {
-    tagCounts[b.tag || ""] = (tagCounts[b.tag || ""] || 0) + 1;
-  });
-
-  $("filters").innerHTML = tags
-    .map((t) => {
-      const label = t === "all" ? "All" : t;
-      const count = t === "all" ? allBriefs.length : tagCounts[t] || 0;
-      return `<button type="button" class="chip${t === "all" ? " active" : ""}" data-filter="${esc(t)}">${esc(label)}<span class="count">${count}</span></button>`;
+  // Build author chips
+  const handles = ["all", ...unique(posts.map((p) => p.handle).filter(Boolean))];
+  const authorBar = $("author-bar");
+  authorBar.innerHTML = handles
+    .map((h) => {
+      const label = h === "all" ? "All" : "@" + h;
+      return `<button type="button" class="chip${h === "all" ? " active" : ""}" data-author="${esc(h)}">${esc(label)}</button>`;
     })
     .join("");
 
-  const modelShip = allBriefs.find((b) => b.tag === "Model");
-  $("stats").innerHTML = `
-    <span><strong>${allBriefs.length}</strong> briefs</span>
-    <span><strong>${frontier.length}</strong> frontier</span>
-    <span><strong>${xPosts.length}</strong> X posts</span>
-    <span><strong>${stacks.length}</strong> stacks</span>
-    <span>Flagship · <strong>${esc(status.model || "—")}</strong></span>
-    <span>Model ship · <strong>${esc(modelShip ? modelShip.dateLabel || modelShip.date : "—")}</strong></span>
-  `;
-
-  let filter = "all";
-  let query = "";
-  let expandedAll = true;
-  let collapsed = loadCollapsed();
-
-  $("filters").addEventListener("click", (e) => {
-    const btn = e.target.closest("[data-filter]");
+  authorBar.addEventListener("click", (e) => {
+    const btn = e.target.closest("[data-author]");
     if (!btn) return;
-    filter = btn.dataset.filter;
-    $("filters").querySelectorAll(".chip").forEach((c) => c.classList.toggle("active", c === btn));
-    updateClear();
+    activeAuthor = btn.dataset.author;
+    authorBar.querySelectorAll(".chip").forEach((c) => c.classList.toggle("active", c === btn));
     render();
   });
 
-  let searchTimer;
-  $("search").addEventListener("input", (e) => {
-    clearTimeout(searchTimer);
-    searchTimer = setTimeout(() => {
-      query = e.target.value.trim().toLowerCase();
-      updateClear();
-      render();
-    }, 100);
-  });
-
-  $("clear-filters").addEventListener("click", () => {
-    filter = "all";
-    query = "";
-    starsOnly = false;
-    $("search").value = "";
-    $("filters").querySelectorAll(".chip").forEach((c) => c.classList.toggle("active", c.dataset.filter === "all"));
-    $("btn-stars-only").classList.remove("active-toggle");
-    updateClear();
-    render();
-  });
-
-  $("btn-stars-only").addEventListener("click", () => {
-    starsOnly = !starsOnly;
-    $("btn-stars-only").classList.toggle("active-toggle", starsOnly);
-    updateClear();
-    render();
-  });
-
-  $("expand-all").addEventListener("click", () => {
-    expandedAll = !expandedAll;
-    if (expandedAll) {
-      collapsed = {};
-      $("expand-all").textContent = "Collapse";
-    } else {
-      allBriefs.forEach((b) => {
-        if (b.date) collapsed[b.date] = true;
+  // Tabs
+  document.querySelectorAll(".tab").forEach((tab) => {
+    tab.addEventListener("click", () => {
+      document.querySelectorAll(".tab").forEach((t) => {
+        t.classList.remove("active");
+        t.setAttribute("aria-selected", "false");
       });
-      $("expand-all").textContent = "Expand";
-    }
-    saveCollapsed();
-    render();
-  });
-
-  $("btn-export").addEventListener("click", () => {
-    const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
-    const a = document.createElement("a");
-    a.href = URL.createObjectURL(blob);
-    a.download = "signal-brief-" + (data.updatedAt || "export").slice(0, 10) + ".json";
-    a.click();
-    URL.revokeObjectURL(a.href);
-    toast("Downloaded JSON");
-  });
-
-  const toTop = $("to-top");
-  window.addEventListener("scroll", () => {
-    toTop.hidden = window.scrollY < 400;
-  });
-  toTop.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
-
-  document.addEventListener("keydown", (e) => {
-    const tag = (e.target && e.target.tagName) || "";
-    const typing = tag === "INPUT" || tag === "TEXTAREA";
-    if (e.key === "/" && !typing) {
-      e.preventDefault();
-      $("search").focus();
-      $("search").select();
-    }
-    if (e.key === "Escape") {
-      if (document.activeElement === $("search") && $("search").value) {
-        $("search").value = "";
-        query = "";
-        updateClear();
-        render();
-      } else if (document.documentElement.getAttribute("data-focus") === "on") {
-        toggleFocus();
-      } else {
-        $("search").blur();
-      }
-    }
-    if (typing) return;
-    if (e.key === "f" || e.key === "F") toggleFocus();
-    if (e.key === "d" || e.key === "D") toggleDensity();
-    if (e.key === "e" || e.key === "E") $("expand-all").click();
-    if (e.key === "s" || e.key === "S") $("btn-stars-only").click();
+      tab.classList.add("active");
+      tab.setAttribute("aria-selected", "true");
+      activeTab = tab.dataset.tab;
+      render();
+    });
   });
 
   render();
-  updateStarPanel();
-  requestAnimationFrame(() => {
-    const hash = location.hash.replace(/^#/, "");
-    if (hash) openHash(hash);
-  });
-  window.addEventListener("hashchange", () => openHash(location.hash.replace(/^#/, "")));
-
-  function openHash(hash) {
-    if (!hash) return;
-    if (["frontier", "x-posts", "history", "stacks"].includes(hash)) {
-      const el = document.getElementById(hash);
-      if (el) el.scrollIntoView({ behavior: "smooth" });
-      return;
-    }
-    if (hash === "starred") {
-      starsOnly = true;
-      $("btn-stars-only").classList.add("active-toggle");
-      render();
-      $("history").scrollIntoView({ behavior: "smooth" });
-      return;
-    }
-    const el = document.getElementById("brief-" + hash);
-    if (!el) return;
-    collapsed[hash] = false;
-    saveCollapsed();
-    render();
-    const again = document.getElementById("brief-" + hash);
-    if (again) {
-      again.classList.add("target");
-      again.scrollIntoView({ behavior: "smooth", block: "start" });
-      setTimeout(() => again.classList.remove("target"), 2200);
-    }
-  }
 
   function render() {
-    const filtered = allBriefs.filter((b) => {
-      if (starsOnly && !stars[b.date]) return false;
-      if (filter !== "all" && (b.tag || "") !== filter) return false;
-      if (!query) return true;
-      const blob = [b.title, b.dateLabel, b.tag, ...(b.points || []), b.assumption || ""]
-        .join(" ")
-        .toLowerCase();
-      return blob.includes(query);
+    const list = $("timeline");
+    $("loading").hidden = true;
+
+    let filtered = posts.filter((p) => {
+      if (activeAuthor !== "all" && p.handle !== activeAuthor) return false;
+      return true;
     });
 
-    $("result-count").textContent =
-      filtered.length === allBriefs.length && !starsOnly
-        ? "Confirmed signals first. Assumptions labeled."
-        : filtered.length + " of " + allBriefs.length + " briefs" + (starsOnly ? " · starred" : "");
+    // Simple "Following" bias: prioritize core accounts
+    if (activeTab === "following") {
+      const priority = new Set(["elonmusk", "AlexFinn", "MKBHD", "xai", "SpaceXSI", "grok"]);
+      filtered = [...filtered].sort((a, b) => {
+        const ap = priority.has(a.handle) ? 0 : 1;
+        const bp = priority.has(b.handle) ? 0 : 1;
+        if (ap !== bp) return ap - bp;
+        return (b.date || "").localeCompare(a.date || "");
+      });
+    } else {
+      filtered = [...filtered].sort((a, b) => (b.date || "").localeCompare(a.date || ""));
+    }
 
     $("empty").hidden = filtered.length > 0;
-    $("empty").textContent = starsOnly ? "No starred briefs yet. Star one from History." : "No briefs match.";
-    const list = $("brief-list");
-    list.innerHTML = "";
 
-    let lastMonth = "";
-    filtered.forEach((b, i) => {
-      const month = monthKey(b.date);
-      if (month && month !== lastMonth) {
-        lastMonth = month;
-        const lab = document.createElement("div");
-        lab.className = "month-label";
-        lab.textContent = month;
-        list.appendChild(lab);
-      }
-
-      const isCollapsed = !!collapsed[b.date];
-      const isUnread = seen && data.updatedAt && b.date && isNewerOrSameDay(b.date, seen);
-      const isStarred = !!stars[b.date];
-      const article = document.createElement("article");
-      article.className =
-        "brief-card" +
-        (i === 0 && filter === "all" && !query && !starsOnly ? " latest" : "") +
-        (isCollapsed ? " collapsed" : "") +
-        (isUnread && i === 0 ? " unread" : "") +
-        (isStarred ? " starred" : "");
-      article.id = "brief-" + (b.date || i);
-
-      const points = (b.points || []).map((p) => `<li>${highlight(esc(p), query)}</li>`).join("");
-      const assumption = b.assumption
-        ? `<div class="assumption"><strong>Assumption.</strong> ${highlight(esc(b.assumption), query)}</div>`
-        : "";
-      const linksHtml = (b.links || [])
-        .map((l) => `<a href="${esc(l.href)}" rel="noopener" target="_blank">${esc(l.label)}</a>`)
-        .join("");
-
-      article.innerHTML = `
-        <div class="brief-meta">
-          <span class="brief-date">${esc(b.dateLabel || b.date)}</span>
-          <span class="brief-ago">${relative(b.date)}</span>
-          ${b.tag ? `<span class="brief-tag">${esc(b.tag)}</span>` : ""}
-          ${isUnread && i === 0 ? `<span class="pill-new">Updated</span>` : ""}
-          ${isStarred ? `<span class="pill-star">Starred</span>` : ""}
-        </div>
-        <h2 class="brief-title"><button type="button" data-toggle>${highlight(esc(b.title), query)}</button></h2>
-        <ul class="brief-points">${points}</ul>
-        ${assumption}
-        ${linksHtml ? `<div class="brief-links">${linksHtml}</div>` : ""}
-        <div class="card-actions">
-          <button type="button" data-star>${isStarred ? "Unstar" : "Star"}</button>
-          <button type="button" data-copy>Copy</button>
-          <button type="button" data-link>Link</button>
-          <button type="button" data-toggle>${isCollapsed ? "Expand" : "Collapse"}</button>
-        </div>`;
-
-      article.querySelectorAll("[data-toggle]").forEach((btn) => {
-        btn.addEventListener("click", () => {
-          collapsed[b.date] = !collapsed[b.date];
-          saveCollapsed();
-          render();
-        });
-      });
-
-      article.querySelector("[data-star]").addEventListener("click", () => {
-        if (stars[b.date]) delete stars[b.date];
-        else stars[b.date] = true;
-        saveStars();
-        updateStarPanel();
-        render();
-      });
-
-      article.querySelector("[data-copy]").addEventListener("click", async () => {
-        const text = [b.dateLabel || b.date, b.title, ...(b.points || []), b.assumption ? "Assumption: " + b.assumption : ""]
-          .filter(Boolean)
-          .join("\n");
-        try {
-          await navigator.clipboard.writeText(text);
-          toast("Copied brief");
-        } catch {
-          toast("Copy failed");
-        }
-      });
-
-      article.querySelector("[data-link]").addEventListener("click", async () => {
-        const url = location.origin + location.pathname + "#" + (b.date || "");
-        try {
-          await navigator.clipboard.writeText(url);
-          toast("Link copied");
-        } catch {
-          toast("Copy failed");
-        }
-      });
-
-      list.appendChild(article);
-    });
-  }
-
-  function updateClear() {
-    const on = filter !== "all" || query || starsOnly;
-    $("clear-filters").hidden = !on;
-  }
-
-  function updateStarPanel() {
-    const keys = Object.keys(stars).filter((k) => stars[k]);
-    const panel = $("starred-panel");
-    const nav = $("starred-nav");
-    if (!keys.length) {
-      panel.hidden = true;
-      nav.hidden = true;
-      return;
-    }
-    panel.hidden = false;
-    nav.hidden = false;
-    $("star-list").innerHTML = keys
-      .map((d) => {
-        const b = allBriefs.find((x) => x.date === d);
-        const title = b ? b.title : d;
-        return `<li><a href="#${esc(d)}">${esc(title)}</a></li>`;
+    list.innerHTML = filtered
+      .map((p) => {
+        const initial = (p.author || p.handle || "?").charAt(0).toUpperCase();
+        const time = relative(p.date);
+        return `
+          <article class="post">
+            <div class="avatar" aria-hidden="true">${esc(initial)}</div>
+            <div class="post-body">
+              <div class="post-header">
+                <span class="post-name">${esc(p.author || p.handle)}</span>
+                <span class="post-handle">@${esc(p.handle || "")}</span>
+                <span class="post-time">${esc(time)}</span>
+              </div>
+              ${p.topic ? `<span class="post-topic">${esc(p.topic)}</span>` : ""}
+              <p class="post-text">${esc(p.text || "")}</p>
+              <div class="post-actions">
+                ${
+                  p.url
+                    ? `<a class="action open" href="${esc(p.url)}" target="_blank" rel="noopener">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                        Open
+                      </a>`
+                    : ""
+                }
+              </div>
+            </div>
+          </article>`;
       })
       .join("");
   }
 
-  function loadStars() {
-    try {
-      return JSON.parse(localStorage.getItem(STORAGE.stars) || "{}");
-    } catch {
-      return {};
-    }
-  }
-  function saveStars() {
-    localStorage.setItem(STORAGE.stars, JSON.stringify(stars));
-  }
-  function loadCollapsed() {
-    try {
-      return JSON.parse(localStorage.getItem(STORAGE.collapsed) || "{}");
-    } catch {
-      return {};
-    }
-  }
-  function saveCollapsed() {
-    localStorage.setItem(STORAGE.collapsed, JSON.stringify(collapsed));
-  }
-
-  function card(label, value, hint) {
-    return `<div class="status-card"><p class="status-label">${esc(label)}</p><p class="status-value">${esc(value)}</p>${
-      hint ? `<p class="status-hint">${esc(hint)}</p>` : ""
-    }</div>`;
-  }
-  function toast(msg) {
-    const el = $("toast");
-    el.textContent = msg;
-    el.hidden = false;
-    clearTimeout(toast._t);
-    toast._t = setTimeout(() => {
-      el.hidden = true;
-    }, 1800);
-  }
-  function formatWhen(iso) {
-    if (!iso) return "—";
-    try {
-      return new Date(iso).toLocaleString(undefined, {
-        dateStyle: "medium",
-        timeStyle: "short",
-      });
-    } catch {
-      return iso;
-    }
-  }
-  function relative(dateStr) {
-    if (!dateStr) return "";
-    try {
-      const d = new Date(dateStr + "T12:00:00Z");
-      const days = Math.round((Date.now() - d.getTime()) / 86400000);
-      if (days <= 0) return "today";
-      if (days === 1) return "yesterday";
-      if (days < 14) return days + "d ago";
-      return "";
-    } catch {
-      return "";
-    }
-  }
-  function monthKey(dateStr) {
-    if (!dateStr) return "";
-    const d = new Date(dateStr + "T12:00:00Z");
-    if (Number.isNaN(d.getTime())) return "";
-    return d.toLocaleString(undefined, { month: "long", year: "numeric" });
-  }
-  function isNewerOrSameDay(dateStr, seenIso) {
-    try {
-      return new Date(dateStr + "T23:59:59Z") >= new Date(seenIso);
-    } catch {
-      return false;
-    }
-  }
+  // Helpers
   function unique(arr) {
     return [...new Set(arr)];
   }
-  function highlight(htmlEscaped, q) {
-    if (!q) return htmlEscaped;
-    const safe = q.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-    try {
-      return htmlEscaped.replace(new RegExp("(" + safe + ")", "ig"), "<mark class=\"hit\">$1</mark>");
-    } catch {
-      return htmlEscaped;
-    }
-  }
+
   function esc(s) {
-    return String(s)
+    return String(s ?? "")
       .replace(/&/g, "&amp;")
       .replace(/</g, "&lt;")
       .replace(/>/g, "&gt;")
       .replace(/"/g, "&quot;");
+  }
+
+  function formatWhen(iso) {
+    if (!iso) return "—";
+    try {
+      const d = new Date(iso);
+      return d.toLocaleString(undefined, {
+        month: "short",
+        day: "numeric",
+        hour: "2-digit",
+        minute: "2-digit",
+      });
+    } catch {
+      return iso.slice(0, 16);
+    }
+  }
+
+  function relative(dateStr) {
+    if (!dateStr) return "";
+    try {
+      const d = new Date(dateStr + "T12:00:00Z");
+      const now = new Date();
+      const diff = Math.floor((now - d) / 86400000);
+      if (diff <= 0) return "today";
+      if (diff === 1) return "1d";
+      if (diff < 7) return diff + "d";
+      return d.toLocaleDateString(undefined, { month: "short", day: "numeric" });
+    } catch {
+      return dateStr;
+    }
   }
 })();

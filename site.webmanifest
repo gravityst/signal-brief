@@ -1,11 +1,11 @@
 {
-  "name": "Signal Brief",
-  "short_name": "Signal",
-  "description": "Grok, frontier models, and X signals",
+  "name": "X Signal",
+  "short_name": "X Signal",
+  "description": "Curated AI & tech timeline from the sharpest voices on X",
   "start_url": "./",
   "display": "standalone",
-  "background_color": "#0f766e",
-  "theme_color": "#0f766e",
+  "background_color": "#000000",
+  "theme_color": "#000000",
   "icons": [
     {
       "src": "icons/icon-192.png",

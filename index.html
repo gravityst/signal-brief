@@ -3,184 +3,77 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="description" content="Editorial brief on SpaceXAI/Grok, frontier models, and curated X signals." />
-  <meta name="theme-color" content="#0f766e" />
+  <meta name="description" content="X Signal — curated AI & tech posts from Elon Musk, Alex Finn, MKBHD and key voices." />
+  <meta name="theme-color" content="#000000" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-  <meta name="apple-mobile-web-app-title" content="Signal" />
-  <meta name="application-name" content="Signal Brief" />
-  <meta property="og:title" content="Signal Brief — SpaceXAI / Grok" />
-  <meta property="og:description" content="Grok, frontier scoreboard, and X posts. Confirmed first." />
+  <meta name="apple-mobile-web-app-title" content="X Signal" />
+  <meta name="application-name" content="X Signal" />
+  <meta property="og:title" content="X Signal" />
+  <meta property="og:description" content="Curated AI & tech timeline from the sharpest voices on X." />
   <meta property="og:type" content="website" />
   <link rel="manifest" href="site.webmanifest" />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
-  <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png" />
   <link rel="apple-touch-icon" href="apple-touch-icon.png" />
-  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
-  <link rel="alternate" type="application/rss+xml" title="Signal Brief" href="feed.xml" />
-  <title>Signal Brief — SpaceXAI / Grok</title>
+  <title>X Signal</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Newsreader:ital,opsz,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <a class="skip" href="#main">Skip to briefs</a>
-  <div class="page">
-    <header class="site-header">
-      <div class="brand">
-        <span class="mark" aria-hidden="true">
-          <svg class="mark-svg" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M6 9h20M6 16h14M6 23h9" stroke="currentColor" stroke-width="2.25" stroke-linecap="round"/>
-            <circle cx="24" cy="16" r="2.5" fill="currentColor"/>
-          </svg>
-        </span>
-        <div>
-          <p class="brand-name">Signal Brief</p>
-          <p class="brand-sub">SpaceXAI · Grok · frontier · X</p>
+  <div class="app">
+    <!-- Top bar -->
+    <header class="topbar">
+      <div class="topbar-inner">
+        <div class="brand">
+          <span class="logo" aria-hidden="true">
+            <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8.2 7.2 L15.1 14.5 L23.8 7.2" stroke="currentColor" stroke-width="3.1" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M8.2 24.8 L15.1 17.5 L23.8 24.8" stroke="currentColor" stroke-width="3.1" stroke-linecap="round" stroke-linejoin="round"/>
+              <rect x="20.6" y="9.4" width="1.6" height="3.2" rx="0.5" fill="#000"/>
+            </svg>
+          </span>
+          <div class="brand-text">
+            <span class="brand-name">X Signal</span>
+            <span class="brand-sub">AI · Tech</span>
+          </div>
         </div>
-      </div>
-      <div class="header-actions">
-        <p class="updated" id="last-updated">Loading…</p>
-        <div class="action-row">
-          <button type="button" class="ghost-btn" id="btn-focus" title="Focus mode (F)">Focus</button>
-          <button type="button" class="ghost-btn" id="btn-density" title="Toggle density (D)">Comfort</button>
-          <a class="ghost-btn" href="feed.xml">RSS</a>
-          <button type="button" class="ghost-btn" id="btn-export">Export</button>
-          <button type="button" class="ghost-btn" id="theme-toggle" aria-label="Toggle theme">Theme</button>
+        <div class="topbar-meta">
+          <span class="updated" id="last-updated">Loading…</span>
         </div>
       </div>
     </header>
 
-    <div class="banner" id="new-banner" hidden>
-      <span id="new-banner-text"></span>
-      <button type="button" class="ghost-btn" id="mark-seen">Mark seen</button>
-    </div>
-
-    <section class="status-bar" id="status-bar" aria-label="Current status"></section>
-    <div class="stats" id="stats"></div>
-
-    <section class="links-strip" id="links-strip" aria-label="Official links"></section>
-
-    <nav class="section-nav" aria-label="Sections">
-      <a href="#frontier">Frontier</a>
-      <a href="#stacks">Stacks</a>
-      <a href="#x-posts">X posts</a>
-      <a href="#history">History</a>
-      <a href="#starred" id="starred-nav" hidden>Starred</a>
+    <!-- Tabs -->
+    <nav class="tabs" role="tablist">
+      <button class="tab active" data-tab="for-you" role="tab" aria-selected="true">For You</button>
+      <button class="tab" data-tab="following" role="tab" aria-selected="false">Following</button>
     </nav>
 
-    <section class="block" id="frontier">
-      <div class="block-head">
-        <h1>Frontier board</h1>
-        <p class="section-note">Higher-end Claude, GPT-6, Grok, and peers — price and independent AA where known. Bars scale to the highest AA in the table.</p>
-      </div>
-      <div class="table-wrap">
-        <table class="frontier-table" id="frontier-table">
-          <thead>
-            <tr>
-              <th>Model</th>
-              <th>Org</th>
-              <th>Shipped</th>
-              <th>Price in/out</th>
-              <th>AA Index</th>
-              <th>Note</th>
-            </tr>
-          </thead>
-          <tbody></tbody>
-        </table>
-      </div>
-    </section>
+    <!-- Author filters -->
+    <div class="author-bar" id="author-bar"></div>
 
-    <section class="block" id="stacks">
-      <div class="block-head">
-        <h1>Useful stacks</h1>
-        <p class="section-note">How practitioners combine models — not prescriptions, patterns from the field.</p>
-      </div>
-      <div class="stack-grid" id="stack-grid"></div>
-    </section>
-
-    <section class="block" id="x-posts">
-      <div class="block-head">
-        <h1>X signals</h1>
-        <p class="section-note">Curated posts: @AlexFinn, official accounts, reviews and benchmarks.</p>
-      </div>
-      <div class="x-filters" id="x-filters"></div>
-      <div class="x-author-filters" id="x-author-filters"></div>
-      <div class="x-list" id="x-list"></div>
-    </section>
-
-    <div class="toolbar" role="search">
-      <label class="search-wrap">
-        <span class="visually-hidden">Search briefs</span>
-        <kbd class="kbd-hint">/</kbd>
-        <input type="search" id="search" placeholder="Search history…" autocomplete="off" />
-      </label>
-      <div class="filters" id="filters" role="group" aria-label="Filter by tag"></div>
-      <div class="toolbar-end">
-        <button type="button" class="ghost-btn" id="btn-stars-only" title="Show starred only">Stars</button>
-        <button type="button" class="ghost-btn" id="expand-all">Collapse</button>
-        <button type="button" class="ghost-btn" id="clear-filters" hidden>Clear</button>
-      </div>
-    </div>
-
-    <main class="layout" id="main">
-      <section class="briefs" id="history" aria-label="Daily briefs">
-        <div class="section-head">
-          <h1>History</h1>
-          <p class="section-note" id="result-count">Confirmed signals first. Assumptions labeled.</p>
-        </div>
-        <div id="brief-list" class="brief-list"></div>
-        <p class="empty" id="empty" hidden>No briefs match.</p>
-      </section>
-
-      <aside class="sidebar" id="sidebar">
-        <div class="panel sticky-panel">
-          <h2>Quick reference</h2>
-          <dl class="ref-list" id="ref-list"></dl>
-        </div>
-        <div class="panel">
-          <h2>Watch next</h2>
-          <ul class="watch-list" id="watch-list"></ul>
-        </div>
-        <div class="panel" id="starred-panel" hidden>
-          <h2>Starred</h2>
-          <ul class="star-list" id="star-list"></ul>
-        </div>
-        <div class="panel muted">
-          <h2>Shortcuts</h2>
-          <ul class="keys">
-            <li><kbd>/</kbd> Search</li>
-            <li><kbd>F</kbd> Focus</li>
-            <li><kbd>D</kbd> Density</li>
-            <li><kbd>E</kbd> Expand</li>
-            <li><kbd>S</kbd> Stars only</li>
-            <li><kbd>Esc</kbd> Clear</li>
-          </ul>
-        </div>
-        <div class="panel muted">
-          <h2>About</h2>
-          <p>Personal board. Not affiliated with SpaceX, xAI, Anthropic, OpenAI, or X.</p>
-          <p class="small"><a href="https://github.com/gravityst/signal-brief">gravityst/signal-brief</a></p>
-        </div>
-      </aside>
+    <!-- Timeline -->
+    <main class="timeline" id="timeline" aria-label="Timeline">
+      <div class="loading" id="loading">Loading posts…</div>
     </main>
 
-    <button type="button" class="to-top" id="to-top" hidden aria-label="Back to top">↑</button>
-    <footer class="site-footer">
-      <p>Signal Brief · Grok + frontier + X · data in <code>data/briefs.json</code></p>
+    <!-- Empty state -->
+    <div class="empty" id="empty" hidden>
+      <p>No posts match the current filters.</p>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>X Signal · curated AI & tech posts · not affiliated with X Corp</p>
+      <p class="footer-links">
+        <a href="https://github.com/gravityst/signal-brief" target="_blank" rel="noopener">Source</a>
+      </p>
     </footer>
   </div>
 
-  <nav class="mobile-dock" aria-label="Quick jump">
-    <a href="#frontier">Frontier</a>
-    <a href="#stacks">Stacks</a>
-    <a href="#x-posts">X</a>
-    <a href="#history">History</a>
-  </nav>
-
-  <div class="toast" id="toast" hidden role="status"></div>
   <script src="app.js"></script>
 </body>
 </html>

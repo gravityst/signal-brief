@@ -1,27 +1,31 @@
-# Signal Brief
+# X Signal
 
-Editorial daily brief for **SpaceXAI / Grok** — models, product, desktop.
+Curated AI & tech timeline in an X-style feed.
 
-**Live:** https://gravityst.github.io/signal-brief/  
-**RSS:** https://gravityst.github.io/signal-brief/feed.xml
+**Live:** https://gravityst.github.io/signal-brief/
 
-## Enable Pages
+Priority voices: @elonmusk · @AlexFinn · @MKBHD · and key AI accounts.
 
-Settings → Pages → Deploy from branch → `main` / `/ (root)`.
+## Data
 
-## Files that matter
+Updates go in `data/posts.json`.
 
-| Path | Role |
-|------|------|
-| `data/briefs.json` | **Daily updates go here only** |
-| `feed.xml` | RSS (refresh on big days) |
-| `index.html` / `styles.css` / `app.js` | Shell |
+```json
+{
+  "updatedAt": "ISO",
+  "posts": [
+    {
+      "date": "YYYY-MM-DD",
+      "author": "Display Name",
+      "handle": "handle",
+      "text": "Post text",
+      "topic": "Product|Review|Roadmap|Workflow|Benchmark",
+      "url": "https://x.com/..."
+    }
+  ]
+}
+```
 
-### `briefs.json` shape
+## Stack
 
-- `status` — four status cards
-- `reference` — sidebar key/value
-- `watchNext` — string list
-- `briefs[]` — `date`, `dateLabel`, `tag`, `title`, `points[]`, optional `assumption`, optional `links[{label,href}]`
-
-Tags used by filters: `Today`, `Model`, `Product`, `Roadmap`.
+Static site. `index.html` + `styles.css` + `app.js`. Dark, mobile-first, PWA-ready.

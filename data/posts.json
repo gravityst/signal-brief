@@ -1,0 +1,125 @@
+{
+  "updatedAt": "2026-11-25T23:50:00Z",
+  "posts": [
+    {
+      "date": "2026-11-25",
+      "author": "Elon Musk",
+      "handle": "elonmusk",
+      "text": "RT: Grok Bot can now make phone calls.",
+      "topic": "Product",
+      "url": "https://x.com/elonmusk/status/2125511153145311665"
+    },
+    {
+      "date": "2026-11-25",
+      "author": "Elon Musk",
+      "handle": "elonmusk",
+      "text": "Grok Bot can research the best Black Friday deals for you and confirm they’re authentic.",
+      "topic": "Workflow",
+      "url": "https://x.com/elonmusk/status/2125464682580623467"
+    },
+    {
+      "date": "2026-11-25",
+      "author": "Elon Musk",
+      "handle": "elonmusk",
+      "text": "Grok is so much fun on Tesla road trips!",
+      "topic": "Product",
+      "url": "https://x.com/elonmusk/status/2125516475712844116"
+    },
+    {
+      "date": "2026-11-23",
+      "author": "Elon Musk",
+      "handle": "elonmusk",
+      "text": "Grok Bot can find you Black Friday deals (quoting user template that checks for deals every couple hours and notifies).",
+      "topic": "Workflow",
+      "url": "https://x.com/elonmusk/status/2124877252412281142"
+    },
+    {
+      "date": "2026-11-23",
+      "author": "Elon Musk",
+      "handle": "elonmusk",
+      "text": "RT on What's new in Grok Bot 1.0: Team Bot improvements, bots join meetings, take initiative, and more.",
+      "topic": "Product",
+      "url": "https://x.com/elonmusk/status/2124681722705100862"
+    },
+    {
+      "date": "2026-11-21",
+      "author": "Alex Finn",
+      "handle": "AlexFinn",
+      "text": "Inkling 2 Mini (26B) fits on laptop, mutilates Qwen 3.8 27B, AA 20.1. Recommend agents download and run it for unlimited local intelligence.",
+      "topic": "Review",
+      "url": "https://x.com/AlexFinn/status/2123930655000346888"
+    },
+    {
+      "date": "2026-11-20",
+      "author": "Alex Finn",
+      "handle": "AlexFinn",
+      "text": "Grok Bot 1.0 just dropped and it's a MASSIVE update. First truly multiplayer AI agent. Covers all new features and how to 10x productivity in video.",
+      "topic": "Product",
+      "url": "https://x.com/AlexFinn/status/2123857014355038601"
+    },
+    {
+      "date": "2026-11-20",
+      "author": "Alex Finn",
+      "handle": "AlexFinn",
+      "text": "Google Gemini Carbon is the best model right now. It regularly changes the way I think; feels forward-looking and novel rather than averaging training data.",
+      "topic": "Review",
+      "url": "https://x.com/AlexFinn/status/2123612688622428257"
+    },
+    {
+      "date": "2026-11-20",
+      "author": "Alex Finn",
+      "handle": "AlexFinn",
+      "text": "The new Google Gemini models are the best AI models out there right now. Yes, better than Fable and Astra. Completely different training feel; novel perspectives.",
+      "topic": "Review",
+      "url": "https://x.com/AlexFinn/status/2123562653184614532"
+    },
+    {
+      "date": "2026-11-19",
+      "author": "Elon Musk",
+      "handle": "elonmusk",
+      "text": "“Grok 4.8” is currently several different model variants in beta. We’re not yet sure which of the variants will go to wide release.",
+      "topic": "Roadmap",
+      "url": "https://x.com/elonmusk/status/2123226994246828250"
+    },
+    {
+      "date": "2026-11-19",
+      "author": "Elon Musk",
+      "handle": "elonmusk",
+      "text": "You can create an entire company made of Grok Bots!",
+      "topic": "Workflow",
+      "url": "https://x.com/elonmusk/status/2123475464043786417"
+    },
+    {
+      "date": "2026-11-18",
+      "author": "Alex Finn",
+      "handle": "AlexFinn",
+      "text": "Something is going on at Google. Released new frontier models four times in less than a month, each a major improvement. Carbon is the most intelligent model I’ve ever used.",
+      "topic": "Review",
+      "url": "https://x.com/AlexFinn/status/2123171176025575701"
+    },
+    {
+      "date": "2026-11-18",
+      "author": "Alex Finn",
+      "handle": "AlexFinn",
+      "text": "Ran ChatGPT Astra 6.2 on my benchmark: 312.7/500, Fable 5.2 beat by 0.3. But Astra finished in 1/3 time, 1/3 price, 1/4 tokens. Efficiency matters.",
+      "topic": "Benchmark",
+      "url": "https://x.com/AlexFinn/status/2122851769311236129"
+    },
+    {
+      "date": "2026-11-17",
+      "author": "Alex Finn",
+      "handle": "AlexFinn",
+      "text": "Testing GPT-6.2 Astra: good, better than Astra 6 at better cost, incredible at computer use, efficient. Not matching Fable 5.2 yet; test yourself against own workflows.",
+      "topic": "Review",
+      "url": "https://x.com/AlexFinn/status/2122811334173880705"
+    },
+    {
+      "date": "2026-11-16",
+      "author": "Alex Finn",
+      "handle": "AlexFinn",
+      "text": "Sped up AI coding 20x: have Fable 5.2 ask as many questions as needed for full plan, then create detailed Linear issues (40+), then iterate 'work on next'.",
+      "topic": "Workflow",
+      "url": "https://x.com/AlexFinn/status/2122381648679608354"
+    }
+  ]
+}
