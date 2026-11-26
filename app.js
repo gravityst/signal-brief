@@ -1,7 +1,7 @@
 (async function () {
   const $ = (id) => document.getElementById(id);
 
-  const PRIORITY = ["all", "elonmusk", "AlexFinn", "MKBHD", "sama", "karpathy", "xai", "SpaceXSI", "grok"];
+  const PRIORITY = ["all", "elonmusk", "AlexFinn", "MKBHD", "sama", "karpathy", "ylecun", "AnthropicAI", "OpenAI", "xai", "SpaceXSI", "grok"];
 
   let data = null;
   let activeAuthor = "all";
@@ -105,7 +105,6 @@
         const handle = (p.handle || "").replace(/^@/, "");
         const initial = (p.author || handle || "?").charAt(0).toUpperCase();
         const time = relative(p.date);
-        const topic = p.topic ? `<span class="post-topic">${esc(p.topic)}</span>` : "";
 
         return `
         <article class="post">
@@ -116,14 +115,12 @@
               <span class="post-handle">@${esc(handle)}</span>
               <span class="post-time">${esc(time)}</span>
             </div>
-            ${topic}
             <p class="post-text">${esc(p.text || "")}</p>
             <div class="post-actions">
               ${
                 p.url
-                  ? `<a class="action open" href="${esc(p.url)}" target="_blank" rel="noopener">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                      Open on X
+                  ? `<a class="action open" href="${esc(p.url)}" target="_blank" rel="noopener" title="Open on X">
+                      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
                     </a>`
                   : ""
               }
