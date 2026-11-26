@@ -1,17 +1,17 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192" fill="none">
-  <rect width="192" height="192" rx="42" fill="#000"/>
+  <rect width="192" height="192" rx="42" fill="#000000"/>
   <defs>
-    <linearGradient id="glass" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.95"/>
-      <stop offset="45%" stop-color="#e8eef5" stop-opacity="0.9"/>
-      <stop offset="100%" stop-color="#c8d0dc" stop-opacity="0.85"/>
+    <linearGradient id="g" x1="20%" y1="10%" x2="80%" y2="90%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="40%" stop-color="#f0f4f8"/>
+      <stop offset="100%" stop-color="#a8b4c4"/>
     </linearGradient>
   </defs>
-  <g stroke="url(#glass)" stroke-width="19" stroke-linecap="round">
-    <path d="M52 42 L84 78"/>
-    <path d="M108 114 L140 150"/>
-    <path d="M140 42 L108 78"/>
-    <path d="M84 114 L52 150"/>
+  <g stroke="url(#g)" stroke-width="17" stroke-linecap="round">
+    <path d="M56 46 L88 84"/>
+    <path d="M104 108 L136 146"/>
+    <path d="M136 46 L104 84"/>
+    <path d="M88 108 L56 146"/>
   </g>
-  <rect x="88" y="74" width="16" height="44" rx="8" fill="url(#glass)"/>
+  <rect x="90" y="78" width="12" height="36" rx="6" fill="url(#g)"/>
 </svg>
