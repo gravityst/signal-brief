@@ -1,6 +1,38 @@
 {
-  "updatedAt": "2026-11-25T14:50:00Z",
+  "updatedAt": "2026-11-26T13:29:18Z",
   "posts": [
+    {
+      "date": "2026-11-26",
+      "author": "Andrej Karpathy",
+      "handle": "karpathy",
+      "text": "Asked Claude to populate a Civilization-style game map with real US data. Opus 5.5 downloaded/parsed dozens of public sources (Census, BEA, EIA, NOAA\u2026) \u2192 25 km hex grid with GDP, jobs, power, airports, parks, etc. Deployed and fun to explore.",
+      "topic": "Workflow",
+      "url": "https://x.com/karpathy/status/2125779541952246039"
+    },
+    {
+      "date": "2026-11-25",
+      "author": "Sam Altman",
+      "handle": "sama",
+      "text": "We\u2019re now testing Private Inference, our latest offering as part of OpenAI Private Intelligence, with a small group of customers. Stronger privacy protections for frontier AI work.",
+      "topic": "Product",
+      "url": "https://x.com/sama/status/2125638790593274259"
+    },
+    {
+      "date": "2026-11-25",
+      "author": "Sam Altman",
+      "handle": "sama",
+      "text": "I don't think I'd heard the word \"hyperstitioning\" before, but it's a good one. (quoting discussion on Anthropic / AGI race beliefs)",
+      "topic": "News",
+      "url": "https://x.com/sama/status/2125639418849714280"
+    },
+    {
+      "date": "2026-11-25",
+      "author": "Anthropic",
+      "handle": "AnthropicAI",
+      "text": "We recently migrated our Messages API from Python to Rust. Engineering blog on how teams of Claude agents verified the new service against the old one.",
+      "topic": "Product",
+      "url": "https://x.com/AnthropicAI/status/2125627317263466739"
+    },
     {
       "date": "2026-11-25",
       "author": "Elon Musk",
@@ -13,7 +45,7 @@
       "date": "2026-11-25",
       "author": "Elon Musk",
       "handle": "elonmusk",
-      "text": "Grok Bot can research the best Black Friday deals for you and confirm they’re authentic.",
+      "text": "Grok Bot can research the best Black Friday deals for you and confirm they\u2019re authentic.",
       "topic": "Workflow",
       "url": "https://x.com/elonmusk/status/2125464682580623467"
     },
@@ -24,6 +56,14 @@
       "text": "Grok is so much fun on Tesla road trips! (quoting long family use of in-car Grok).",
       "topic": "Product",
       "url": "https://x.com/elonmusk/status/2125516475712844116"
+    },
+    {
+      "date": "2026-11-24",
+      "author": "Yann LeCun",
+      "handle": "ylecun",
+      "text": "17 years \u2248 100k hours of wake time builds a strong world model; then ~20 hours of practice to learn to drive. FSD training data is far more than that.",
+      "topic": "Review",
+      "url": "https://x.com/ylecun/status/2125368251429314712"
     },
     {
       "date": "2026-11-23",
@@ -61,7 +101,7 @@
       "date": "2026-11-20",
       "author": "Alex Finn",
       "handle": "AlexFinn",
-      "text": "Google Gemini Carbon is the best model right now. It regularly changes the way I think; feels forward-looking and novel rather than averaging training data. Best tested via conversation on real hard problems, not one-shot demos.",
+      "text": "Google Gemini Carbon is the best model right now. It regularly changes the way I think; feels forward-looking and novel rather than averaging training data.",
       "topic": "Review",
       "url": "https://x.com/AlexFinn/status/2123612688622428257"
     },
@@ -69,7 +109,7 @@
       "date": "2026-11-20",
       "author": "Alex Finn",
       "handle": "AlexFinn",
-      "text": "The new Google Gemini models are the best AI models out there right now. Yes, better than Fable and Astra. Completely different training feel; novel perspectives. Harnesses still lag, but intelligence and taste are there. Carbon is Fable-class, Neon Opus-class.",
+      "text": "The new Google Gemini models are the best AI models out there right now. Yes, better than Fable and Astra. Completely different training feel; novel perspectives.",
       "topic": "Review",
       "url": "https://x.com/AlexFinn/status/2123562653184614532"
     },
@@ -77,7 +117,7 @@
       "date": "2026-11-19",
       "author": "Elon Musk",
       "handle": "elonmusk",
-      "text": "“Grok 4.8” is currently several different model variants in beta. We’re not yet sure which of the variants will go to wide release.",
+      "text": "\u201cGrok 4.8\u201d is currently several different model variants in beta. We\u2019re not yet sure which of the variants will go to wide release.",
       "topic": "Roadmap",
       "url": "https://x.com/elonmusk/status/2123226994246828250"
     },
@@ -93,7 +133,7 @@
       "date": "2026-11-18",
       "author": "Alex Finn",
       "handle": "AlexFinn",
-      "text": "Something is going on at Google. Released new frontier models four times in less than a month, each a major improvement. Carbon is the most intelligent model I’ve ever used; trained differently, novel insights.",
+      "text": "Something is going on at Google. Released new frontier models four times in less than a month, each a major improvement. Carbon is the most intelligent model I\u2019ve ever used.",
       "topic": "Review",
       "url": "https://x.com/AlexFinn/status/2123171176025575701"
     },
