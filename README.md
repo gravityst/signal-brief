@@ -1,31 +1,23 @@
 # X Signal
 
-Curated AI & tech timeline in an X-style feed.
+Curated AI & tech timeline from the sharpest voices on X.
 
 **Live:** https://gravityst.github.io/signal-brief/
 
-Priority voices: @elonmusk · @AlexFinn · @MKBHD · and key AI accounts.
+## Focus
 
-## Data
+- @elonmusk
+- @AlexFinn
+- @MKBHD
+- + key AI voices
 
-Updates go in `data/posts.json`.
+## Files
 
-```json
-{
-  "updatedAt": "ISO",
-  "posts": [
-    {
-      "date": "YYYY-MM-DD",
-      "author": "Display Name",
-      "handle": "handle",
-      "text": "Post text",
-      "topic": "Product|Review|Roadmap|Workflow|Benchmark",
-      "url": "https://x.com/..."
-    }
-  ]
-}
-```
+| Path | Role |
+|------|------|
+| `data/posts.json` | Timeline data (update this) |
+| `index.html` / `styles.css` / `app.js` | App shell |
 
-## Stack
+## Enable Pages
 
-Static site. `index.html` + `styles.css` + `app.js`. Dark, mobile-first, PWA-ready.
+Settings → Pages → Deploy from branch → `main` / `/ (root)`.

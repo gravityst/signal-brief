@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-25T23:50:00Z",
+  "updatedAt": "2026-11-25T14:50:00Z",
   "posts": [
     {
       "date": "2026-11-25",
@@ -21,7 +21,7 @@
       "date": "2026-11-25",
       "author": "Elon Musk",
       "handle": "elonmusk",
-      "text": "Grok is so much fun on Tesla road trips!",
+      "text": "Grok is so much fun on Tesla road trips! (quoting long family use of in-car Grok).",
       "topic": "Product",
       "url": "https://x.com/elonmusk/status/2125516475712844116"
     },
@@ -61,7 +61,7 @@
       "date": "2026-11-20",
       "author": "Alex Finn",
       "handle": "AlexFinn",
-      "text": "Google Gemini Carbon is the best model right now. It regularly changes the way I think; feels forward-looking and novel rather than averaging training data.",
+      "text": "Google Gemini Carbon is the best model right now. It regularly changes the way I think; feels forward-looking and novel rather than averaging training data. Best tested via conversation on real hard problems, not one-shot demos.",
       "topic": "Review",
       "url": "https://x.com/AlexFinn/status/2123612688622428257"
     },
@@ -69,7 +69,7 @@
       "date": "2026-11-20",
       "author": "Alex Finn",
       "handle": "AlexFinn",
-      "text": "The new Google Gemini models are the best AI models out there right now. Yes, better than Fable and Astra. Completely different training feel; novel perspectives.",
+      "text": "The new Google Gemini models are the best AI models out there right now. Yes, better than Fable and Astra. Completely different training feel; novel perspectives. Harnesses still lag, but intelligence and taste are there. Carbon is Fable-class, Neon Opus-class.",
       "topic": "Review",
       "url": "https://x.com/AlexFinn/status/2123562653184614532"
     },
@@ -85,7 +85,7 @@
       "date": "2026-11-19",
       "author": "Elon Musk",
       "handle": "elonmusk",
-      "text": "You can create an entire company made of Grok Bots!",
+      "text": "You can create an entire company made of Grok Bots! (quoting user who wakes up to Bot having opened, tested, and merged multiple PRs).",
       "topic": "Workflow",
       "url": "https://x.com/elonmusk/status/2123475464043786417"
     },
@@ -93,7 +93,7 @@
       "date": "2026-11-18",
       "author": "Alex Finn",
       "handle": "AlexFinn",
-      "text": "Something is going on at Google. Released new frontier models four times in less than a month, each a major improvement. Carbon is the most intelligent model I’ve ever used.",
+      "text": "Something is going on at Google. Released new frontier models four times in less than a month, each a major improvement. Carbon is the most intelligent model I’ve ever used; trained differently, novel insights.",
       "topic": "Review",
       "url": "https://x.com/AlexFinn/status/2123171176025575701"
     },
