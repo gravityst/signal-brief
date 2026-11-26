@@ -1,10 +1,25 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180">
-  <!-- Signal Brief home-screen mark -->
-  <rect width="180" height="180" rx="40" fill="#0f766e"/>
-  <g fill="none" stroke="#ecfdf5" stroke-width="12" stroke-linecap="round">
-    <path d="M40 55h100"/>
-    <path d="M40 90h72"/>
-    <path d="M40 125h52"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180" fill="none">
+  <rect width="180" height="180" rx="40" fill="#000"/>
+  <defs>
+    <linearGradient id="glass" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.95"/>
+      <stop offset="45%" stop-color="#e8eef5" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#c8d0dc" stop-opacity="0.85"/>
+    </linearGradient>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="1.2" result="blur"/>
+      <feOffset dx="0" dy="1" result="off"/>
+      <feMerge>
+        <feMergeNode in="off"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <g filter="url(#soft)" stroke="url(#glass)" stroke-width="18" stroke-linecap="round">
+    <path d="M48 38 L78 72"/>
+    <path d="M102 108 L132 142"/>
+    <path d="M132 38 L102 72"/>
+    <path d="M78 108 L48 142"/>
   </g>
-  <circle cx="128" cy="90" r="11" fill="#ecfdf5"/>
+  <rect x="82" y="68" width="16" height="44" rx="8" fill="url(#glass)" filter="url(#soft)"/>
 </svg>

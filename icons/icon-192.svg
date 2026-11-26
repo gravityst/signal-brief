@@ -1,9 +1,17 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192">
-  <rect width="192" height="192" rx="42" fill="#0f766e"/>
-  <g fill="none" stroke="#ecfdf5" stroke-width="13" stroke-linecap="round">
-    <path d="M42 58h108"/>
-    <path d="M42 96h76"/>
-    <path d="M42 134h56"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192" fill="none">
+  <rect width="192" height="192" rx="42" fill="#000"/>
+  <defs>
+    <linearGradient id="glass" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.95"/>
+      <stop offset="45%" stop-color="#e8eef5" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#c8d0dc" stop-opacity="0.85"/>
+    </linearGradient>
+  </defs>
+  <g stroke="url(#glass)" stroke-width="19" stroke-linecap="round">
+    <path d="M52 42 L84 78"/>
+    <path d="M108 114 L140 150"/>
+    <path d="M140 42 L108 78"/>
+    <path d="M84 114 L52 150"/>
   </g>
-  <circle cx="136" cy="96" r="12" fill="#ecfdf5"/>
+  <rect x="88" y="74" width="16" height="44" rx="8" fill="url(#glass)"/>
 </svg>
