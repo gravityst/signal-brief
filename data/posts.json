@@ -1,6 +1,14 @@
 {
-  "updatedAt": "2026-11-26T13:29:18Z",
+  "updatedAt": "2026-11-27T14:53:08Z",
   "posts": [
+    {
+      "date": "2026-11-27",
+      "author": "Alex Finn",
+      "handle": "AlexFinn",
+      "text": "You're not being ambitious enough with your AI. Run this reverse prompt: 'Based on what you know about me, what's the most ambitious question/prompt I could send you? One that could lead to a breakthrough or idea that can change my life? Nothing is too ambitious (as long as it's possible)'. Leverages full context for unknown unknowns.",
+      "topic": "Workflow",
+      "url": "https://x.com/AlexFinn/status/2126158673659470254"
+    },
     {
       "date": "2026-11-26",
       "author": "Andrej Karpathy",
@@ -8,6 +16,38 @@
       "text": "Asked Claude to populate a Civilization-style game map with real US data. Opus 5.5 downloaded/parsed dozens of public sources (Census, BEA, EIA, NOAA\u2026) \u2192 25 km hex grid with GDP, jobs, power, airports, parks, etc. Deployed and fun to explore.",
       "topic": "Workflow",
       "url": "https://x.com/karpathy/status/2125779541952246039"
+    },
+    {
+      "date": "2026-11-26",
+      "author": "Elon Musk",
+      "handle": "elonmusk",
+      "text": "Grok is so much fun on Tesla road trips! (quoting long family use of in-car Grok).",
+      "topic": "Product",
+      "url": "https://x.com/elonmusk/status/2125516475712844116"
+    },
+    {
+      "date": "2026-11-25",
+      "author": "Eric Zakariasson",
+      "handle": "ericzakariasson",
+      "text": "Grok Bot 1.3.0 is rolling out: smarter Slack bots, restock alerts and mobile Buy Now, automatic Teams setup with org controls, sideways X drafts carousel, Ashby connector, BCC on email drafts, and more soon. Changelog: x.ai/changelog/bot",
+      "topic": "Product",
+      "url": "https://x.com/ericzakariasson/status/2125675144173556124"
+    },
+    {
+      "date": "2026-11-25",
+      "author": "Alex Finn",
+      "handle": "AlexFinn",
+      "text": "Speechless. Future of AI agents: Google Antigravity swarms spun up 7 Gemini Neon agents to tackle one problem in parallel (e.g. different system prompts/architectures), then orchestrator picks the winner. Use /swarm with Neon model.",
+      "topic": "Workflow",
+      "url": "https://x.com/AlexFinn/status/2125706884023992374"
+    },
+    {
+      "date": "2026-11-25",
+      "author": "Alex Finn",
+      "handle": "AlexFinn",
+      "text": "Open-sourced Herdr HUD: floating widget to manage/monitor all your AI coding agents while gaming (or any other full-screen app). Notifications + chat overlay. Works with free open-source Herdr CLI.",
+      "topic": "Workflow",
+      "url": "https://x.com/AlexFinn/status/2125640063216123947"
     },
     {
       "date": "2026-11-25",
@@ -48,14 +88,6 @@
       "text": "Grok Bot can research the best Black Friday deals for you and confirm they\u2019re authentic.",
       "topic": "Workflow",
       "url": "https://x.com/elonmusk/status/2125464682580623467"
-    },
-    {
-      "date": "2026-11-25",
-      "author": "Elon Musk",
-      "handle": "elonmusk",
-      "text": "Grok is so much fun on Tesla road trips! (quoting long family use of in-car Grok).",
-      "topic": "Product",
-      "url": "https://x.com/elonmusk/status/2125516475712844116"
     },
     {
       "date": "2026-11-24",
@@ -106,14 +138,6 @@
       "url": "https://x.com/AlexFinn/status/2123612688622428257"
     },
     {
-      "date": "2026-11-20",
-      "author": "Alex Finn",
-      "handle": "AlexFinn",
-      "text": "The new Google Gemini models are the best AI models out there right now. Yes, better than Fable and Astra. Completely different training feel; novel perspectives.",
-      "topic": "Review",
-      "url": "https://x.com/AlexFinn/status/2123562653184614532"
-    },
-    {
       "date": "2026-11-19",
       "author": "Elon Musk",
       "handle": "elonmusk",
@@ -152,14 +176,6 @@
       "text": "Testing GPT-6.2 Astra: good, better than Astra 6 at better cost, incredible at computer use, efficient. Not matching Fable 5.2 yet; test yourself against own workflows.",
       "topic": "Review",
       "url": "https://x.com/AlexFinn/status/2122811334173880705"
-    },
-    {
-      "date": "2026-11-16",
-      "author": "Alex Finn",
-      "handle": "AlexFinn",
-      "text": "Sped up AI coding 20x: have Fable 5.2 ask as many questions as needed for full plan, then create detailed Linear issues (40+), then iterate 'work on next'.",
-      "topic": "Workflow",
-      "url": "https://x.com/AlexFinn/status/2122381648679608354"
     }
   ]
 }
